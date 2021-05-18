@@ -1,30 +1,30 @@
 # Índice de contenido
-1. Introducción	3
-2. Conceptos previos	3
-2.1. Virtualización	3
-2.2. ¿Qué es una máquina virtual?	3
-2.3. ¿Qué es una máquina virtual de proceso?	3
-2.4. ¿Qué es un hipervisor?	4
-3. Contenedores	4
-3.1. ¿Qué son los contenedores?	4
-3.2. Analogía con contenedores de transporte marítimo	5
-3.3. Contenedores para desarrollo y despliegue de aplicaciones	5
-3.4. Contenedores para despliegue de servicios	5
-3.5. Ventajas e inconvenientes del uso de contenedores	6
-3.6. En resumen ¿Cuando es adecuado usar contenedores?	6
-4. Contenedores en sistemas Linux	7
-4.1. ¿Es nuevo el concepto de entornos privados en sistemas Unix?	7
-4.2. Sistemas privados modernos en Linux:  contenedores	7
-4.3. ¿Cómo funcionan los contenedores modernos en Linux?	7
-4.4. ¿Puedo poner en marcha un contenedor Linux “A mano”?	7
-4.5. Los contenedores Linux ¿Pueden funcionar en sistemas como Windows o MacOS?	8
-5. Contenedores Docker	8
-5.1. ¿Qué es Docker?	8
-6. Docker en sistemas Windows y MacOS	9
-7. Docker corriendo contenedores Windows Server Core y contenedores MacOS	10
-8. Conclusión	10
-9. Bibliografía	10
-10. Licencias de elementos externos utilizados	10
+1. Introducción
+2. Conceptos previos	
+2.1. Virtualización	
+2.2. ¿Qué es una máquina virtual?
+2.3. ¿Qué es una máquina virtual de proceso?
+2.4. ¿Qué es un hipervisor?
+3. Contenedores
+3.1. ¿Qué son los contenedores?
+3.2. Analogía con contenedores de transporte marítimo
+3.3. Contenedores para desarrollo y despliegue de aplicaciones
+3.4. Contenedores para despliegue de servicios
+3.5. Ventajas e inconvenientes del uso de contenedores
+3.6. En resumen ¿Cuando es adecuado usar contenedores?
+4. Contenedores en sistemas Linux
+4.1. ¿Es nuevo el concepto de entornos privados en sistemas Unix?
+4.2. Sistemas privados modernos en Linux:  contenedores
+4.3. ¿Cómo funcionan los contenedores modernos en Linux?
+4.4. ¿Puedo poner en marcha un contenedor Linux “A mano”?
+4.5. Los contenedores Linux ¿Pueden funcionar en sistemas como Windows o MacOS?
+5. Contenedores Docker
+5.1. ¿Qué es Docker?
+6. Docker en sistemas Windows y MacOS
+7. Docker corriendo contenedores Windows Server Core y contenedores MacOS
+8. Conclusión
+9. Bibliografía
+10. Licencias de elementos externos utilizados
 
 # UD01. Introducción a los contenedores y a Docker
    ## 1. Introducción
@@ -34,7 +34,7 @@ En esta unidad realizaremos una introducción al concepto de contenedores. Nos c
 La virtualización es un conjunto de tecnologías de hardware y software que permiten la abstracción de hardware, creando así la “ilusión” de administrar recursos virtuales como  si fueran recursos reales, de forma transparente para los usuarios. 
 La virtualización es muy utilizada para el despliegue de sistemas, desarrollo de software, análisis de malware, escalado horizontal, etc. Ya que es relativamente sencilla de implementar y puede ahorrar significativamente costes (consumo de energía, mantenimiento, etc.) 
 
-         ** 2.2  ¿Qué es una máquina virtual?
+       ### 2.2  ¿Qué es una máquina virtual?
 A veces, necesitamos probar un nuevo sistema operativo, una determinada configuración, probar a desplegar un software, etc. pero no está disponible para ello una máquina real. La creación de una máquina virtual utilizando técnicas de virtualización es la solución a este problema. 
 De este modo, una máquina virtual permite simular una máquina (con su sistema operativo) y ejecutar programas como si estuvieran utilizando una máquina real e independiente.
 Para la creación de máquinas virtuales generalmente existen varios tipos de tecnologías:
@@ -42,22 +42,19 @@ Para la creación de máquinas virtuales generalmente existen varios tipos de te
     • Hipervisores.
     • Contenedores. Docker se engloba en esta categoría.
 
-         2.3  ¿Qué es una máquina virtual de proceso?
+      ### 2.3  ¿Qué es una máquina virtual de proceso?
 Las máquinas virtuales de proceso, son un tipo de máquinas virtuales que permiten ejecutar un programa diseñado para un sistema operativo/arquitectura concreta (distinta de la máquina actual), como un proceso más de nuestra máquina actual. 
 Esto se consigue implementando una máquina virtual de proceso que emula la arquitectura necesaria. Teóricamente, podremos lanzar nuestro programa en cualquier sistema que tenga la máquina virtual de proceso implementada.  
 Algunos de los principales ejemplos de este tipo de virtualización son:
     • Máquina virtual de Java (JVM): ejecuta los bytecodes de Java en cualquier sistema y arquitectura que la tenga implementada.
     • Wine: ejecutar aplicaciones Windows en otros sistemas operativos.
 
-
-
-
-         2.4  ¿Qué es un hipervisor?
+      ### 2.4  ¿Qué es un hipervisor?
 Un hipervisor, es una máquina virtual que simula total o parcialmente un hardware de una máquina, permitiendo la instalación de distintos sistemas operativos (por ejemplo, virtualizar un sistema Windows 10 Home en una máquina real Linux).
 Algunos softwares conocidos que implementan un hipervisor son: Virtualbox, VMWare, emuladores de consolas, etc.
 Para saber más: https://es.wikipedia.org/wiki/Hipervisor
-    3. Contenedores
-         3.1  ¿Qué son los contenedores?
+    ## 3. Contenedores
+       ###  3.1  ¿Qué son los contenedores?
 Los contenedores son una tecnología de virtualización, que al contrario que un hipervisor (que trata de emular un sistema completo), utiliza el sistema base de la máquina anfitrión y actúa realmente como un “entorno privado” que comparte recursos con el sistema anfitrión, sin virtualizar el hardware completo. En concreto, los contenedores suelen tener entornos privados aislados a nivel de procesos, memoria, sistema de ficheros y red.
 
 Técnicamente, los contenedores son un tipo de virtualización englobada en lo que se llama “OS Level virtualization”. Para saber más: https://en.wikipedia.org/wiki/OS-level_virtualization
