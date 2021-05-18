@@ -34,27 +34,28 @@ En esta unidad realizaremos una introducción al concepto de contenedores. Nos c
 La virtualización es un conjunto de tecnologías de hardware y software que permiten la abstracción de hardware, creando así la “ilusión” de administrar recursos virtuales como  si fueran recursos reales, de forma transparente para los usuarios. 
 La virtualización es muy utilizada para el despliegue de sistemas, desarrollo de software, análisis de malware, escalado horizontal, etc. Ya que es relativamente sencilla de implementar y puede ahorrar significativamente costes (consumo de energía, mantenimiento, etc.) 
 
-       ### 2.2  ¿Qué es una máquina virtual?
+### 2.2  ¿Qué es una máquina virtual?
 A veces, necesitamos probar un nuevo sistema operativo, una determinada configuración, probar a desplegar un software, etc. pero no está disponible para ello una máquina real. La creación de una máquina virtual utilizando técnicas de virtualización es la solución a este problema. 
 De este modo, una máquina virtual permite simular una máquina (con su sistema operativo) y ejecutar programas como si estuvieran utilizando una máquina real e independiente.
 Para la creación de máquinas virtuales generalmente existen varios tipos de tecnologías:
-    • Máquina virtuales de proceso.
-    • Hipervisores.
-    • Contenedores. Docker se engloba en esta categoría.
+-    • Máquina virtuales de proceso.
+-    • Hipervisores.
+-    • Contenedores. Docker se engloba en esta categoría.
 
-      ### 2.3  ¿Qué es una máquina virtual de proceso?
+### 2.3  ¿Qué es una máquina virtual de proceso?
 Las máquinas virtuales de proceso, son un tipo de máquinas virtuales que permiten ejecutar un programa diseñado para un sistema operativo/arquitectura concreta (distinta de la máquina actual), como un proceso más de nuestra máquina actual. 
 Esto se consigue implementando una máquina virtual de proceso que emula la arquitectura necesaria. Teóricamente, podremos lanzar nuestro programa en cualquier sistema que tenga la máquina virtual de proceso implementada.  
 Algunos de los principales ejemplos de este tipo de virtualización son:
-    • Máquina virtual de Java (JVM): ejecuta los bytecodes de Java en cualquier sistema y arquitectura que la tenga implementada.
-    • Wine: ejecutar aplicaciones Windows en otros sistemas operativos.
+-    • Máquina virtual de Java (JVM): ejecuta los bytecodes de Java en cualquier sistema y arquitectura que la tenga implementada.
+-    • Wine: ejecutar aplicaciones Windows en otros sistemas operativos.
 
-      ### 2.4  ¿Qué es un hipervisor?
+ ### 2.4  ¿Qué es un hipervisor?
 Un hipervisor, es una máquina virtual que simula total o parcialmente un hardware de una máquina, permitiendo la instalación de distintos sistemas operativos (por ejemplo, virtualizar un sistema Windows 10 Home en una máquina real Linux).
 Algunos softwares conocidos que implementan un hipervisor son: Virtualbox, VMWare, emuladores de consolas, etc.
 Para saber más: https://es.wikipedia.org/wiki/Hipervisor
-    ## 3. Contenedores
-       ###  3.1  ¿Qué son los contenedores?
+
+## 3. Contenedores
+###  3.1  ¿Qué son los contenedores?
 Los contenedores son una tecnología de virtualización, que al contrario que un hipervisor (que trata de emular un sistema completo), utiliza el sistema base de la máquina anfitrión y actúa realmente como un “entorno privado” que comparte recursos con el sistema anfitrión, sin virtualizar el hardware completo. En concreto, los contenedores suelen tener entornos privados aislados a nivel de procesos, memoria, sistema de ficheros y red.
 
 Técnicamente, los contenedores son un tipo de virtualización englobada en lo que se llama “OS Level virtualization”. Para saber más: https://en.wikipedia.org/wiki/OS-level_virtualization
@@ -66,53 +67,54 @@ La siguiente imagen puede ayudarnos a entender el concepto de contenedor.
 Fuente imagen: https://commons.wikimedia.org/wiki/File:Docker-containerized-and-vm-transparent-bg.png 
 A la derecha observamos el funcionamiento de un hipervisor, encargado de virtualizar el hardware y donde cada máquina virtual tiene su propio sistema operativo. A la izquierda, observamos un sistema de contenedores, donde no existe esa virtualización del hardware y cada contenedor es un entorno privado.
 
-         3.2  Analogía con contenedores de transporte marítimo
-
+### 3.2  Analogía con contenedores de transporte marítimo
 
 Fuente imagen: https://www.flickr.com/photos/68359921@N08/50125348052/
 
 Para facilitar la comprensión del funcionamiento de los contenedores, vamos a hacer una  analogía con los contenedores de transporte marítimo:
-    • Los contenedores de transporte marítimo, deben cumplir unos estándares (tamaño, peso y forma) para ser transportados.
+-    • Los contenedores de transporte marítimo, deben cumplir unos estándares (tamaño, peso y forma) para ser transportados.
         ◦ Lo mismo ocurre con los contenedores en virtualización. Mientras complan un estándar, pueden ser virtualizados en cualquier máquina que lo soporte (local, servidor, etc.).
-    • Una vez cumplido el estándar, el tipo de carga del contenedor marítimo es independiente.
+ -   • Una vez cumplido el estándar, el tipo de carga del contenedor marítimo es independiente.
         ◦ Lo mismo ocurre con los contenedores en virtualización. Si se cumple el estándar, el software que contenga podrá ser ejecutado sin problemas
 
-         3.3  Contenedores para desarrollo y despliegue de aplicaciones
+### 3.3  Contenedores para desarrollo y despliegue de aplicaciones
 Uno de los principales usos de los contenedores (aunque no el único) es facilitar el desarrollo,  distribución y el despliegue de aplicaciones.
-    • Compilar software es tedioso. Utilizando un contenedor, tenemos el entorno de compilación/depuración montado con las versiones que necesitamos.
-    • Usar contenedores facilita el testeo, permitiendo la creación de distintos entornos de prueba con diferentes configuraciones, etc.
-    • Los contenedores nos evitan problemas de compatibilidad al desplegar nuestras aplicaciones, teniendo siempre las versiones adecuadas para ejecutar nuestro software.
+-    • Compilar software es tedioso. Utilizando un contenedor, tenemos el entorno de compilación/depuración montado con las versiones que necesitamos.
+-    • Usar contenedores facilita el testeo, permitiendo la creación de distintos entornos de prueba con diferentes configuraciones, etc.
+-    • Los contenedores nos evitan problemas de compatibilidad al desplegar nuestras aplicaciones, teniendo siempre las versiones adecuadas para ejecutar nuestro software.
  💬 Interesante: Muchos sistemas de CI/CD (Continuous Integration/Continuous Delivery) se basan en el uso de contenedores.
-         3.4  Contenedores para despliegue de servicios
+ 
+ ### 3.4  Contenedores para despliegue de servicios
 Otro de los principales usos de los contenedores es el despliegue de servidores de distinto tipo (web, correo, bases de datos, DNS, etc.).
 Además de las ventajas anteriormente citadas de mantener versiones de software, los contenedores nos permiten unificar configuraciones de servidores en local, incluso involucrando a distintos servicios en distintos contenedores, de forma que al desplegarlos en la nube, funcionen exactamente igual que en las pruebas realizadas localmente. 
 
  ❕ Atención: “En mi máquina funcionaba… falla solo al subirlo al servidor…”. El uso de contenedores contribuye a que esta situación desaparezca :) 
 Además, los contenedores facilitan el “escalado horizontal” de servicios, especialmente si se apoyan de herramientas llamadas orquestadores.
 Para saber más https://es.wikipedia.org/wiki/Escalabilidad#Escalabilidad_horizontal
-         3.5  Ventajas e inconvenientes del uso de contenedores
-Algunas de las ventajas del uso de contenedores son:
-    • Los contenedores ocupan menos espacio, al no tener que replicar en cada uno el sistema operativo que están virtualizando, ya que utilizan el sistema de la máquina anfitrión.
-    • Al no tener que realizar una virtualización de hardware, la ejecución del software de los contenedores es mucho más rápida, con velocidades cercanas a las nativas.
-    • Multitud de empresas de software (Microsoft, Apache, Nginx, MySQL, Oracle, Wordpress, Moodle, y un largo etc.) apoyan estas tecnologías y dan soporte tanto incorporando sistemas de contenedores a sus sistemas operativos, como ofreciendo imágenes oficiales de sus productos para que con una sencilla orden, se pueda poner en marcha alguno de sus servicios o aplicaciones.
-Algunas de las principales desventajas de los contenedores son:
-    • Pese a que mejoran enormemente la velocidad respecto a una virtualización por hipervisor, siguen teniendo un rendimiento peor que una ejecución “bare metal” (sobre un sistema real), ya que el aislamiento consume recursos.
-    • La persistencia y el acceso/modificación a datos persistentes entre contendores es más tedioso que realizado sobre una máquina real.
-    • Los contenedores están pensados generalmente para el uso vía línea de comandos. Aunque técnicamente es posible configurar los contenedores para tener su propio entorno gráfico, este proceso es tedioso.
 
-         3.6  En resumen ¿Cuando es adecuado usar contenedores?
+### 3.5  Ventajas e inconvenientes del uso de contenedores
+Algunas de las ventajas del uso de contenedores son:
+-    • Los contenedores ocupan menos espacio, al no tener que replicar en cada uno el sistema operativo que están virtualizando, ya que utilizan el sistema de la máquina anfitrión.
+-    • Al no tener que realizar una virtualización de hardware, la ejecución del software de los contenedores es mucho más rápida, con velocidades cercanas a las nativas.
+-    • Multitud de empresas de software (Microsoft, Apache, Nginx, MySQL, Oracle, Wordpress, Moodle, y un largo etc.) apoyan estas tecnologías y dan soporte tanto incorporando sistemas de contenedores a sus sistemas operativos, como ofreciendo imágenes oficiales de sus productos para que con una sencilla orden, se pueda poner en marcha alguno de sus servicios o aplicaciones.
+Algunas de las principales desventajas de los contenedores son:
+-   • Pese a que mejoran enormemente la velocidad respecto a una virtualización por hipervisor, siguen teniendo un rendimiento peor que una ejecución “bare metal” (sobre un sistema real), ya que el aislamiento consume recursos.
+-   • La persistencia y el acceso/modificación a datos persistentes entre contendores es más tedioso que realizado sobre una máquina real.
+-   • Los contenedores están pensados generalmente para el uso vía línea de comandos. Aunque técnicamente es posible configurar los contenedores para tener su propio entorno gráfico, este proceso es tedioso.
+
+#### 3.6  En resumen ¿Cuando es adecuado usar contenedores?
 El uso de contenedores, suele ser adecuado en los contextos:
-    • Como usuarios: queremos probar algo rápido y sin complicarnos mucho en la configuración (por ejemplo, montar un servicio en local para aprender). 
+-    • Como usuarios: queremos probar algo rápido y sin complicarnos mucho en la configuración (por ejemplo, montar un servicio en local para aprender). 
         ◦ Para ello, podemos utilizar servicios de distribución de imágenes de contenedores públicas como Docker Hub https://hub.docker.com/
-    • Como desarrolladores: queremos desarrollar una aplicación que se pueda distribuir en local o desplegar en la nube sin problemas de configuración
+-    • Como desarrolladores: queremos desarrollar una aplicación que se pueda distribuir en local o desplegar en la nube sin problemas de configuración
         ◦ Podemos usar contenedores, tanto para tener el entorno de desarrollo listo, como para distribuir la aplicación en sí.
-    • Queremos testear nuestra aplicación con distintas configuraciones, límites de recursos, juegos de prueba, etc.
+-    • Queremos testear nuestra aplicación con distintas configuraciones, límites de recursos, juegos de prueba, etc.
         ◦ Útil para generar entornos de prueba y despliegue utilizando CI/CD (Continuous Integration/Continuous Delivery) https://es.wikipedia.org/wiki/CI/CD
-    • Queremos realizar “escalado horizontal” de servicios, es decir ejecutar múltiples copias de una misma aplicación/conjunto de aplicaciones que funcionan como un cluster.
+-    • Queremos realizar “escalado horizontal” de servicios, es decir ejecutar múltiples copias de una misma aplicación/conjunto de aplicaciones que funcionan como un cluster.
         ◦ https://es.wikipedia.org/wiki/Escalabilidad#Escalabilidad_horizontal
 
-    4. Contenedores en sistemas Linux
-         4.1  ¿Es nuevo el concepto de entornos privados en sistemas Unix?
+ ## 4. Contenedores en sistemas Linux
+ ### 4.1  ¿Es nuevo el concepto de entornos privados en sistemas Unix?
 El concepto de entornos privados, utilizado en los controladores, no es algo novedoso de los sistemas Unix modernos. Desde hace muchos años existían algunas soluciones tales como:
     • Chroot (Sistemas Unix): https://es.wikipedia.org/wiki/Chroot (1982)
     • Jail (FreeBSD): https://es.wikipedia.org/wiki/FreeBSD_jail (1999)
