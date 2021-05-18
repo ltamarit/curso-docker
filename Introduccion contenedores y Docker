@@ -1,4 +1,4 @@
-Índice de contenido
+** Índice de contenido
 1. Introducción	3
 2. Conceptos previos	3
 2.1. Virtualización	3
@@ -25,15 +25,16 @@
 8. Conclusión	10
 9. Bibliografía	10
 10. Licencias de elementos externos utilizados	10
-# UD01. Introducción a los contenedores y a Docker
-    # 1. Introducción
+
+** UD01. Introducción a los contenedores y a Docker
+   ** 1. Introducción
 En esta unidad realizaremos una introducción al concepto de contenedores. Nos centraremos en contenedores Linux y en concreto en la tecnología de Docker.
-    # 2. Conceptos previos
-         2.1  Virtualización
+   ** 2. Conceptos previos
+       ** 2.1  Virtualización
 La virtualización es un conjunto de tecnologías de hardware y software que permiten la abstracción de hardware, creando así la “ilusión” de administrar recursos virtuales como  si fueran recursos reales, de forma transparente para los usuarios. 
 La virtualización es muy utilizada para el despliegue de sistemas, desarrollo de software, análisis de malware, escalado horizontal, etc. Ya que es relativamente sencilla de implementar y puede ahorrar significativamente costes (consumo de energía, mantenimiento, etc.) 
 
-         2.2  ¿Qué es una máquina virtual?
+         ** 2.2  ¿Qué es una máquina virtual?
 A veces, necesitamos probar un nuevo sistema operativo, una determinada configuración, probar a desplegar un software, etc. pero no está disponible para ello una máquina real. La creación de una máquina virtual utilizando técnicas de virtualización es la solución a este problema. 
 De este modo, una máquina virtual permite simular una máquina (con su sistema operativo) y ejecutar programas como si estuvieran utilizando una máquina real e independiente.
 Para la creación de máquinas virtuales generalmente existen varios tipos de tecnologías:
