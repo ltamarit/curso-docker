@@ -14,12 +14,12 @@
 - 3.6. En resumen ¿Cuando es adecuado usar contenedores?
 4. Contenedores en sistemas Linux
 - 4.1. ¿Es nuevo el concepto de entornos privados en sistemas Unix?
-4.2. Sistemas privados modernos en Linux:  contenedores
-4.3. ¿Cómo funcionan los contenedores modernos en Linux?
-4.4. ¿Puedo poner en marcha un contenedor Linux “A mano”?
-4.5. Los contenedores Linux ¿Pueden funcionar en sistemas como Windows o MacOS?
+- 4.2. Sistemas privados modernos en Linux:  contenedores
+- 4.3. ¿Cómo funcionan los contenedores modernos en Linux?
+- 4.4. ¿Puedo poner en marcha un contenedor Linux “A mano”?
+- 4.5. Los contenedores Linux ¿Pueden funcionar en sistemas como Windows o MacOS?
 5. Contenedores Docker
-5.1. ¿Qué es Docker?
+- 5.1. ¿Qué es Docker?
 6. Docker en sistemas Windows y MacOS
 7. Docker corriendo contenedores Windows Server Core y contenedores MacOS
 8. Conclusión
@@ -27,10 +27,10 @@
 10. Licencias de elementos externos utilizados
 
 # UD01. Introducción a los contenedores y a Docker
-   ## 1. Introducción
+## 1. Introducción
 En esta unidad realizaremos una introducción al concepto de contenedores. Nos centraremos en contenedores Linux y en concreto en la tecnología de Docker.
-   ## 2. Conceptos previos
-       ### 2.1  Virtualización
+## 2. Conceptos previos
+### 2.1  Virtualización
 La virtualización es un conjunto de tecnologías de hardware y software que permiten la abstracción de hardware, creando así la “ilusión” de administrar recursos virtuales como  si fueran recursos reales, de forma transparente para los usuarios. 
 La virtualización es muy utilizada para el despliegue de sistemas, desarrollo de software, análisis de malware, escalado horizontal, etc. Ya que es relativamente sencilla de implementar y puede ahorrar significativamente costes (consumo de energía, mantenimiento, etc.) 
 
