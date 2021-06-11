@@ -65,19 +65,21 @@ Técnicamente, los contenedores son un tipo de virtualización englobada en lo q
 La siguiente imagen puede ayudarnos a entender el concepto de contenedor.
 ![imagen](/imagenes/docker1.png)
 
-Fuente imagen: https://commons.wikimedia.org/wiki/File:Docker-containerized-and-vm-transparent-bg.png 
+Fuente imagen: https://commons.wikimedia.org/wiki/File:Docker-containerized-and-vm-transparent-bg.png
+
 A la derecha observamos el funcionamiento de un hipervisor, encargado de virtualizar el hardware y donde cada máquina virtual tiene su propio sistema operativo. A la izquierda, observamos un sistema de contenedores, donde no existe esa virtualización del hardware y cada contenedor es un entorno privado.
 
 ### 3.2  Analogía con contenedores de transporte marítimo
 
 ![imagen](/imagenes/docker2.jpg)
+
 Fuente imagen: https://www.flickr.com/photos/68359921@N08/50125348052/
 
 Para facilitar la comprensión del funcionamiento de los contenedores, vamos a hacer una  analogía con los contenedores de transporte marítimo:
 -   Los contenedores de transporte marítimo, deben cumplir unos estándares (tamaño, peso y forma) para ser transportados.
--   Lo mismo ocurre con los contenedores en virtualización. Mientras complan un estándar, pueden ser virtualizados en cualquier máquina que lo soporte (local, servidor, etc.).
+    -   Lo mismo ocurre con los contenedores en virtualización. Mientras complan un estándar, pueden ser virtualizados en cualquier máquina que lo soporte (local, servidor, etc.).
  -  Una vez cumplido el estándar, el tipo de carga del contenedor marítimo es independiente.
- -  Lo mismo ocurre con los contenedores en virtualización. Si se cumple el estándar, el software que contenga podrá ser ejecutado sin problemas
+     - Lo mismo ocurre con los contenedores en virtualización. Si se cumple el estándar, el software que contenga podrá ser ejecutado sin problemas
 
 ### 3.3  Contenedores para desarrollo y despliegue de aplicaciones
 Uno de los principales usos de los contenedores (aunque no el único) es facilitar el desarrollo,  distribución y el despliegue de aplicaciones.
@@ -87,11 +89,11 @@ Uno de los principales usos de los contenedores (aunque no el único) es facilit
 
 ***Interesante: Muchos sistemas de CI/CD (Continuous Integration/Continuous Delivery) se basan en el uso de contenedores.
  
- ### 3.4  Contenedores para despliegue de servicios
+### 3.4  Contenedores para despliegue de servicios
 Otro de los principales usos de los contenedores es el despliegue de servidores de distinto tipo (web, correo, bases de datos, DNS, etc.).
 Además de las ventajas anteriormente citadas de mantener versiones de software, los contenedores nos permiten unificar configuraciones de servidores en local, incluso involucrando a distintos servicios en distintos contenedores, de forma que al desplegarlos en la nube, funcionen exactamente igual que en las pruebas realizadas localmente. 
 
- ***Atención: “En mi máquina funcionaba… falla solo al subirlo al servidor…”. El uso de contenedores contribuye a que esta situación desaparezca :) 
+***Atención: “En mi máquina funcionaba… falla solo al subirlo al servidor…”. El uso de contenedores contribuye a que esta situación desaparezca :) 
  
 Además, los contenedores facilitan el “escalado horizontal” de servicios, especialmente si se apoyan de herramientas llamadas orquestadores.
 Para saber más https://es.wikipedia.org/wiki/Escalabilidad#Escalabilidad_horizontal
@@ -109,11 +111,11 @@ Algunas de las principales desventajas de los contenedores son:
 ### 3.6  En resumen ¿Cuando es adecuado usar contenedores?
 El uso de contenedores, suele ser adecuado en los contextos:
 -   Como usuarios: queremos probar algo rápido y sin complicarnos mucho en la configuración (por ejemplo, montar un servicio en local para aprender). 
--   Para ello, podemos utilizar servicios de distribución de imágenes de contenedores públicas como Docker Hub https://hub.docker.com/
+    -   Para ello, podemos utilizar servicios de distribución de imágenes de contenedores públicas como Docker Hub https://hub.docker.com/
 -   Como desarrolladores: queremos desarrollar una aplicación que se pueda distribuir en local o desplegar en la nube sin problemas de configuración
--   Podemos usar contenedores, tanto para tener el entorno de desarrollo listo, como para distribuir la aplicación en sí.
+    -   Podemos usar contenedores, tanto para tener el entorno de desarrollo listo, como para distribuir la aplicación en sí.
 -   Queremos testear nuestra aplicación con distintas configuraciones, límites de recursos, juegos de prueba, etc.
--   Útil para generar entornos de prueba y despliegue utilizando CI/CD (Continuous Integration/Continuous Delivery) https://es.wikipedia.org/wiki/CI/CD
+    -   Útil para generar entornos de prueba y despliegue utilizando CI/CD (Continuous Integration/Continuous Delivery) https://es.wikipedia.org/wiki/CI/CD
 -   Queremos realizar “escalado horizontal” de servicios, es decir ejecutar múltiples copias de una misma aplicación/conjunto de aplicaciones que funcionan como un cluster.
         https://es.wikipedia.org/wiki/Escalabilidad#Escalabilidad_horizontal
 
@@ -133,10 +135,10 @@ Además, aquí os presento un ejemplo práctico desarrollado por José Castillo 
 ### 4.3  ¿Cómo funcionan los contenedores modernos en Linux?
 Los sistemas más populares de contenedores sobre Linux, han utilizado (entre otras) dos características del kernel aparecidas en versiones relativamente recientes:
 - Linux namespaces: permite aislar procesos de forma que vean unos recursos concretos. Los procesos que tienen un “namespace” común pueden ver recursos comunes.
-- Esto entre otras cosas, nos permite tener procesos “diferentes” de la máquina real a los contenedores, incluso con privilegios diferentes (un proceso puede ser “root” en el contenedor, pero no tiene esos privilegios en la máquina real).
-   ***Para saber más:
- - https://en.wikipedia.org/wiki/Linux_namespaces
- - https://www.linux.com/news/understanding-and-securing-linux-namespaces/
+    - Esto entre otras cosas, nos permite tener procesos “diferentes” de la máquina real a los contenedores, incluso con privilegios diferentes (un proceso puede ser “root” en el contenedor, pero no tiene esos privilegios en la máquina real).
+    - Para saber más:
+         - https://en.wikipedia.org/wiki/Linux_namespaces
+         - https://www.linux.com/news/understanding-and-securing-linux-namespaces/
  - Cgroups: permite aislar, configurar y limitar el uso de recursos(memoria, procesos, E/S, etc.). Para saber más https://en.wikipedia.org/wiki/Cgroups
 
 En resumen, Linux namespaces nos facilita aislar el sistema y cgroups facilita la limitación/configuración de la disponibilidad de recursos de cada contenedor.
@@ -153,6 +155,7 @@ En sistemas Windows y MacOS la estrategia era la siguiente:  mediante un hipervi
 
 En el caso concreto de Docker, para hacer este proceso de forma transparente, se utilizaba la hoy “descontinuada” herramienta “Docker Toolbox” https://github.com/docker/toolbox.
 Actualmente, dado el crecimiento de Docker, existen otras optimizaciones que comentaremos más adelante. Aún así esta estrategia sigue siendo posible utilizarla para virtualizar contendores Linux (LXC, LXD, Docker, etc.) en otros sistemas.
+
 ***Importante: Estos casos pueden ser útiles en algún contexto (pruebas, aprendizaje, desarrollo para otra plataforma), pero se pierden ventajas relativas al rendimiento.
 
 ## 5. Contenedores Docker
@@ -172,7 +175,7 @@ El sistema de contenedores de Docker es integrable con otros servicios populares
 
 ### 5.2  La arquitectura de Docker
 En esta imagen podemos ver como funciona la arquitectura básica de Docker.
-![imagen](/https://github.com/docker/docker.github.io/blob/master/engine/images/architecture.svg)
+![imagen](https://github.com/docker/docker.github.io/blob/master/engine/images/architecture.svg)
 
 Fuente imagen: https://github.com/docker/docker.github.io/blob/master/engine/images/architecture.svg
 
