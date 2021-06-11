@@ -104,7 +104,7 @@ Algunas de las principales desventajas de los contenedores son:
 -  La persistencia y el acceso/modificación a datos persistentes entre contendores es más tedioso que realizado sobre una máquina real.
 -  Los contenedores están pensados generalmente para el uso vía línea de comandos. Aunque técnicamente es posible configurar los contenedores para tener su propio entorno gráfico, este proceso es tedioso.
 
-#### 3.6  En resumen ¿Cuando es adecuado usar contenedores?
+### 3.6  En resumen ¿Cuando es adecuado usar contenedores?
 El uso de contenedores, suele ser adecuado en los contextos:
 -   Como usuarios: queremos probar algo rápido y sin complicarnos mucho en la configuración (por ejemplo, montar un servicio en local para aprender). 
 -   Para ello, podemos utilizar servicios de distribución de imágenes de contenedores públicas como Docker Hub https://hub.docker.com/
@@ -115,8 +115,8 @@ El uso de contenedores, suele ser adecuado en los contextos:
 -   Queremos realizar “escalado horizontal” de servicios, es decir ejecutar múltiples copias de una misma aplicación/conjunto de aplicaciones que funcionan como un cluster.
         https://es.wikipedia.org/wiki/Escalabilidad#Escalabilidad_horizontal
 
- ## 4. Contenedores en sistemas Linux
- ### 4.1  ¿Es nuevo el concepto de entornos privados en sistemas Unix?
+## 4. Contenedores en sistemas Linux
+### 4.1  ¿Es nuevo el concepto de entornos privados en sistemas Unix?
 El concepto de entornos privados, utilizado en los controladores, no es algo novedoso de los sistemas Unix modernos. Desde hace muchos años existían algunas soluciones tales como:
  - Chroot (Sistemas Unix): https://es.wikipedia.org/wiki/Chroot (1982)
  - Jail (FreeBSD): https://es.wikipedia.org/wiki/FreeBSD_jail (1999)
@@ -168,7 +168,7 @@ El sistema de contenedores de Docker es integrable con otros servicios populares
  - Azure: https://docs.microsoft.com/es-es/learn/modules/run-docker-with-azure-container-instances/
  - Google Cloud: https://cloud.google.com/container-optimized-os?hl=es-419 
 
-         5.2  La arquitectura de Docker
+### 5.2  La arquitectura de Docker
 En esta imagen podemos ver como funciona la arquitectura básica de Docker.
 
 Fuente imagen: https://github.com/docker/docker.github.io/blob/master/engine/images/architecture.svg
@@ -177,7 +177,8 @@ Esta arquitectura, la podemos resumir en 3 partes:
     • Cliente: es el software encargado de comunicarse con el servidor Docker.
     • Servidor (Docker Host): servicio docker, donde se atienden a las peticiones de los clientes y se gestionan los contenedores e imágenes.
     • Registro (Registry): lugar donde se almacenan imágenes Docker (públicas o privadas). Incluso, de una misma imagen, se almacenan las distintas versiones. El registro más popular y configurado por defecto en Docker es “Docker Hub” https://hub.docker.com/ 
-         5.3  Docker en sistemas Windows y MacOS
+
+### 5.3  Docker en sistemas Windows y MacOS
 En apartados anteriores, comentamos que una de las estrategias para lanzar Docker (y otros contenedores Linux) en sistemas Windows y MacOS, era virtualizar un sistema Linux y ahí lanzar el sistema de contenedores.
 
 Actualmente, en sistemas Windows y MacOS se plantea como alternativa el uso del software “Docker Desktop” para utilizar contenedores en estos sistemas. Docker Desktop nos instala todas las aplicaciones necesarias para correr contenedores en estos sistemas, de la forma más óptima posible.
@@ -194,7 +195,8 @@ Más información en:
     • https://docs.docker.com/desktop/
     • https://docs.docker.com/docker-for-windows/release-notes/
     • https://docs.docker.com/docker-for-mac/release-notes/
-         5.4  Docker corriendo contenedores Windows Server Core y contenedores MacOS
+ 
+### 5.4  Docker corriendo contenedores Windows Server Core y contenedores MacOS
 Aunque el uso habitual de Docker es lanzar contenedores con sistemas Linux, nuevas mejoras han permitido que puedan utilizarse contenedores que lancen otros sistemas operativos.
 
 Docker en sistemas Windows puede lanzar contenedores que corren el sistema operativo “Windows Server Core”. Debe virtualizarse con un sistema anfitrión Windows. Más información en:
@@ -202,14 +204,17 @@ Docker en sistemas Windows puede lanzar contenedores que corren el sistema opera
     • https://blog.ipswitch.com/creating-your-first-windows-container-with-docker-for-windows
 
 Asimismo, es posible lanzar un contenedor que ejecute MacOS en un sistema Linux que tenga instalado KVM, utilizando el proyecto disponible en https://github.com/sickcodes/Docker-OSX
-    6. Conclusión
+
+## 6. Conclusión
 En esta unidad hemos repasado conceptos básicos sobre virtualización. Tras ello, hemos procedido a introducir el concepto de contenedor y sus características, centrándonos en contenedores Linux. Comprendidos los conceptos de contenedores, hemos introducido la solución Docker, la cual instalaremos y utilizaremos en futuras unidades.
-    7. Bibliografía
+  
+## 7. Bibliografía
 [1] WizardZines “How containers work” https://wizardzines.com/zines/containers/
 [2] Docker Docs https://docs.docker.com/
 [3] Linux containers https://linuxcontainers.org/
 [4] OS Level virtualization https://en.wikipedia.org/wiki/OS-level_virtualization
-    8. Licencias de elementos externos utilizados
+
+## 8. Licencias de elementos externos utilizados
 Figura 1: Imagen con licencia Apache 2.0. Fuente:
 https://github.com/docker/docker.github.io/blob/master/engine/images/architecture.svg
 Figura 2: Imagen con licencia CC BY SA. Fuente:
