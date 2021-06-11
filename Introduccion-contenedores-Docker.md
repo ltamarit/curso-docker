@@ -63,6 +63,7 @@ Técnicamente, los contenedores son un tipo de virtualización englobada en lo q
  ***Atención: esto implica, que de forma nativa, no puedes ejecutar un contenedor en un sistema operativo distinto del que utiliza la tecnología de contenedores.
 
 La siguiente imagen puede ayudarnos a entender el concepto de contenedor.
+![imagen](/imagenes/docker1.png)
 
 Fuente imagen: https://commons.wikimedia.org/wiki/File:Docker-containerized-and-vm-transparent-bg.png 
 A la derecha observamos el funcionamiento de un hipervisor, encargado de virtualizar el hardware y donde cada máquina virtual tiene su propio sistema operativo. A la izquierda, observamos un sistema de contenedores, donde no existe esa virtualización del hardware y cada contenedor es un entorno privado.
