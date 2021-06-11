@@ -70,6 +70,7 @@ A la derecha observamos el funcionamiento de un hipervisor, encargado de virtual
 
 ### 3.2  Analogía con contenedores de transporte marítimo
 
+![imagen](/imagenes/docker2.jpg)
 Fuente imagen: https://www.flickr.com/photos/68359921@N08/50125348052/
 
 Para facilitar la comprensión del funcionamiento de los contenedores, vamos a hacer una  analogía con los contenedores de transporte marítimo:
@@ -171,6 +172,7 @@ El sistema de contenedores de Docker es integrable con otros servicios populares
 
 ### 5.2  La arquitectura de Docker
 En esta imagen podemos ver como funciona la arquitectura básica de Docker.
+![imagen](/https://github.com/docker/docker.github.io/blob/master/engine/images/architecture.svg)
 
 Fuente imagen: https://github.com/docker/docker.github.io/blob/master/engine/images/architecture.svg
 
