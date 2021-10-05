@@ -74,7 +74,7 @@ sudo apt-key fingerprint 0EBFCD88
 
 Si es correcto, verás algo similar a la siguiente captura: 
 
-![](instalacion1.png)
+![imagen](/imagenes/instalacion1.png)
 
 Ahora,  solo  nos  queda  añadir  el  repositorio  de  Docker  CE  como  fuente  para  instalación  de paquetes. **MUCHO OJO en este paso en distribuciones derivadas, como Linux Mint**. El motivo  es el siguiente. Al configurar la fuente de paquetes indicamos la versión de Ubuntu. El comando que utilizamos para obtener la versión de Ubuntu es el siguiente: 
 
@@ -105,7 +105,7 @@ sudo docker version
 
 y obteniendo un resultado similar al siguiente: 
 
-![](instalacion2.jpeg)
+![imagen](/imagenes/instalacion2.jpeg)
 
 Para más información sobre este comando podéis visitar <https://docs.docker.com/engine/reference/commandline/version/> 
 ### 2.3. Post instalación 
@@ -236,11 +236,11 @@ docker version
 
 obteniendo un resultado similar al siguiente: 
 
-![](instalacion3)
+![imagen](/imagenes/instalacion3.jpeg)
 
 Para más información sobre este comando podéis visitar <https://docs.docker.com/engine/reference/commandline/version/> 
 
-## 4. Resolviendo problemas en la instalación de Docker Desktop 
+### 3.4. Resolviendo problemas en la instalación de Docker Desktop 
 
 En  mi experiencia con Docker Desktop, he sufrido problemas, incluso simplemente instalando actualizaciones. Hay cantidad de bugs típicos como los que os enlazo aquí: 
 
