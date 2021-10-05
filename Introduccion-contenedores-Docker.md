@@ -60,7 +60,7 @@ Los contenedores son una tecnología de virtualización, que al contrario que un
 
 Técnicamente, los contenedores son un tipo de virtualización englobada en lo que se llama “OS Level virtualization”. Para saber más: https://en.wikipedia.org/wiki/OS-level_virtualization
 
- ***Atención: esto implica, que de forma nativa, no puedes ejecutar un contenedor en un sistema operativo distinto del que utiliza la tecnología de contenedores.
+ __Atención: esto implica, que de forma nativa, no puedes ejecutar un contenedor en un sistema operativo distinto del que utiliza la tecnología de contenedores.__
 
 La siguiente imagen puede ayudarnos a entender el concepto de contenedor.
 ![imagen](/imagenes/docker1.png)
@@ -87,13 +87,14 @@ Uno de los principales usos de los contenedores (aunque no el único) es facilit
 -   Usar contenedores facilita el testeo, permitiendo la creación de distintos entornos de prueba con diferentes configuraciones, etc.
 -   Los contenedores nos evitan problemas de compatibilidad al desplegar nuestras aplicaciones, teniendo siempre las versiones adecuadas para ejecutar nuestro software.
 
-***Interesante: Muchos sistemas de CI/CD (Continuous Integration/Continuous Delivery) se basan en el uso de contenedores.
+__Interesante: Muchos sistemas de CI/CD (Continuous Integration/Continuous Delivery) se basan en el uso de contenedores.__
  
 ### 3.4  Contenedores para despliegue de servicios
-Otro de los principales usos de los contenedores es el despliegue de servidores de distinto tipo (web, correo, bases de datos, DNS, etc.).
-Además de las ventajas anteriormente citadas de mantener versiones de software, los contenedores nos permiten unificar configuraciones de servidores en local, incluso involucrando a distintos servicios en distintos contenedores, de forma que al desplegarlos en la nube, funcionen exactamente igual que en las pruebas realizadas localmente. 
+__Otro de los principales usos de los contenedores es el despliegue de servidores de distinto tipo (web, correo, bases de datos, DNS, etc.).
+Además de las ventajas anteriormente citadas de mantener versiones de software, los contenedores nos permiten unificar configuraciones de servidores en local, incluso involucrando a distintos servicios en distintos contenedores, de forma que al desplegarlos en la nube, funcionen exactamente igual que en las pruebas realizadas localmente.__
 
-***Atención: “En mi máquina funcionaba… falla solo al subirlo al servidor…”. El uso de contenedores contribuye a que esta situación desaparezca :) 
+
+__Atención: “En mi máquina funcionaba… falla solo al subirlo al servidor…”. El uso de contenedores contribuye a que esta situación desaparezca :)__
  
 Además, los contenedores facilitan el “escalado horizontal” de servicios, especialmente si se apoyan de herramientas llamadas orquestadores.
 Para saber más https://es.wikipedia.org/wiki/Escalabilidad#Escalabilidad_horizontal
@@ -156,7 +157,7 @@ En sistemas Windows y MacOS la estrategia era la siguiente:  mediante un hipervi
 En el caso concreto de Docker, para hacer este proceso de forma transparente, se utilizaba la hoy “descontinuada” herramienta “Docker Toolbox” https://github.com/docker/toolbox.
 Actualmente, dado el crecimiento de Docker, existen otras optimizaciones que comentaremos más adelante. Aún así esta estrategia sigue siendo posible utilizarla para virtualizar contendores Linux (LXC, LXD, Docker, etc.) en otros sistemas.
 
-***Importante: Estos casos pueden ser útiles en algún contexto (pruebas, aprendizaje, desarrollo para otra plataforma), pero se pierden ventajas relativas al rendimiento.
+__Importante: Estos casos pueden ser útiles en algún contexto (pruebas, aprendizaje, desarrollo para otra plataforma), pero se pierden ventajas relativas al rendimiento.__
 
 ## 5. Contenedores Docker
 ### 5.1  ¿Qué es Docker?
