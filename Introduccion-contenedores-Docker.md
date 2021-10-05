@@ -196,8 +196,8 @@ A continuación, realizamos una pequeña comparativa a nivel de rendimiento entr
     -   Los contenedores Linux de Docker, funcionan usando Hyper-V en sistemas Windows Server y WSL2 (Windows Subsystem for Linux 2) en Windows Home https://www.docker.com/blog/docker-hearts-wsl-2/
     -   Los contenedores “Windows Server Core”, están implementados por el núcleo de Windows. 
 -   Ejecución de Docker en MacOS:
-    -    Los contenedores Linux, funcionan usando Hyperkit.
-        -    https://github.com/moby/hyperkit                  
+    -   Los contenedores Linux, funcionan usando Hyperkit.
+        -   https://github.com/moby/hyperkit                  
 Más información en:
 -    https://docs.docker.com/desktop/
 -    https://docs.docker.com/docker-for-windows/release-notes/
