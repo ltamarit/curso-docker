@@ -74,7 +74,7 @@ sudo apt-key fingerprint 0EBFCD88
 
 Si es correcto, verás algo similar a la siguiente captura: 
 
-![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.008.png)
+![](instalacion1.png)
 
 Ahora,  solo  nos  queda  añadir  el  repositorio  de  Docker  CE  como  fuente  para  instalación  de paquetes. **MUCHO OJO en este paso en distribuciones derivadas, como Linux Mint**. El motivo  es el siguiente. Al configurar la fuente de paquetes indicamos la versión de Ubuntu. El comando que utilizamos para obtener la versión de Ubuntu es el siguiente: 
 
@@ -82,8 +82,7 @@ lsb\_release -cs
 
 Este comando nos dirá qué distribución tenemos. Por ejemplo, si tenemos “Ubuntu Bionic 18.04 (LTS)”, este comando imprimirá por pantalla “bionic”. 
 
-En algunas versiones derivadas de Ubuntu, como Linux Mint, aunque la distribución esté basada en  Ubuntu  Bionic,  no  devolverá  el  texto “bionic”, sino otro diferente. Si estáis en este caso, deberéis introducir a mano la versión de Ubuntu en que se basa vuestra distribución. ![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.007.png)
-
+En algunas versiones derivadas de Ubuntu, como Linux Mint, aunque la distribución esté basada en  Ubuntu  Bionic,  no  devolverá  el  texto “bionic”, sino otro diferente. Si estáis en este caso, deberéis introducir a mano la versión de Ubuntu en que se basa vuestra distribución. 
 Aclarado esto, con el siguiente comando podéis añadir el repositorio: 
 
 sudo add-apt-repository "deb [arch=amd64] <https://download.docker.com/linux/ubuntu> $(lsb\_release -cs) stable" 
@@ -92,7 +91,7 @@ O  en  el  caso  que  tengáis  una  distribución  basada  en  Ubuntu  con  el 
 
 sudo add-apt-repository "deb [arch=amd64] <https://download.docker.com/linux/ubuntu> bionic stable" 
 
-3. Paso 3: Instalando Docker engine CE 
+#### 2.2.3. Paso 3: Instalando Docker engine CE 
 
 Por último, ya con el repositorio oficial de Docker en nuestro sistema, solo nos queda actualizar el índice de paquetes e instalar la última versión de Docker engine CE de la siguiente forma: 
 
@@ -106,17 +105,16 @@ sudo docker version
 
 y obteniendo un resultado similar al siguiente: 
 
-![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.009.jpeg)
+![](instalacion2.jpeg)
 
-Para más información sobre este comando podéis visitar <https://docs.docker.com/engine/reference/commandline/version/> ![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.007.png)
-
-3. Post instalación 
+Para más información sobre este comando podéis visitar <https://docs.docker.com/engine/reference/commandline/version/> 
+### 2.3. Post instalación 
 
 En  la  documentación  de Docker, nos proponen algunos pasos de post instalación. Los podéis consultar en <https://docs.docker.com/engine/install/linux-postinstall/> 
 
 En esta sección vamos a comentar dos de ellos: administrar Docker con usuarios sin privilegios (no root ni sudoers) y arrancar Docker desde al inicio. 
 
-1. Permitir administrar Docker con usuarios sin privilegios 
+#### 2.3.1. Permitir administrar Docker con usuarios sin privilegios 
 
 Docker  utiliza  sockets  Unix.  Para  la creación y reserva de un socket Unix, es necesario tener permisos de root, por lo cual Docker engine necesita permisos de root para ejecutarse. 
 
@@ -146,9 +144,9 @@ o cambiar el propietario y permisos del directorio, usando
 
 sudo chown "$USER":"$USER" /home/"$USER"/.docker -R 
 
-sudo chmod g+rwx "$HOME/.docker" -R ![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.007.png)
+sudo chmod g+rwx "$HOME/.docker" -R 
 
-2. Activar/desactivar arranque al inicio 
+### 2.3.2. Activar/desactivar arranque al inicio 
 
 Para indicar que el servicio de Docker se inicie al arrancar la máquina, podemos indicarlo mediante los siguientes comandos: 
 
@@ -166,7 +164,7 @@ sudo systemctl start/stop/restart docker.service
 
 sudo systemctl start/stop/restart containerd.service 
 
-4. Desinstalando Docker en Ubuntu 
+### 2.4. Desinstalando Docker en Ubuntu 
 
 Si en algún momento queremos desinstalar Docker en Ubuntu, podemos usar el comando 
 
@@ -180,18 +178,17 @@ La segunda opción, se debe realizar tras eliminar Docker y consiste en el borra
 
 sudo rm -rf /var/lib/docker 
 
-3. INSTALACIÓN DE DOCKER EN SISTEMAS WINDOWS
+## 3. INSTALACIÓN DE DOCKER EN SISTEMAS WINDOWS
 
 En este apartado veremos cómo instalar Docker  Desktop en sistemas Windows. Docker posee dos guías diferenciadas de instalación en sistemas Windows: 
 
 - Guía para Windows 10 Pro y Windows Server 
   - <https://docs.docker.com/docker-for-windows/install/> 
 - Guía para Windows 10 Home 
-- <https://docs.docker.com/docker-for-windows/install-windows-home/> ![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.007.png)
-
+- <https://docs.docker.com/docker-for-windows/install-windows-home/> 
 La  principal  diferencia  entre  ellas,  es  que  el  primer  grupo  requiere  que  se  activen  las características de Windows para Hyper-V, mientras que la segunda guía requiere la activación de WSL2 (Windows Subsystem for Linux 2). 
 
-1. Pasos previos Windows 10 Pro y Windows Server: activando Hyper-v 
+### 3.1. Pasos previos Windows 10 Pro y Windows Server: activando Hyper-v 
 
 En este enlace se explica cómo habilitar Hyper-V en: 
 
@@ -199,7 +196,7 @@ En este enlace se explica cómo habilitar Hyper-V en:
   - [https://docs.microsoft.com/es-es/virtualization/hyper-v-on-windows/quick-start/e nable-hyper-v](https://docs.microsoft.com/es-es/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) 
 - Windows Server 
 - [https://docs.microsoft.com/es-es/windows-server/virtualization/hyper-v/get-starte d/install-the-hyper-v-role-on-windows-server](https://docs.microsoft.com/es-es/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server) 
-2. Pasos previos Windows 10 Home:  Instalando WSL2 
+### 3.2. Pasos previos Windows 10 Home:  Instalando WSL2 
 
 Antes  de  comenzar,  nuestro  sistema  debe  tener  instalado  WSL2.  La  guía  para  instalarlo  se encuentra aquí <https://docs.microsoft.com/en-us/windows/wsl/install-win10> 
 
@@ -227,7 +224,7 @@ Con esto ya tienes listo WSL2 y una versión de Ubuntu instalada en tu sistema W
 
 **OPCIONAL:** una vez instalado WSL2, puedes instalar distribuciones de Linux mediante la tienda Microsoft  Store  <https://aka.ms/wslstore>  (por  ejemplo  Ubuntu  20).  **Una  vez  instalada,  es obligatorio que la inicies al menos una vez** para que descomprima parte del sistema y después te pida establecer un usuario administrador de la distribución Linux virtualizada. ![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.007.png)
 
-3. Instalación de Docker Desktop 
+### 3.3. Instalación de Docker Desktop 
 
 La instalación de Docker Desktop, que es la versión de Docker CE para sistemas Windows, es sencilla  y  básicamente  consiste  en  descargar el instalador desde Docker Hub, en el siguiente enlace  <https://hub.docker.com/editions/community/docker-ce-desktop-windows/>  y  seguir  las instrucciones de instalación en pantalla. 
 
@@ -239,11 +236,11 @@ docker version
 
 obteniendo un resultado similar al siguiente: 
 
-![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.010.jpeg)
+![](instalacion3)
 
 Para más información sobre este comando podéis visitar <https://docs.docker.com/engine/reference/commandline/version/> 
 
-4. Resolviendo problemas en la instalación de Docker Desktop 
+## 4. Resolviendo problemas en la instalación de Docker Desktop 
 
 En  mi experiencia con Docker Desktop, he sufrido problemas, incluso simplemente instalando actualizaciones. Hay cantidad de bugs típicos como los que os enlazo aquí: 
 
@@ -260,13 +257,13 @@ En cualquier caso, en estos problemas de instalación en sistemas Windows, una s
   - Aquí  puedes  ver como eliminar  las  variables  de  entrono  de Windows 10 [https://answers.microsoft.com/es-es/windows/forum/windows_10-other_settings/ windows-10-variables-de-entorno-windows-10-version/703ea5fa-1db4-46da-8ff7-6 261140bf58b](https://answers.microsoft.com/es-es/windows/forum/windows_10-other_settings/windows-10-variables-de-entorno-windows-10-version/703ea5fa-1db4-46da-8ff7-6261140bf58b) 
 - Una vez hecho esto, reinicia el sistema. 
 - Una vez reiniciado, instala de nuevo “Docker Desktop”. 
-4. INSTALACIÓN DE DOCKER EN SISTEMAS MACOS 
+## 4. INSTALACIÓN DE DOCKER EN SISTEMAS MACOS 
 
 Las  instrucciones  para  la  instalación  de  Docker  Desktop  en  MacOS  están  descritas  en <https://docs.docker.com/docker-for-mac/install/>. 
 
 Para  realizar  esta  instalación,  básicamente  debe  descargarse  el  paquete  “.dmg”  de <https://hub.docker.com/editions/community/docker-ce-desktop-mac/>  y  seguir  las  instrucciones de instalación en pantalla. 
 
-5. PLAYGROUNDS DE DOCKER
+## 5. PLAYGROUNDS DE DOCKER
 
 En  Internet  existen  varios  sitios  que  nos  permiten utilizar un “playground” de  distintas herramientas, para que juguemos con ellas online, sin necesidad de instalar ni configurar nada (y sin el riesgo de romper cosas). 
 
@@ -274,11 +271,10 @@ El sitio web Katacoda <https://katacoda.com/> posee un “playground” de Docke
 
 Os animo a utilizarlo si queréis hacer alguna prueba, trastear en un lugar donde no tenéis Docker instalado o para enseñar Docker en contextos donde no se pueda instalar de forma nativa. 
 
-6. CONCLUSIÓN
+## 6. CONCLUSIÓN
 
 En esta unidad hemos visto los pasos básicos para instalar Docker en distintos sistemas operativos. No  obstante,  continuamos  con  nuestra  recomendación  de  que  si  es  posible,  para  minimizar problemas utilicemos Docker en sistemas Linux. 
 
-7. BIBLIOGRAFÍA
+## 7. BIBLIOGRAFÍA
 
-[1] Docker Docs <https://docs.docker.com/> ![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.007.png)
-C​URSO I​NTRODUCCIÓN ​A D​OCKER UD02 - P​ÁGINA PAGE10 
+[1] Docker Docs <https://docs.docker.com/>  
