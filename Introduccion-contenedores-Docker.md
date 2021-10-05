@@ -190,25 +190,25 @@ En apartados anteriores, comentamos que una de las estrategias para lanzar Docke
 
 Actualmente, en sistemas Windows y MacOS se plantea como alternativa el uso del software “Docker Desktop” para utilizar contenedores en estos sistemas. Docker Desktop nos instala todas las aplicaciones necesarias para correr contenedores en estos sistemas, de la forma más óptima posible.
 A continuación, realizamos una pequeña comparativa a nivel de rendimiento entre la ejecución de Docker en diferentes sistemas:
--    Ejecución de Docker en Linux: 
-    -    Están implementados por el kernel, con velocidad cercana a la nativa.
--    Ejecución de Docker en Windows:
-    -    Los contenedores Linux de Docker, funcionan usando Hyper-V en sistemas Windows Server y WSL2 (Windows Subsystem for Linux 2) en Windows Home https://www.docker.com/blog/docker-hearts-wsl-2/
--    Los contenedores “Windows Server Core”, están implementados por el núcleo de Windows. 
--        Ejecución de Docker en MacOS:
--     Los contenedores Linux, funcionan usando Hyperkit.
--         https://github.com/moby/hyperkit
+-   Ejecución de Docker en Linux: 
+    -   Están implementados por el kernel, con velocidad cercana a la nativa.
+-   Ejecución de Docker en Windows:
+    -   Los contenedores Linux de Docker, funcionan usando Hyper-V en sistemas Windows Server y WSL2 (Windows Subsystem for Linux 2) en Windows Home https://www.docker.com/blog/docker-hearts-wsl-2/
+    -   Los contenedores “Windows Server Core”, están implementados por el núcleo de Windows. 
+-   Ejecución de Docker en MacOS:
+   -    Los contenedores Linux, funcionan usando Hyperkit.
+       -    https://github.com/moby/hyperkit
 Más información en:
--     https://docs.docker.com/desktop/
--     https://docs.docker.com/docker-for-windows/release-notes/
--     https://docs.docker.com/docker-for-mac/release-notes/
+    -    https://docs.docker.com/desktop/
+    -    https://docs.docker.com/docker-for-windows/release-notes/
+    -    https://docs.docker.com/docker-for-mac/release-notes/
  
 ### 5.4  Docker corriendo contenedores Windows Server Core y contenedores MacOS
 Aunque el uso habitual de Docker es lanzar contenedores con sistemas Linux, nuevas mejoras han permitido que puedan utilizarse contenedores que lancen otros sistemas operativos.
 
 Docker en sistemas Windows puede lanzar contenedores que corren el sistema operativo “Windows Server Core”. Debe virtualizarse con un sistema anfitrión Windows. Más información en:
--     https://hub.docker.com/_/microsoft-windows-servercore
--     https://blog.ipswitch.com/creating-your-first-windows-container-with-docker-for-windows
+-   https://hub.docker.com/_/microsoft-windows-servercore
+-   https://blog.ipswitch.com/creating-your-first-windows-container-with-docker-for-windows
 
 Asimismo, es posible lanzar un contenedor que ejecute MacOS en un sistema Linux que tenga instalado KVM, utilizando el proyecto disponible en https://github.com/sickcodes/Docker-OSX
 
