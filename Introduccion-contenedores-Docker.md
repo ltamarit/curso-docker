@@ -197,11 +197,11 @@ A continuación, realizamos una pequeña comparativa a nivel de rendimiento entr
     -   Los contenedores “Windows Server Core”, están implementados por el núcleo de Windows. 
 -   Ejecución de Docker en MacOS:
     -    Los contenedores Linux, funcionan usando Hyperkit.
-             -    https://github.com/moby/hyperkit                  
+        -    https://github.com/moby/hyperkit                  
 Más información en:
-    -    https://docs.docker.com/desktop/
-    -    https://docs.docker.com/docker-for-windows/release-notes/
-    -    https://docs.docker.com/docker-for-mac/release-notes/
+-    https://docs.docker.com/desktop/
+-    https://docs.docker.com/docker-for-windows/release-notes/
+-    https://docs.docker.com/docker-for-mac/release-notes/
  
 ### 5.4  Docker corriendo contenedores Windows Server Core y contenedores MacOS
 Aunque el uso habitual de Docker es lanzar contenedores con sistemas Linux, nuevas mejoras han permitido que puedan utilizarse contenedores que lancen otros sistemas operativos.
