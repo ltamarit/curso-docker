@@ -60,14 +60,14 @@ Docker Hub es una “plataforma de registro” de Docker. Los servicios básicos
 
 Contiene un gran ecosistema de imágenes ya creadas, usualmente con instrucciones de instalación y uso, además de un buscador que nos permite encontrar imágenes según distintos parámetros. Enlace al buscador <https://hub.docker.com/search?q=&type=image> 
 
-![imagen](/imagenes/acciones3.png)
+![imagen](/imagenes/acciones3.jpeg)
 
 Por  defecto,  Docker  utiliza  esta  plataforma  registro como “registro por defecto”, aunque es posible si se requiere, elegir otro servicio de registro, e incluso montar un servicio privado de registro.  ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png)
 
 Más información sobre cómo crear un registro privado en 
 
 - [https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-docker-regist ry-on-ubuntu-18-04-es](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-docker-registry-on-ubuntu-18-04-es) 
-##5. CREANDO Y ARRANCANDO CONTENEDORES CON “DOCKER RUN” 
+## 5. CREANDO Y ARRANCANDO CONTENEDORES CON “DOCKER RUN” 
 ### 5.1. ¿Que hace el comando “docker run”? 
 
 Es posiblemente el comando “docker run” más utilizado. Podríamos decir que **este comando crea un contenedor a partir de una imagen y lo arranca.** 
@@ -90,13 +90,16 @@ docker run hello-world
 
 #### 5.3.1. Repaso parte 1: obteniendo la imagen 
 
-Al ejecutar este comando por primera vez, obtenemos un resultado similar a este: ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png)
+Al ejecutar este comando por primera vez, obtenemos un resultado similar a este: 
 
-La documentación en Docker Hub del contenedor que estamos lanzando la tenemos disponible en ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.011.jpeg)<https://hub.docker.com/_/hello-world> 
+![imagen](/imagenes/acciones4.png)
+
+La documentación en Docker Hub del contenedor que estamos lanzando la tenemos disponible en 
+<https://hub.docker.com/_/hello-world> 
 
 En primer lugar, nos fijamos en el comienzo de la información mostrada, concretamente en: 
 
-![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.012.png)
+![imagen](/imagenes/acciones5.png)
 
 Ahí se nos indica que la imagen ***“hello-word:latest”*** no está localmente en nuestro sistema. Al no estar, se descarga del registro por defecto (normalmente Docker Hub) y se almacena localmente. 
 
@@ -110,7 +113,7 @@ Una vez descargada la imagen, se crea el contenedor, se inicia y ejecuta un proc
 
 En este caso concreto, al no haber especificado ningún comando, al iniciarse el contenedor lanza un programa por defecto llamado “hello” y nos muestra por la salida estándar información de como Docker ha generado este mensaje:
 
-![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.013.png)
+![imagen](/imagenes/acciones6.png)
 
 Si  tenéis  curiosidad  por  ver  el  código  fuente  del  programa  “hello”,  está  disponible  en <https://github.com/docker-library/hello-world/blob/master/hello.c> 
 
@@ -124,11 +127,11 @@ docker ps
 
 Nos aparecerá un listado como este si no tenemos ningún contenedor en ejecución: 
 
-![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.014.png)
+![imagen](/imagenes/acciones7.png)
 
 O si tenemos contenedores en ejecución, podemos obtener algo similar a esto: 
 
-![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.015.png)
+![imagen](/imagenes/acciones8.png)
 
 Si lanzamos el comando  
 
@@ -136,7 +139,7 @@ docker ps -a
 
 Obtendremos  un  listado  de  todos  los  contenedores,  tanto aquellos en funcionamiento como aquellos que están parados. 
 
-![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.016.png)
+![imagen](/imagenes/acciones9.png)
 
 La información que obtenemos de los contenedores es la siguiente: 
 
