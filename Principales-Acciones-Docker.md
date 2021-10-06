@@ -6,7 +6,7 @@ En esta unidad explicaremos algunas de las principales acciones básicas que pod
 
 ## 2. ¿GESTIONAREMOS DOCKER MEDIANTE INTERFAZ GRÁFICA? 
 
-Existen distintas herramientas para gestionar Docker desde una interfaz gráfica, haciendo la tarea más  visual  e  intuitiva. Aunque estas herramientas pueden ser muy útiles, en el momento de aprender a trabajar con Docker, pueden hacer que se nos escape la comprensión de determinados mecanismos del funcionamiento de Docker. Por ese motivo en el curso no gestionaremos Docker mediante interfaz gráfica y realizaremos todas las operaciones mediante la línea de comandos. 
+Existen distintas herramientas para gestionar Docker desde una interfaz gráfica, haciendo la tarea más  visual  e  intuitiva. Aunque estas herramientas pueden ser muy útiles, en el momento de aprender a trabajar con Docker, pueden hacer que se nos escape la comprensión de determinados mecanismos del funcionamiento de Docker. Por ese motivo de momento realizaremos todas las operaciones mediante la línea de comandos. 
 
 ## 3. IMÁGENES Y CONTENEDORES
 ### 3.1. ¿Qué es una imagen y un contenedor? 
