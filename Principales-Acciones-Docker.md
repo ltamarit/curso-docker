@@ -92,7 +92,7 @@ docker run hello-world
 
 Al ejecutar este comando por primera vez, obtenemos un resultado similar a este: 
 
-![imagen](/imagenes/acciones4.png)
+![imagen](/imagenes/acciones4.jpeg)
 
 La documentación en Docker Hub del contenedor que estamos lanzando la tenemos disponible en 
 <https://hub.docker.com/_/hello-world> 
@@ -153,7 +153,7 @@ La información que obtenemos de los contenedores es la siguiente:
 
 La  descripción  completa  del  comando  ***“docker  ps”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/ps/> 
 
-# 7. PARANDO Y ARRANCANDO CONTENEDORES EXISTENTES CON “DOCKER START/STOP/RESTART” 
+## 7. PARANDO Y ARRANCANDO CONTENEDORES EXISTENTES CON “DOCKER START/STOP/RESTART” 
 
 Para arrancar/parar un contenedor ya creado (recordamos, ***“docker run”*** crea y arranca), existen los comandos ***“docker start”, “docker stop” y “docker restart”***. 
 
@@ -170,7 +170,7 @@ La descripción completa de estos comandos la podéis encontrar en
 - <https://docs.docker.com/engine/reference/commandline/start/> 
 - <https://docs.docker.com/engine/reference/commandline/stop/> 
 - <https://docs.docker.com/engine/reference/commandline/restart/> 
-# 8. INSPECCIONANDO CONTENEDORES CON “DOCKER INSPECT” 
+## 8. INSPECCIONANDO CONTENEDORES CON “DOCKER INSPECT” 
 
 El  comando  “***docker  inspect***”  es  un  comando  que  nos  proporciona  diversos  detalles  de  la configuración de un contenedor. Ofrece distintos datos, entre ellos, identificador único (versión 64 caracteres), almacenamiento, red, imagen en que se basa, etc. Su sintaxis es: 
 
@@ -178,7 +178,7 @@ docker inspect IDENTIFICADOR/NOMBRE
 
 La  descripción  completa  del  comando  ***“docker  inspect”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/inspect/>. 
 
-# 9. EJECUTANDO COMANDOS EN UN CONTENEDOR CON “DOCKER EXEC” 
+## 9. EJECUTANDO COMANDOS EN UN CONTENEDOR CON “DOCKER EXEC” 
 
 El comando ***“docker exec”*** nos permite ejecutar un comando dentro de un contenedor que esté en ese momento en ejecución. La forma sintaxis habitual para utilizar este comando es la siguiente 
 
@@ -198,7 +198,7 @@ Comando que establece un variable de entorno con el parámetro **“-e”**. Se 
 
 La  descripción  completa  del  comando  ***“docker  exec”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/exec/>. 
 
-# 10. COPIANDO FICHEROS ENTRE ANFITRIÓN Y CONTENEDORES CON “DOCKER CP” 
+## 10. COPIANDO FICHEROS ENTRE ANFITRIÓN Y CONTENEDORES CON “DOCKER CP” 
 
 El comando ***“docker cp”*** es un comando que nos permite copiar ficheros y directorios del anfitrión a un contenedor o viceversa. No se permite actualmente la copia de fichero entre contenedores. 
 
@@ -214,7 +214,7 @@ Copia el fichero “***miFichero***” del directorio actual al directorio “/t
 
 La  descripción  completa  del  comando  ***“docker  cp”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/cp/>. ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png)
 
-# 11. ACCEDIENDO A UN PROCESO EN EJECUCIÓN CON “DOCKER ATTACH” 
+## 11. ACCEDIENDO A UN PROCESO EN EJECUCIÓN CON “DOCKER ATTACH” 
 
 En  algunos  casos,  deseamos  enlazar  la  entrada  o  salida  estándar  de  nuestra  terminal  a  un contenedor que está ejecutando un proceso en segundo plano, de forma similar a la siguiente 
 
@@ -234,7 +234,7 @@ docker attach muchotexto
 
 La  descripción  completa  del  comando  ***“docker  attach”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/attach/>. 
 
-# 12. OBTENIENDO INFORMACIÓN DE LOS LOGS CON “DOCKER LOGS” 
+## 12. OBTENIENDO INFORMACIÓN DE LOS LOGS CON “DOCKER LOGS” 
 
 Podemos consultar la información generada con el comando “***docker logs***” 
 
@@ -252,7 +252,7 @@ Con  este  ejemplo,  te  mostraría  los  logs  generados (realmente la salida e
 
 La  descripción  completa  del  comando  ***“docker  logs”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/logs/>. ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png)
 
-# 13. RENOMBRANDO CONTENEDORES CON “DOCKER RENAME” 
+## 13. RENOMBRANDO CONTENEDORES CON “DOCKER RENAME” 
 
 El comando ***“docker rename”*** nos permite cambiar el nombre asociado a un contenedor. 
 
@@ -262,7 +262,7 @@ Cambia el nombre de “***contenedor1***” a “***contenedor2***”.
 
 La  descripción  completa  del  comando  ***“docker  rename”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/rename/>. 
 
-# 14. PRINCIPALES PARÁMETROS DEL COMANDO “DOCKER RUN” 
+## 14. PRINCIPALES PARÁMETROS DEL COMANDO “DOCKER RUN” 
 
 Anteriormente hemos indicado que el comando ***“docker run”*** es de gran importancia en el uso de Docker y que este nos permite crear contenedores a partir de una imagen y arrancarlos. 
 
@@ -270,7 +270,7 @@ La estructura principal del comando es la siguiente
 
 docker run [PARAMETROS] IMAGEN [COMANDO AL ARRANCAR] [ARGUMENTOS] A continuación mostramos algunos ejemplos de ***“docker run”***. 
 
-## 14.1. Ejemplo 1: lanzando Ubuntu y accediendo a una terminal 
+### 14.1. Ejemplo 1: lanzando Ubuntu y accediendo a una terminal 
 
 Utilizando el comando  
 
@@ -286,7 +286,7 @@ Por último, el comando ejecutado al lanzarse el contenedor es ***“/bin/bash�
 
 Los  cambios  que  hayamos  hecho  con  la  “shell”,  como  por  ejemplo,  crear  un  directorio,  se almacenarán como una imagen temporal (veremos en profundidad las imágenes en otra unidad) y a efectos prácticos, los cambios serán permanentes al arrancar de nuevo este contenedor. 
 
-## 14.2. Ejemplo 1 EXTRA: accediendo a terminal desde el contenedor parado 
+### 14.2. Ejemplo 1 EXTRA: accediendo a terminal desde el contenedor parado 
 
 El anterior ejemplo nos permitía acceder crear un contenedor y acceder de forma interactiva a dicha “shell”, pero al salir de la shell, simplemente se paraba el contenedor.  
 
@@ -306,7 +306,7 @@ Los parámetros especificados a ***“docker start”*** son los siguientes:
 
 - **Parámetro  “-a”**:  al  arrancar  el  contenedor,  enlaza  la  salida  estándar  y  de  error  del contenedor a nuestra terminal. 
 - **Parámetro “-i”:** al arrancar el contenedor, lo hace en modo interactivo, es decir enlazando la entrada estándar del contenedor a nuestra terminal. 
-## 14.3. Ejemplo 2: ejecutando una versión de una imagen y auto-eliminando el contenedor 
+### 14.3. Ejemplo 2: ejecutando una versión de una imagen y auto-eliminando el contenedor 
 
 Lanzando el siguiente comando 
 
@@ -317,7 +317,7 @@ Estamos creando un contenedor con la versión de la imagen ***“ubuntu”*** et
 Los parámetros nuevos incluidos en esta orden son: 
 
 - **Parámetro “--rm”:** este parámetro hará que nada más el contenedor se pare, se borre el contenedor del sistema.  
-## 14.4. Ejemplo 3: lanzando un servidor web en background y asociando sus puertos 
+### 14.4. Ejemplo 3: lanzando un servidor web en background y asociando sus puertos 
 
 Lanzando el siguiente comando 
 
@@ -338,7 +338,7 @@ Los parámetros nuevos incluidos en esta orden son:
 |No se puede modificar el mapeo de puertos con el contenedor ya creado. |
 Para saber más sobre la imagen que hemos utilizado, en este caso “nginx” podemos consultar su página en Docker Hub <https://hub.docker.com/_/nginx> 
 
-## 14.5. Ejemplo 3 EXTRA: cambiando el “index.html” y consultando logs 
+### 14.5. Ejemplo 3 EXTRA: cambiando el “index.html” y consultando logs 
 
 Observando la documentación que nos ofrece sobre la imagen <https://hub.docker.com/_/nginx>, observamos  que  la  ruta  donde  se  encuentra  la  página  que  sirve  ***“nginx”***  se  encuentra  en ***“/usr/share/nginx/html”***. Accediendo a esa ruta, podríamos modificar el “***index.html***” que se ve cuando nos conectamos al puerto 1200 en nuestra máquina. 
 
@@ -351,7 +351,7 @@ También podemos acceder a los logs que nos va generando durante su ejecución. 
 
 docker logs -n 10 busy\_kapitsa 
 
-## 14.6. Ejemplo 4: estableciendo variables de entorno 
+### 14.6. Ejemplo 4: estableciendo variables de entorno 
 
 Vamos a ver un sencillo ejemplo donde vamos a establecer una variable de entorno e imprimir su valor en pantalla. Ejecutamos el siguiente comando 
 
@@ -369,6 +369,6 @@ Este simple ejemplo nos indica cómo establecer variables de entorno al construi
 
 También, en el momento de la creación de imágenes, se puede establecer variables de entorno con  valores  por  defecto  de  cada  imagen.  Estos  valores  se  mantendrán,  salvo  que  sean sobreescritos con el parámetro ***“-e”***.*** 
 
-# . BIBLIOGRAFÍA
+## . BIBLIOGRAFÍA
 
 [1] Docker Docs <https://docs.docker.com/> 
