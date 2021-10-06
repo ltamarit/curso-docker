@@ -182,7 +182,8 @@ La  descripción  completa  del  comando  ***“docker  inspect”***  la  podé
 
 El comando ***“docker exec”*** nos permite ejecutar un comando dentro de un contenedor que esté en ese momento en ejecución. La forma sintaxis habitual para utilizar este comando es la siguiente 
 
-docker exec [OPCIONES] IDENTIFICADOR/NOMBRE COMANDO [ARGUMENTOS] Algunos ejemplos de uso, suponiendo un contenedor en marcha llamando “contenedor”: 
+docker exec [OPCIONES] IDENTIFICADOR/NOMBRE COMANDO [ARGUMENTOS] 
+Algunos ejemplos de uso, suponiendo un contenedor en marcha llamando “contenedor”: 
 
 docker exec -d contenedor touch /tmp/prueba 
 
@@ -218,15 +219,17 @@ La  descripción  completa  del  comando  ***“docker  cp”***  la  podéis  e
 
 En  algunos  casos,  deseamos  enlazar  la  entrada  o  salida  estándar  de  nuestra  terminal  a  un contenedor que está ejecutando un proceso en segundo plano, de forma similar a la siguiente 
 
-docker attach [OPCIONES] IDENTIFICADOR/NOMBRE Para probarlo utilizaremos el siguiente ejemplo:  
+docker attach [OPCIONES] IDENTIFICADOR/NOMBRE
+Para probarlo utilizaremos el siguiente ejemplo:  
 
-El ejemplo consiste en crear un contenedor que lanza un proceso que genera texto (imprimiendo la fecha) por la salida estándar de forma indefinida. El comando llama a “sh” con el parámetro -c (que indica que la siguiente cadena es algo a procesar por la “shell” sh), seguido de una cadena con un “shell script”. Aquí vemos el comando, que podríamos lanzar en cualquier terminal.*** 
+El ejemplo consiste en crear un contenedor que lanza un proceso que genera texto (imprimiendo la fecha) por la salida estándar de forma indefinida. El comando llama a “sh” con el parámetro -c (que indica que la siguiente cadena es algo a procesar por la “shell” sh), seguido de una cadena con un “shell script”. Aquí vemos el comando, que podríamos lanzar en cualquier terminal. 
 
-sh -c "while true; do $(echo date); sleep 1; done" Aplicamos este comando a nuestro ejemplo creando un contenedor: 
+sh -c "while true; do $(echo date); sleep 1; done"
+Aplicamos este comando a nuestro ejemplo creando un contenedor: 
 
 docker run -d --name=muchotexto busybox sh -c "while true; do $(echo date); sleep 1; done" 
 
-- __Atención:__ Los parámetros de este “docker run” son explicados más adelante en el documento. ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.017.png)
+- __Atención:__ Los parámetros de este “docker run” son explicados más adelante en el documento. 
 
 Con ese contenedor en marcha, ya podemos probar ***“docker attach”.*** Podremos enlazar la entrada y salida del proceso en ejecución a nuestra terminal  y observar el texto generado usando: 
 
@@ -268,7 +271,8 @@ Anteriormente hemos indicado que el comando ***“docker run”*** es de gran im
 
 La estructura principal del comando es la siguiente 
 
-docker run [PARAMETROS] IMAGEN [COMANDO AL ARRANCAR] [ARGUMENTOS] A continuación mostramos algunos ejemplos de ***“docker run”***. 
+docker run [PARAMETROS] IMAGEN [COMANDO AL ARRANCAR] [ARGUMENTOS]
+A continuación mostramos algunos ejemplos de ***“docker run”***. 
 
 ### 14.1. Ejemplo 1: lanzando Ubuntu y accediendo a una terminal 
 
@@ -329,13 +333,9 @@ Los parámetros nuevos incluidos en esta orden son:
 
 - **Parámetro “-d”:** parámetro “***deatached***”, que indica que lanza el contenedor en segundo plano.  Al  lanzarlo  con  esta  opción,  no  se  nos  muestra  ninguna  información  de  la entrada/salida  del  contenedor.  La  única  información  que  se  nos  muestra  es el ID del contenedor lanzado. 
 - **Parámetro  “-p”:**  siguiendo  el  estilo  ***“pAnf:pCont”***  nos  indica  que  en  el  puerto  de  la máquina anfitrión “***pAnf***” está enlazado con el puerto interno del contenedor “***pCont***”. 
-- Si solo se indica un puerto, algo del estilo ***“-p 80”***, el sistema tomará dicho puerto como el puerto interno del contenedor y asociará un puerto aleatorio libre de la máquina anfitrión. Podremos consultar los puertos expuestos de un contenedor mediante el comando ***“docker ps”*** o el específico para esta tarea ***“docker port”*** . ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png)
+- Si solo se indica un puerto, algo del estilo ***“-p 80”***, el sistema tomará dicho puerto como el puerto interno del contenedor y asociará un puerto aleatorio libre de la máquina anfitrión. Podremos consultar los puertos expuestos de un contenedor mediante el comando ***“docker ps”*** o el específico para esta tarea ***“docker port”*** . 
 
-
-
-|- **Atención:** el mapeo de puertos **solo puede realizarse en el momento de crear el contenedor.** |
-| - |
-|No se puede modificar el mapeo de puertos con el contenedor ya creado. |
+**Atención:** el mapeo de puertos **solo puede realizarse en el momento de crear el contenedor.** No se puede modificar el mapeo de puertos con el contenedor ya creado. 
 Para saber más sobre la imagen que hemos utilizado, en este caso “nginx” podemos consultar su página en Docker Hub <https://hub.docker.com/_/nginx> 
 
 ### 14.5. Ejemplo 3 EXTRA: cambiando el “index.html” y consultando logs 
@@ -369,6 +369,6 @@ Este simple ejemplo nos indica cómo establecer variables de entorno al construi
 
 También, en el momento de la creación de imágenes, se puede establecer variables de entorno con  valores  por  defecto  de  cada  imagen.  Estos  valores  se  mantendrán,  salvo  que  sean sobreescritos con el parámetro ***“-e”***.*** 
 
-## . BIBLIOGRAFÍA
+## 15. BIBLIOGRAFÍA
 
 [1] Docker Docs <https://docs.docker.com/> 
