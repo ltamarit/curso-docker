@@ -35,10 +35,9 @@ El lugar donde se almacenan contenedores e imágenes puede variar según distrib
 docker info
 
 Ese comando nos ofrece información sobre el estado de Docker. Para conocer donde se almacena la información, dos datos son importantes: directorio de Docker y driver de almacenamiento. 
-
 Driver de almacenamiento utilizado por Docker: 
 
-![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.008.png)
+![imagen](/imagenes/acciones1.png)
 
 En el ejemplo se nos indica el driver de almacenamiento utilizado (“***overlay2***”) y sobre qué sistema de archivos está funcionando (“***extfs***”, en concreto “***ext4***”). 
 
@@ -46,7 +45,7 @@ Para  saber  más  sobre  los  distintos  drivers  de  almacenamiento  de  Docke
 
 Directorio de Docker: 
 
-![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.009.png)
+![imagen](/imagenes/acciones2.png)
 
 Directorio donde se almacena todo lo relacionado con Docker.  Al utilizar el driver “***overlay2***” sabemos que  
 
@@ -61,7 +60,7 @@ Docker Hub es una “plataforma de registro” de Docker. Los servicios básicos
 
 Contiene un gran ecosistema de imágenes ya creadas, usualmente con instrucciones de instalación y uso, además de un buscador que nos permite encontrar imágenes según distintos parámetros. Enlace al buscador <https://hub.docker.com/search?q=&type=image> 
 
-![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.010.jpeg)
+![imagen](/imagenes/acciones3.png)
 
 Por  defecto,  Docker  utiliza  esta  plataforma  registro como “registro por defecto”, aunque es posible si se requiere, elegir otro servicio de registro, e incluso montar un servicio privado de registro.  ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png)
 
