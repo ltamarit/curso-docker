@@ -1,8 +1,8 @@
-Gestión de imágenes en Docker
-1. # Introducción
+# Gestión de imágenes en Docker
+## 1. Introducción
 Hasta ahora, hemos visto cómo descargar y trabajar con imágenes de terceros en Docker. En esta unidad explicaremos cómo gestionar las imágenes de contenedores Docker (listado, eliminación, historia, etc.) así como su creación tanto de forma manual como utilizando el comando “***docker build***” con los llamados “***Dockerfiles***”.
-1. # Listando imágenes locales y para su descarga
-   1  ## Listando imágenes locales
+## 2. Listando imágenes locales y para su descarga
+   ### 2.1  Listando imágenes locales
 Podemos obtener información de qué imágenes tenemos almacenadas localmente usando
 
 |docker images|
@@ -27,14 +27,14 @@ Si queremos utilizar algún filtro avanzado, podemos usar la opción “-f”. A
 ` `❕ **Atención:**  no confundir este comando con ***“docker image”*** (sin la s final).
 
 Más información en <https://docs.docker.com/engine/reference/commandline/images/>
-1  ## Listando imágenes para su descarga
+### 2.2 Listando imágenes para su descarga
 Podemos obtener información de imágenes que podemos descargar en el registro (por defecto, Docker Hub) utilizando el comando “docker search”. Por ejemplo con el siguiente comando:
 
 |docker search ubuntu|
 | :- |
 Nos aparecen aquellas imágenes disponibles en el registro (Docker Hub) con esa palabra.
-1. # Descargando y eliminando imágenes (y contenedores) locales
-   1  ## Descargando imágenes con “docker pull”
+## 3. Descargando y eliminando imágenes (y contenedores) locales
+   ### 3.1  Descargando imágenes con “docker pull”
 Podemos almacenar imágenes localmente desde el registro sin necesidad de crear un contenedor mediante el comando ***“docker pull”***, claramente inspirado en sistemas de control de versiones com ***“git”***. Para conocer sus nombres y versiones, podemos usar el comando “docker search” explicado anteriormente o visitar <https://hub.docker.com/>.
 
 |docker pull alpine:3.10|
@@ -42,7 +42,7 @@ Podemos almacenar imágenes localmente desde el registro sin necesidad de crear 
 Este comando nos descarga la imagen ***“alpine”*** con el tag ***“3.10”***, como vemos aquí:
 
 ![imagen](/imagenes/imagenes4.png)
-1  ## Observar el historial de una imagen descargada
+### 3.2 Observar el historial de una imagen descargada
 Podéis observar el historial de una imagen descargada, es decir, en qué versiones se basa, usando el comando ***“docker history”.*** Por ejemplo con:
 
 |docker history nginx|
@@ -50,7 +50,7 @@ Podéis observar el historial de una imagen descargada, es decir, en qué versio
 Obtenemos lo siguiente:
 
 ![imagen](/imagenes/imagenes5.png)
-1  ## Eliminando imágenes con “docker rmi”
+### 3.3 Eliminando imágenes con “docker rmi”
 Con el comando ***“docker rmi”*** podemos eliminar imágenes almacenadas localmente.
 
 |docker rmi ubuntu:14.04|
@@ -66,7 +66,7 @@ Una forma de eliminar **todas** las imagenes locales, que no estén siendo usada
 Aquí se observa el borrado, excepto de aquellas usadas por un contenedor:
 
 ![imagen](/imagenes/imagenes7.png)
-1  ## Eliminando contenedores con “docker rm”
+### 3.4 Eliminando contenedores con “docker rm”
 Aprovechando que tratamos el borrado de imágenes, comentamos cómo borrar contenedores parados (si un contenedor está en marcha, debe ser parado antes del borrado).
 
 Con la siguiente orden se puede borrar un contenedor por identificador o nombre
@@ -88,7 +88,7 @@ Asimismo, una forma de borrar todos los contenedores (que estén parados), de fo
 
 
 
-1  ## Eliminando todas las imágenes y contenedores con “docker system prune -a”
+### 3.5 Eliminando todas las imágenes y contenedores con “docker system prune -a”
 Una forma de realizar las operaciones anteriores de golpe, es usando “docker system prune -a”, que elimina toda imagen y contenedor parado.
 
 **Paso 1 (opcional):** paramos todos los contenedores:
@@ -102,7 +102,8 @@ Una forma de realizar las operaciones anteriores de golpe, es usando “docker s
 Obteniendo algo similar a esto:
 
 ![imagen](/imagenes/imagenes9.png)
-1. # Creando nuestras propias imágenes a partir de un contenedor existente
+
+## 4. Creando nuestras propias imágenes a partir de un contenedor existente
 El sistema de imágenes de Docker funciona como un control de versiones por capas, de forma similar a la herramienta ***“git”*** para control de versiones. Podemos entender que un contenedor es como una “capa temporal” de una imagen, por lo cual, podemos hacer un “***commit***” y convertir esa “capa temporal” en una imagen. La sintaxis más habitual es la siguiente
 
 |docker commit -a "autor" -m "comentario" ID/NOMBRE-CONTENEDOR usuario/imagen:[version]|
@@ -145,7 +146,7 @@ Más información de los comandos en:
 
 - Docker commit <https://docs.docker.com/engine/reference/commandline/commit/>
 - Docker tag <https://docs.docker.com/engine/reference/commandline/tag/>
-1. # Exportando/importando imágenes locales a/desde ficheros
+## 5. Exportando/importando imágenes locales a/desde ficheros
 Una vez tengamos una imagen local en nuestro sistema, podemos hacer una copia de la misma, ya sea como copia de seguridad o como forma de transportarla a otros sistemas mediante el comando “***docker save”***. Por ejemplo se puede hacer de estas dos formas:
 
 |docker save -o copiaSeguridad.tar sergi/ubuntumod|
@@ -167,9 +168,9 @@ Más información sobre los comandos:
 
 - Docker save: <https://docs.docker.com/engine/reference/commandline/save/>
 - Docker load: <https://docs.docker.com/engine/reference/commandline/load/>
-1. # Subiendo nuestras propias imágenes a un repositorio (Docker Hub)
+## 6. Subiendo nuestras propias imágenes a un repositorio (Docker Hub)
 Podemos subir una imágen a un repositorio (por defecto Docker Hub). Para ello, debemos realizar los siguientes pasos:
-1  ## Paso 1: creando repositorio para almacenar la imagen en Docker Hub
+### 6.1 Paso 1: creando repositorio para almacenar la imagen en Docker Hub
 En primer lugar, debéis crearos una cuenta en [https://hub.docker.com](https://hub.docker.com/) y logearos. Una vez logueados, debéis acceder a “***Repositories***” y ahí a “***Create repository***” de forma similar a como se ve en la imágen siguiente:
 
 ![imagen](/imagenes/imagenes13.png)
@@ -182,7 +183,7 @@ La pantalla de creación del repositorio tiene un aspecto similar a este:
 
 Una vez creado, si tu usuario es “***sergi***” y la imagen se llama “***prueba”***, podremos referenciarla en distintos contextos como “***sergi/prueba***”
 
-1  ## Paso 2: almacenando imagen local en repositorio Docker Hub
+### 6.2 Paso 2: almacenando imagen local en repositorio Docker Hub
 En primer lugar, deberemos loguearnos mediante consola al repositorio mediante el comando
 
 |docker login|
@@ -201,9 +202,9 @@ Más información de los comandos:
 
 - Docker login <https://docs.docker.com/engine/reference/commandline/login/>
 - Docker push <https://docs.docker.com/engine/reference/commandline/push/>
-1. # Generar automáticamente nuestras propias imágenes mediante Dockerfile
+## 7. Generar automáticamente nuestras propias imágenes mediante Dockerfile
 Docker nos permite generar de forma automática nuestras propias imágenes usando “***docker build***” y los llamados “***Dockerfile”***.
-1  ## Editor Visual Studio Code y plugins asociados a Docker
+### 7.1 Editor Visual Studio Code y plugins asociados a Docker
 Los ficheros “***Dockerfile***” pueden crearse con cualquier editor de texto, pero desde aquí recomendamos el editor multiplataforma  “***Visual Studio Code***” <https://code.visualstudio.com/>
 
 Para saber más sobre cómo usar este editor podéis usar <https://code.visualstudio.com/learn>
@@ -212,7 +213,7 @@ Al instalarlo, si detecta Docker instalado en el sistema, el propio editor nos s
 
 ![imagen](/imagenes/imagenes15.png)
 
-1  ## Creando nuestro primer Dockerfile
+### 7.2 Creando nuestro primer Dockerfile
 Empezaremos creando un sencillo ***“Dockerfile”*** donde crearemos una imagen de Ubuntu con el editor de texto “nano” instalado. Para ello indicaremos:
 
 - De qué imagen base partiremos.
@@ -256,12 +257,12 @@ Aquí simplemente, habría más capas intermedias, como se observa en “docker 
 ![imagen](/imagenes/imagenes19.png)
 
 Los comandos vistos (FROM, RUN y CMD) admiten distintos formatos. Para saber más podemos visitar su ayuda: <https://docs.docker.com/engine/reference/builder/>
-1  ## Otros comandos importantes de Dockerfile
+### 7.3 Otros comandos importantes de Dockerfile
 Al crear un “Dockerfile” hay multitud de comandos. A continuación explicamos los comandos más importantes a utilizar:
 
 
 
-1  ### Comando EXPOSE
+#### 7.3.1 Comando EXPOSE
 En primer lugar, **repasamos la diferencia entre exponer y publicar puertos en Docker**:
 
 - Si no se expone ni publica un puerto, este sólo es accesible desde el interior del contenedor.
@@ -273,7 +274,7 @@ La opción EXPOSE nos permite indicar los puertos por defecto expuestos que tend
 |**EXPOSE** 80 443 8080|
 | :- |
 
-1  ### Comando ADD/COPY
+#### 7.3.2 Comando ADD/COPY
 **ADD** y **COPY** son comandos para copiar ficheros de la máquina anfitrión al nuevo contenedor. Se recomienda usar **COPY**, excepto que queramos descomprimir un “zip”, que **ADD** permite su descompresión. Más información sobre la diferencia entre **ADD** y **COPY:**
 
 <https://nickjanetakis.com/blog/docker-tip-2-the-difference-between-copy-and-add-in-a-dockerile>
@@ -293,32 +294,32 @@ o incluso accediendo desde la web.
 |**COPY** http://miservidor.commifichero.zip /var/www/html|
 | :- |
 En este caso, copiará el fichero “***mifichero.zip***” en el directorio destino de la nueva imágen.
-1  ### Comando ENTRYPOINT
+#### 7.3.3 Comando ENTRYPOINT
 Por defecto, los contenedores Docker están configurados para que ejecuten los comandos que se lancen mediante **“*/bin/sh -c*”**. Dicho de otra forma, los comandos que lanzábamos, eran parámetros para  **“*/bin/sh -c*”**. Podemos cambiar qué comando se usa para esto con **ENTRYPOINT**. Por ejemplo:
 
 |**ENTRYPOINT** ["cat"]<br>**CMD** ["/etc/passwd"]|
 | :- |
 Indicaremos que los comandos sean lanzados con “***cat***”. Al lanzar el comando “***/etc/passwd***”, realmente lo que haremos es que se lanzará “***cat /etc/passwd***”.
 
-1  ### Comando USER
+#### 7.3.4 Comando USER
 Por defecto, todos los comandos lanzados en la creación de la imagen se ejecutan con el usuario root (usuario con UID=0). Para poder cambiar esto, podemos usar el comando **USER**, indicando el nombre de usuario o UID con el que queremos que se ejecute el comando. Por ejemplo:
 
 |**USER** sergi<br>**CMD** id|
 | :- |
 Mostrará con el comando “id” el uid y otra información del usuario “sergi”.
-1  ### Comando WORKDIR
+#### 7.3.5 Comando WORKDIR
 Cada vez que expresamos el comando **WORKDIR**, estamos cambiando el directorio de la imagen donde ejecutamos los comandos. ***Si este directorio no existe, se crea.*** Por ejemplo:
 
 |**WORKDIR** /root<br>**CMD** mkdir tmp<br>**WORKDIR** /var/www/html<br>**CMD** mkdir tmp|
 | :- |
 Creará la carpeta “***tmp***” tanto en “***/root***” como en “***/var/www/html***”. Si los directorios “***/root***” o “***/var/www/html***” no hubieran existido, los hubiera creado.
-1  ### Comando ENV
+#### 7.3.6 Comando ENV
 El comando ENV nos permite definir variables de entorno por defecto en la imagen.
 
 |**ENV v1=”valor1” v2=”valor2”**|
 | :- |
 Esto definirá las variables de entorno “v1” y “v2” con los valores “valor1” y “valor2”.
-1  ### Otros comandos útiles: ARG, VOLUME, LABEL, HEALTHCHECK
+#### 7.3.7 Otros comandos útiles: ARG, VOLUME, LABEL, HEALTHCHECK
 Aquí comentamos comandos útiles:
 
 - **ARG**:  permite enviar parámetros al propior “***Dockerfile***” con la opción “***--build-arg***” del comando “***docker build***”.
@@ -326,7 +327,7 @@ Aquí comentamos comandos útiles:
 - **LABEL**: permite establecer metadatos dentro de la imagen mediante etiquetas. Uno de los casos más típicos, sustituyendo al comando MAINTAINER, que esta “deprecated” es:
   - **LABEL** maintainer="sergi.profesor@gmail.com"
 - **HEALTHCHECK**:  permite definir cómo se comprobará si ese contenedor está  funcionando correctamente o no. Útil para sistemas orquestadores como “***Docker swarn”***, aunque otros como “***Kubernetes***” incorporan su propio sistema
-1. # Trucos para hacer nuestras imágenes más ligeras
+## 8. Trucos para hacer nuestras imágenes más ligeras
 Al crear imágenes, es habitual aumentar el tamaño de las imágenes base. Algunos consejos para dentro de lo posible, aumentar el tamaño lo menos posible:
 
 - Usar imágenes base ligeras, tipo “Alpine”.
@@ -343,7 +344,7 @@ Más información en:
 
 - <https://hackernoon.com/tips-to-reduce-docker-image-sizes-876095da3b34>
 - <https://medium.com/sciforce/strategies-of-docker-images-optimization-2ca9cc5719b6>
-1. # Bibliografía
+## 9 Bibliografía
 [1] Docker Docs <https://docs.docker.com/>
 
 [2] Visual Studio Code Learn <https://code.visualstudio.com/learn>
