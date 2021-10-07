@@ -105,7 +105,7 @@ sudo docker version
 
 y obteniendo un resultado similar al siguiente: 
 
-![imagen](/imagenes/instalacionL2.jpeg)
+![imagen](/imagenes/instalacionL2.png)
 
 Para más información sobre este comando podéis visitar <https://docs.docker.com/engine/reference/commandline/version/> 
 ### 2.3. Post instalación 
