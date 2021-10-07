@@ -213,7 +213,7 @@ Docker en sistemas Windows puede lanzar contenedores que corren el sistema opera
 Asimismo, es posible lanzar un contenedor que ejecute MacOS en un sistema Linux que tenga instalado KVM, utilizando el proyecto disponible en https://github.com/sickcodes/Docker-OSX
 
 ## 6. Conclusión
-En esta unidad hemos repasado conceptos básicos sobre virtualización. Tras ello, hemos procedido a introducir el concepto de contenedor y sus características, centrándonos en contenedores Linux. Comprendidos los conceptos de contenedores, hemos introducido la solución Docker, la cual instalaremos y utilizaremos en futuras unidades.
+En esta unidad hemos repasado conceptos básicos sobre virtualización. Tras ello, hemos procedido a introducir el concepto de contenedor y sus características, centrándonos en contenedores Linux. Comprendidos los conceptos de contenedores, hemos introducido la solución Docker, la cual instalaremos y utilizaremos.
   
 ## 7. Bibliografía
 [1] WizardZines “How containers work” https://wizardzines.com/zines/containers/
