@@ -74,7 +74,7 @@ sudo apt-key fingerprint 0EBFCD88
 
 Si es correcto, verás algo similar a la siguiente captura: 
 
-![imagen](/imagenes/instalacion1.png)
+![imagen](/imagenes/instalacionL1.png)
 
 Ahora,  solo  nos  queda  añadir  el  repositorio  de  Docker  CE  como  fuente  para  instalación  de paquetes. **MUCHO OJO en este paso en distribuciones derivadas, como Linux Mint**. El motivo  es el siguiente. Al configurar la fuente de paquetes indicamos la versión de Ubuntu. El comando que utilizamos para obtener la versión de Ubuntu es el siguiente: 
 
@@ -105,7 +105,7 @@ sudo docker version
 
 y obteniendo un resultado similar al siguiente: 
 
-![imagen](/imagenes/instalacion2.jpeg)
+![imagen](/imagenes/instalacionL2.jpeg)
 
 Para más información sobre este comando podéis visitar <https://docs.docker.com/engine/reference/commandline/version/> 
 ### 2.3. Post instalación 
