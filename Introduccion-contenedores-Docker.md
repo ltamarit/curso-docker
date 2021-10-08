@@ -228,3 +228,9 @@ Figura 2: Imagen con licencia CC BY SA. Fuente:
 https://commons.wikimedia.org/wiki/File:Docker-containerized-and-vm-transparent-bg.png  
 Figura 3: Imagen con licencia CC BY SA. Fuente:
 https://www.flickr.com/photos/68359921@N08/50125348052/ 
+
+![imagen licencia](/imagenes/licencia.png)
+
+Sergi García Barea es el autor de la primera versión de estos apuntes.
+Reconocimiento – NoComercial - CompartirIgual (BY-NC-SA): No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de las cuales se debe hacer con una licencia igual a la que regula la obra original.
+
