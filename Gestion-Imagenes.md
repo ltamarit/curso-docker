@@ -18,6 +18,7 @@ Podemos utilizar filtros sencillos usando la nomenclatura ***“docker images [R
 Nos mostrará la imágen del repositorio “ubuntu” en su versión “14.04”.
 
 ![imagen](/imagenes/imagenes2.png)
+
 Si queremos utilizar algún filtro avanzado, podemos usar la opción “-f”. Aquí un ejemplo, filtrando las imágenes que empiecen por “u” y acabe su etiqueta en “04”.
 
 |docker images -f=reference="u\*:\*04"|
@@ -71,18 +72,17 @@ Aprovechando que tratamos el borrado de imágenes, comentamos cómo borrar conte
 
 Con la siguiente orden se puede borrar un contenedor por identificador o nombre
 
-|docker rm IDENTIFICADOR/NOMBRE|
-| :- |
+docker rm IDENTIFICADOR/NOMBRE
 Asimismo, una forma de borrar todos los contenedores (que estén parados), de forma similar a como vimos en el anterior punto, es la siguiente:
 
 **Paso 1 (opcional):** paramos todos los contenedores:
 
-|docker stop $(docker ps -a -q)|
-| :- |
+docker stop $(docker ps -a -q)
+
 **Paso 2: borramos todos los contenedores:**
 
-|docker rm $(docker ps -a -q)|
-| :- |
+docker rm $(docker ps -a -q)
+
 ![imagen](/imagenes/imagenes8.png)
 
 
@@ -93,12 +93,12 @@ Una forma de realizar las operaciones anteriores de golpe, es usando “docker s
 
 **Paso 1 (opcional):** paramos todos los contenedores:
 
-|docker stop $(docker ps -a -q)|
-| :- |
+docker stop $(docker ps -a -q)
+
 **Paso 2: borramos todos los contenedores:**
 
-|docker system prune -a|
-| :- |
+docker system prune -a
+
 Obteniendo algo similar a esto:
 
 ![imagen](/imagenes/imagenes9.png)
@@ -106,16 +106,16 @@ Obteniendo algo similar a esto:
 ## 4. Creando nuestras propias imágenes a partir de un contenedor existente
 El sistema de imágenes de Docker funciona como un control de versiones por capas, de forma similar a la herramienta ***“git”*** para control de versiones. Podemos entender que un contenedor es como una “capa temporal” de una imagen, por lo cual, podemos hacer un “***commit***” y convertir esa “capa temporal” en una imagen. La sintaxis más habitual es la siguiente
 
-|docker commit -a "autor" -m "comentario" ID/NOMBRE-CONTENEDOR usuario/imagen:[version]|
-| :- |
+docker commit -a "autor" -m "comentario" ID/NOMBRE-CONTENEDOR usuario/imagen:[version]
+
 Por ejemplo, si tenemos un contenedor con nombre “***ubuntumod***” que simplemente es un contenedor basado en la imagen “***ubuntu***” en el que se ha instalado un programa y hacemos:
 
-|docker commit -a "Sergi" -m "Ubuntu modificado" IDCONTENEDOR sergi/ubuntumod:2021|
-| :- |
+docker commit -a "Sergi" -m "Ubuntu modificado" IDCONTENEDOR sergi/ubuntumod:2021
+
 y tras ello, comprobamos las imágenes con
 
-|docker images|
-| :- |
+docker images
+
 observamos lo siguiente:
 
 ![imagen](/imagenes/imagenes10.png)
@@ -124,12 +124,12 @@ Hemos obtenido lo siguiente: una nueva imágen, con nombre “***sergi/ubuntumod
 
 Ahora ya podríamos crear nuevos contenedores con esa imagen, usando por ejemplo:
 
-|docker run -it sergi/ubuntumod:2021|
-| :- |
+docker run -it sergi/ubuntumod:2021
+
 Si quisiéramos añadir una nueva etiqueta a la imagen, como “latest”, podemos usar el comando “***docker tag***”, teniendo en cuenta que una misma imagen puede tener varias etiquetas:
 
-|docker tag sergi/ubuntumod:2021 sergi/ubuntumod:latest|
-| :- |
+docker tag sergi/ubuntumod:2021 sergi/ubuntumod:latest
+
 Obtendremos algo similar a:
 
 ![imagen](/imagenes/imagenes11.png)
