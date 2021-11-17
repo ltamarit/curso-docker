@@ -15,10 +15,10 @@ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v porta
 Lo que hace es escuchar en el puerto 9000. Allí es donde lo tendremos arrancado. Por tanto para acceder a él, simplemente debemos ir a http://localhost:9000 en nuestro navegador. portainer/portainer, es el repositorio de DockerHub de donde descargamos la imagen de Portainer.
 El primer acceso, nos solicitará que creemos un password para el usuario “admin”, con al menos 8 caracteres de longitud.
 La pantalla que observaremos será similar a la siguiente:
-
+![imagen](/imagenes/portainer1.png)
 Un vez creado el usuario administrador con una contraseña válida para la política de password, pasaréis a la siguiente ventana donde nos preguntará si queremos levantarlo en local o en remoto, en mi caso he seleccionado en local para así manejar los containers que tengo ejecutando en mi propio ordenador.
 Si todo ha ido bien, tendremos Portainer en funcionamiento tal como se ve aquí:
-
+![imagen](/imagenes/portainer2.png)
 El menú de Containers, nos mostrará la lista de todos nuestros contenedores, y podremos ejecutar a golpe de click varias de las típicas instrucciones que solemos ejecutar a través de la línea de comandos, como arrancarlos, pararlos o eliminarlos.  También podemos ver detalles del propio contenedor. Si hacemos click en el nombre de un contenedor, entonces podemos conocer la información del mismo
 
 
