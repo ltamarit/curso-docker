@@ -19,15 +19,17 @@ La pantalla que observaremos será similar a la siguiente:
 Un vez creado el usuario administrador con una contraseña válida para la política de password, pasaréis a la siguiente ventana donde nos preguntará si queremos levantarlo en local o en remoto, en mi caso he seleccionado en local para así manejar los containers que tengo ejecutando en mi propio ordenador.
 Si todo ha ido bien, tendremos Portainer en funcionamiento tal como se ve aquí:
 ![imagen](/imagenes/portainer2.png)
-El menú de Containers, nos mostrará la lista de todos nuestros contenedores, y podremos ejecutar a golpe de click varias de las típicas instrucciones que solemos ejecutar a través de la línea de comandos, como arrancarlos, pararlos o eliminarlos.  También podemos ver detalles del propio contenedor. Si hacemos click en el nombre de un contenedor, entonces podemos conocer la información del mismo
+El menú de Containers, nos mostrará la lista de todos nuestros contenedores, y podremos ejecutar a golpe de click varias de las típicas instrucciones que solemos ejecutar a través de la línea de comandos, como arrancarlos, pararlos o eliminarlos.  También podemos ver detalles del propio contenedor. Si hacemos click en el nombre de un contenedor, entonces podemos conocer la información del mismo.
 
 
 
-Acudiremos  a la opción “App Templates” para instalar un contenedor con el servidor web “Nginx”. Para ello, haremos click en “App Templates” y tras ello donde pone “Search” escribiremos “nginx” y haremos click en el resultado aparecido, tal como se observa en la imagen:
-Tras ello, preparemos el contenedor, indicando la información solicitada (nombre del contenedor, red). En “Show advanced options” podemos indicar información tal como mapeo de puertos y volúmenes, pero para este ejemplo no lo manipularemos.
+ESTO CREO QUE NO MODIFICANDO..
+Acudiremos  al menú Containers para crear un contenedor con una imagen de las que tenemos en nuetro docker. Preparemos el contenedor, indicando la información solicitada (nombre del contenedor, red). En “Show advanced options” podemos indicar información tal como mapeo de puertos y volúmenes, pero para este ejemplo no lo manipularemos.
 Con todo listo, haremos click en “Deploy the container” para desplegarlo.
 Una vez desplegado, nos redirigirá automáticamente a la pestaña con información de los contenedores, tal como vemos en la siguiente imágen:
 En esa imagen observamos que el puerto 80 del contenedor con el servidor “Nginx” ha sido mapeado al puerto del anfitrión 49192, por lo cual, accediendo a http://localhost:49192 podremos acceder a nuestros servidor “Nginx” desplegado y gestionado desde “Portainer CE”.
+HASTA AQUI
+
 Esa pantalla llamada Container details nos permite:
 
 – Todas las operaciones mas habituales como parar, pausar, matar o borrar el contenedor
