@@ -1,4 +1,4 @@
-#Gestion de contenedores. Portainer
+# Gestion de contenedores. Portainer
 ## 1. ¿Que es Portainer.io?
 Portainer es una herramienta web open-source la cual se ejecuta ella misma como un container, por tanto deberemos tener Docker instalado. Esta aplicación nos va a permitir gestionar de forma muy fácil e intuitiva nuestros contenedores Docker a través de una interfaz gráfica.
 ¿Por qué usar Portainer.io?
