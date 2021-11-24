@@ -21,19 +21,22 @@ Un vez creado el usuario administrador con una contraseña válida para la polí
 Si todo ha ido bien, tendremos Portainer en funcionamiento tal como se ve aquí:
 ![imagen](/imagenes/portainer2.png)
 
-El menú de Containers, nos mostrará la lista de todos nuestros contenedores, y podremos ejecutar a golpe de click varias de las típicas instrucciones que solemos ejecutar a través de la línea de comandos, como arrancarlos, pararlos o eliminarlos.  También podemos ver detalles del propio contenedor. Si hacemos click en el nombre de un contenedor, entonces podemos conocer la información del mismo.
+La primera sección, llamada Dashboard, es la página principal de nuestra instancia de Portainer. En ella se muestra un resumen de manera visual de nuestro sistema de Docker: número total de contenedores, de imágenes, redes o volúmenes.  Esta sección es de gran utilidad para mostrarnos de manera global cual es el estado actual de Docker en nuestra máquina.
 
 ![imagen](/imagenes/portainer3.png)
+
+El menú de Containers, nos mostrará la lista de todos nuestros contenedores, y podremos ejecutar a golpe de click varias de las típicas instrucciones que solemos ejecutar a través de la línea de comandos, como arrancarlos, pararlos o eliminarlos.
+
 ![imagen](/imagenes/portainer4.png)
 
 Acudiremos  al menú Containers para crear un contenedor con una imagen de las que tenemos en nuetro docker. Prepararemos el contenedor, indicando la información solicitada (nombre del contenedor, red). En “Show advanced options” podemos indicar información tal como mapeo de puertos y volúmenes.
 Con todo listo, haremos click en “Deploy the container” para desplegarlo.
 ![imagen](/imagenes/portainer5.png)
 
-Una vez desplegado, nos redirigirá automáticamente a la pestaña con información de los contenedores, tal como vemos en la siguiente imágen:
+Una vez desplegado, nos redirigirá automáticamente a la pestaña con información de los contenedores.
+También podemos ver detalles del propio contenedor. Si hacemos click en el nombre de un contenedor, entonces podemos conocer la información del mismo.
 
-En esa imagen observamos que el puerto 80 del contenedor con el servidor “Nginx” ha sido mapeado al puerto del anfitrión 49192, por lo cual, accediendo a http://localhost:49192 podremos acceder a nuestros servidor “Nginx” desplegado y gestionado desde “Portainer CE”.
-HASTA AQUI
+![imagen](/imagenes/portainer6.png)
 
 Esa pantalla llamada Container details nos permite:
 
