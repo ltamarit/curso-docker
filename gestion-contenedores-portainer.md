@@ -40,10 +40,10 @@ También podemos ver detalles del propio contenedor. Si hacemos click en el nomb
 
 Esa pantalla llamada Container details nos permite:
 
-– Todas las operaciones mas habituales como parar, pausar, matar o borrar el contenedor
-– Ver informaciones del contenedor (docker inspect)
-– Crear una imagen nueva desde el mismo contenedor y añadirla a un registro (docker commit)
-– Ver los logs del contenedor (docker logs)
-– Ver las estadísticas del contenedor (docker stats)
-– Entrar en el contenedor pudiendo elegir el shell o el usuario (docker exec)
-– Conectar/Desconectar el contenedor con una red (docker network connect)
+–   Todas las operaciones mas habituales como parar, pausar, matar o borrar el contenedor
+–   Ver informaciones del contenedor (docker inspect)
+–   Crear una imagen nueva desde el mismo contenedor y añadirla a un registro (docker commit)
+–   Ver los logs del contenedor (docker logs)
+–   Ver las estadísticas del contenedor (docker stats)
+–   Entrar en el contenedor pudiendo elegir el shell o el usuario (docker exec)
+–   Conectar/Desconectar el contenedor con una red (docker network connect)
