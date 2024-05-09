@@ -10,15 +10,7 @@
     - 2.3.1. Permitir administrar Docker con usuarios sin privilegios
     - 2.3.2. Activar/desactivar arranque al inicio
 - 2.4. Desinstalando Docker en Ubuntu
-3. Instalación de Docker en sistemas Windows
-- 3.1. Pasos previos Windows 10 Pro y Windows Server: activando Hyper-v
-- 3.2.Pasos previos Windows 10 Home: Instalando WSL2
-- 3.3. Instalación de Docker Desktop
-- 3.4.Resolviendo problemas en la instalación de Docker Desktop
-4. Instalación de Docker en sistemas MacOS 
-5. Playgrounds de Docker 
-6. Conclusión 
-7. Bibliografía 
+3. Bibliografía 
 
 ## 1. INTRODUCCIÓN
 
@@ -188,104 +180,7 @@ La segunda opción, se debe realizar tras eliminar Docker y consiste en el borra
 
 sudo rm -rf /var/lib/docker 
 
-## 3. INSTALACIÓN DE DOCKER EN SISTEMAS WINDOWS
-
-En este apartado veremos cómo instalar Docker  Desktop en sistemas Windows. Docker posee dos guías diferenciadas de instalación en sistemas Windows: 
-
-- Guía para Windows 10 Pro y Windows Server 
-  - <https://docs.docker.com/docker-for-windows/install/> 
-- Guía para Windows 10 Home 
-- <https://docs.docker.com/docker-for-windows/install-windows-home/> 
-La  principal  diferencia  entre  ellas,  es  que  el  primer  grupo  requiere  que  se  activen  las características de Windows para Hyper-V, mientras que la segunda guía requiere la activación de WSL2 (Windows Subsystem for Linux 2). 
-
-### 3.1. Pasos previos Windows 10 Pro y Windows Server: activando Hyper-v 
-
-En este enlace se explica cómo habilitar Hyper-V en: 
-
-- Windows 10 Pro 
-  - [https://docs.microsoft.com/es-es/virtualization/hyper-v-on-windows/quick-start/e nable-hyper-v](https://docs.microsoft.com/es-es/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) 
-- Windows Server 
-- [https://docs.microsoft.com/es-es/windows-server/virtualization/hyper-v/get-starte d/install-the-hyper-v-role-on-windows-server](https://docs.microsoft.com/es-es/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server) 
-### 3.2. Pasos previos Windows 10 Home:  Instalando WSL2 
-
-Antes  de  comenzar,  nuestro  sistema  debe  tener  instalado  WSL2.  La  guía  para  instalarlo  se encuentra aquí <https://docs.microsoft.com/en-us/windows/wsl/install-win10> 
-
-A continuación un resumen de los pasos a realizar.  
-
-En  primer  lugar,  utilizando una consola powershell **con permisos de administrador**, debemos habilitar WSL. Lo podemos hacer con el comando. 
-
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart 
-
-Una vez habilitado, debemos asegurarnos que tenemos nuestro Windows 10 Home actualizado, al menos hasta la versión “Versión 1903, Build 18362”. Puedes comprobar tu versión ejecutando el comando “winver”. 
-
-Una  vez  actualizado  y  reiniciado  el  sistema,  debemos  habilitar  la  característica  de  “Virtual Machine”, lo cual podemos hacerlo con una consola powershell **con permisos de administrador**: 
-
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 
-
-Tras ello, **deberás reiniciar tu máquina antes del próximo paso.** 
-
-Una vez completado el reinicio, deberás instalar la última versión del Kernel de Linux para WSL2 aquí <https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi> 
-
-Finalizada la instalación, con una powershell **con permisos de administrador,** deberás establecer WSL2 como la versión por defecto al instalar una distribución de Linux. 
-
-wsl --set-default-version 2 
-
-Con esto ya tienes listo WSL2 y una versión de Ubuntu instalada en tu sistema Windows. 
-
-**OPCIONAL:** una vez instalado WSL2, puedes instalar distribuciones de Linux mediante la tienda Microsoft  Store  <https://aka.ms/wslstore>  (por  ejemplo  Ubuntu  20).  **Una  vez  instalada,  es obligatorio que la inicies al menos una vez** para que descomprima parte del sistema y después te pida establecer un usuario administrador de la distribución Linux virtualizada. ![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.007.png)
-
-### 3.3. Instalación de Docker Desktop 
-
-La instalación de Docker Desktop, que es la versión de Docker CE para sistemas Windows, es sencilla  y  básicamente  consiste  en  descargar el instalador desde Docker Hub, en el siguiente enlace  <https://hub.docker.com/editions/community/docker-ce-desktop-windows/>  y  seguir  las instrucciones de instalación en pantalla. 
-
-En  este  enlace  se  puede  ver  un  video  en  el  que  se  realiza  la  instalación <https://www.youtube.com/watch?v=_9AWYlt86B8> 
-
-Finalmente, con **Docker Desktop instalado y lanzado**, comprobaremos que Docker engine CE se ha instalado correctamente ejecutando: 
-
-docker version 
-
-obteniendo un resultado similar al siguiente: 
-
-![imagen](/imagenes/instalacion3.jpeg)
-
-Para más información sobre este comando podéis visitar <https://docs.docker.com/engine/reference/commandline/version/> 
-
-### 3.4. Resolviendo problemas en la instalación de Docker Desktop 
-
-En  mi experiencia con Docker Desktop, he sufrido problemas, incluso simplemente instalando actualizaciones. Hay cantidad de bugs típicos como los que os enlazo aquí: 
-
-- <https://github.com/docker/for-win/issues/7629> 
-- [https://forums.docker.com/t/docker-starts-but-trying-to-do-anything-results-in-error-duri ng-connect/49007/4](https://forums.docker.com/t/docker-starts-but-trying-to-do-anything-results-in-error-during-connect/49007/4) ![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.007.png)
-
-**Este es el motivo de que, si os es posible, os recomiendo utilizar Docker en un sistema Linux, donde su implementación es más robusta.** 
-
-En cualquier caso, en estos problemas de instalación en sistemas Windows, una solución que siempre me ha funcionado es hacer un “borrado completo” de Docker Desktop. Las instrucciones son las siguientes: 
-
-- Desinstala Docker Desktop. 
-- Ve a tu directorio de usuario (algo como C:\Users\tuUsuario) y elimina todo el contenido de la carpeta “.docker”, si es que está. 
-- Elimina  todas  las  “variables  de  entorno”  del  sistema  relacionadas  con  Docker. Suelen empezar  con  “DOCKER\_”.  Algunas  de  ellas  pueden  ser DOCKER\_TLS\_VERIFY, DOCKER\_CERT\_PATH o DOCKER\_HOST. 
-  - Aquí  puedes  ver como eliminar  las  variables  de  entrono  de Windows 10 [https://answers.microsoft.com/es-es/windows/forum/windows_10-other_settings/ windows-10-variables-de-entorno-windows-10-version/703ea5fa-1db4-46da-8ff7-6 261140bf58b](https://answers.microsoft.com/es-es/windows/forum/windows_10-other_settings/windows-10-variables-de-entorno-windows-10-version/703ea5fa-1db4-46da-8ff7-6261140bf58b) 
-- Una vez hecho esto, reinicia el sistema. 
-- Una vez reiniciado, instala de nuevo “Docker Desktop”. 
-## 4. INSTALACIÓN DE DOCKER EN SISTEMAS MACOS 
-
-Las  instrucciones  para  la  instalación  de  Docker  Desktop  en  MacOS  están  descritas  en <https://docs.docker.com/docker-for-mac/install/>. 
-
-Para  realizar  esta  instalación,  básicamente  debe  descargarse  el  paquete  “.dmg”  de <https://hub.docker.com/editions/community/docker-ce-desktop-mac/>  y  seguir  las  instrucciones de instalación en pantalla. 
-
-## 5. PLAYGROUNDS DE DOCKER
-
-En  Internet  existen  varios  sitios  que  nos  permiten utilizar un “playground” de  distintas herramientas, para que juguemos con ellas online, sin necesidad de instalar ni configurar nada (y sin el riesgo de romper cosas). 
-
-El sitio web Katacoda <https://katacoda.com/> posee un “playground” de Docker disponible aquí: <https://www.katacoda.com/courses/docker/playground> 
-
-Os animo a utilizarlo si queréis hacer alguna prueba, trastear en un lugar donde no tenéis Docker instalado o para enseñar Docker en contextos donde no se pueda instalar de forma nativa. 
-
-## 6. CONCLUSIÓN
-
-En esta unidad hemos visto los pasos básicos para instalar Docker en distintos sistemas operativos. No  obstante,  continuamos  con  nuestra  recomendación  de  que  si  es  posible,  para  minimizar problemas utilicemos Docker en sistemas Linux. 
-
-## 7. BIBLIOGRAFÍA
+## 3. BIBLIOGRAFÍA
 
 [1] Docker Docs <https://docs.docker.com/>  
 
