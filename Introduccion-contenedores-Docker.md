@@ -175,9 +175,9 @@ El sistema de contenedores de Docker es integrable con otros servicios populares
 ### 5.2  La arquitectura de Docker
 
 Esta arquitectura, la podemos resumir en 3 partes:
-    • Cliente: es el software encargado de comunicarse con el servidor Docker.
-    • Servidor (Docker Host): servicio docker, donde se atienden a las peticiones de los clientes y se gestionan los contenedores e imágenes.
-    • Registro (Registry): lugar donde se almacenan imágenes Docker (públicas o privadas). Incluso, de una misma imagen, se almacenan las distintas versiones. El registro más popular y configurado por defecto en Docker es “Docker Hub” https://hub.docker.com/ 
+ - Cliente: es el software encargado de comunicarse con el servidor Docker.
+ - Servidor (Docker Host): servicio docker, donde se atienden a las peticiones de los clientes y se gestionan los contenedores e imágenes.
+ - Registro (Registry): lugar donde se almacenan imágenes Docker (públicas o privadas). Incluso, de una misma imagen, se almacenan las distintas versiones. El registro más popular y configurado por defecto en Docker es “Docker Hub” https://hub.docker.com/ 
 
 ### 5.3  Docker en sistemas Windows y MacOS
 En apartados anteriores, comentamos que una de las estrategias para lanzar Docker (y otros contenedores Linux) en sistemas Windows y MacOS, era virtualizar un sistema Linux y ahí lanzar el sistema de contenedores.
