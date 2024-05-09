@@ -36,11 +36,17 @@ El procedimiento para instalar Docker engine CE en otras distribuciones es simil
 
 Asimismo, también es posible la realización de una instalación desde los binarios, siguiendo las instrucciones de <https://docs.docker.com/engine/install/binaries/> 
 
-### 2.1. Instalación desde el repositorio oficial de Ubuntu (No recomendado) 
+### 2.1. Instalación mediante el script de instalación rápida
 
-Es  posible  instalar  Docker  engine  desde  el  repositorio  oficial  de  Ubuntu,  pero  no  está recomendado ya que instala versiones antiguas. **En este curso, daremos por supuesto que no se utilizaran estas versiones.** 
+La forma más sencilla de instalación es mediante el script de instalación rápida descargado de la página oficial. Hace de forma automática todos los pasos que se encuentran en la documentación de instalación, sin importarnos la plataforma ni la distribución de Linux sobre la que ejecutamos el script.
 
-### 2.2. Instalación desde el repositorio de Docker-CE (Recomendado) 
+sudo curl –fsSL https://get.docker.com/ | sh
+
+### 2.2. Instalación desde el repositorio oficial de Ubuntu 
+
+Es  posible  instalar  Docker  engine  desde  el  repositorio  oficial  de  Ubuntu, aunque instala versiones antiguas. 
+
+### 2.3. Instalación desde el repositorio de Docker-CE (Recomendado) 
 
 A  continuación  detallaremos  los  pasos  para  instalar  Docker  engine  CE  en  Ubuntu  desde  el repositorio oficial de Docker CE. Las versiones de Ubuntu soportadas (todas de 64 bits) son: 
 
@@ -48,7 +54,7 @@ A  continuación  detallaremos  los  pasos  para  instalar  Docker  engine  CE  
 - Ubuntu Focal 20.04 (LTS). 
 - Ubuntu Bionic 18.04 (LTS). 
 - Ubuntu Xenial 16.04 (LTS). 
-#### 2.2.1. Paso 1: Eliminando versiones antiguas de Docker engine 
+#### 2.3.1. Paso 1: Eliminando versiones antiguas de Docker engine 
 
 En primer lugar, deberemos eliminar otras versiones de Docker, por si estuvieran instaladas (por ejemplo, una versión del repositorio oficial de Ubuntu) y pudieran provocar conflictos. 
 
@@ -56,7 +62,7 @@ Para eliminar las versiones antiguas puede bastarnos con la orden:
 
 sudo apt-get remove docker docker-engine docker.io containerd runc ![](Aspose.Words.8b363e28-3f1b-4535-b085-ac3243b892d1.007.png)
 
-#### 2.2.2. Paso 2: Incluyendo el repositorio de Docker CE 
+#### 2.3.2. Paso 2: Incluyendo el repositorio de Docker CE 
 
 Para poner en marcha el repositorio, lo primero que haremos será actualizar nuestro índice de paquetes y tras ello, instalar los paquetes necesarios (si no lo estaban ya) para que se puedan utilizar repositorios con HTTPS. 
 
@@ -91,7 +97,7 @@ O  en  el  caso  que  tengáis  una  distribución  basada  en  Ubuntu  con  el 
 
 sudo add-apt-repository "deb [arch=amd64] <https://download.docker.com/linux/ubuntu> bionic stable" 
 
-#### 2.2.3. Paso 3: Instalando Docker engine CE 
+#### 2.3.3. Paso 3: Instalando Docker engine CE 
 
 Por último, ya con el repositorio oficial de Docker en nuestro sistema, solo nos queda actualizar el índice de paquetes e instalar la última versión de Docker engine CE de la siguiente forma: 
 
@@ -108,13 +114,13 @@ y obteniendo un resultado similar al siguiente:
 ![imagen](/imagenes/instalacionL2.png)
 
 Para más información sobre este comando podéis visitar <https://docs.docker.com/engine/reference/commandline/version/> 
-### 2.3. Post instalación 
+### 2.4. Post instalación 
 
 En  la  documentación  de Docker, nos proponen algunos pasos de post instalación. Los podéis consultar en <https://docs.docker.com/engine/install/linux-postinstall/> 
 
 En esta sección vamos a comentar dos de ellos: administrar Docker con usuarios sin privilegios (no root ni sudoers) y arrancar Docker desde al inicio. 
 
-#### 2.3.1. Permitir administrar Docker con usuarios sin privilegios 
+#### 2.4.1. Permitir administrar Docker con usuarios sin privilegios 
 
 Docker  utiliza  sockets  Unix.  Para  la creación y reserva de un socket Unix, es necesario tener permisos de root, por lo cual Docker engine necesita permisos de root para ejecutarse. 
 
@@ -146,7 +152,7 @@ sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 
 sudo chmod g+rwx "$HOME/.docker" -R 
 
-### 2.3.2. Activar/desactivar arranque al inicio 
+### 2.4.2. Activar/desactivar arranque al inicio 
 
 Para indicar que el servicio de Docker se inicie al arrancar la máquina, podemos indicarlo mediante los siguientes comandos: 
 
@@ -164,7 +170,7 @@ sudo systemctl start/stop/restart docker.service
 
 sudo systemctl start/stop/restart containerd.service 
 
-### 2.4. Desinstalando Docker en Ubuntu 
+### 2.5. Desinstalando Docker en Ubuntu 
 
 Si en algún momento queremos desinstalar Docker en Ubuntu, podemos usar el comando 
 
