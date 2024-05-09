@@ -131,7 +131,6 @@ Estas utilidades son los “abuelos” del concepto actual de contenedor en los 
 En el año 2008, aparecen los contenedores modernos de sistemas Linux, con el sistema LXC (LinuX Container). Para su desarrollo, se introdujeron nuevas capacidades en el kernel de Linux, que han sido aprovechadas por otros sistemas de contenedores.
 
 Aunque en este curso nos vamos a centrar en contenedores Docker, siempre podéis obtener más información de contendores Linux como LXC, LXD y LXCFS en https://linuxcontainers.org/
-Además, aquí os presento un ejemplo práctico desarrollado por José Castillo donde usa LXD en sus clases: https://www.youtube.com/watch?v=ynglk64Hecg
 
 ### 4.3  ¿Cómo funcionan los contenedores modernos en Linux?
 Los sistemas más populares de contenedores sobre Linux, han utilizado (entre otras) dos características del kernel aparecidas en versiones relativamente recientes:
@@ -147,7 +146,6 @@ En resumen, Linux namespaces nos facilita aislar el sistema y cgroups facilita l
 ### 4.4  ¿Puedo poner en marcha un contenedor Linux “A mano”?
 Si, es posible. Tal como nos muestra la conocida autora de materiales en formato comic Julia Evans aquí un ejemplo de script donde se muestra como crear un contenedor de Linux “a mano”. 
 https://gist.github.com/jvns/ea2e4d572b4e2285148b8e87f70eed73
-Aprovecho para recomendar su web  https://wizardzines.com/, donde parte de su trabajo es Creative Commons, y en concreto su “WizardZine” sobre contenedores https://wizardzines.com/zines/containers/
 
 ### 4.5  Los contenedores Linux ¿Pueden funcionar en sistemas como Windows o MacOS?
 En principio, es posible ejecutar contendores Linux en sistemas diferentes a Linux, aunque es posible que el rendimiento no sea el mismo. Algunos sistemas, para poder utilizar contenedores Linux, necesitan que un hipervisor virtualice un sistema Linux completo y que desde ahí se lancen los contenedores Linux.
