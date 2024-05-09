@@ -173,10 +173,6 @@ El sistema de contenedores de Docker es integrable con otros servicios populares
  - Google Cloud: https://cloud.google.com/container-optimized-os?hl=es-419 
 
 ### 5.2  La arquitectura de Docker
-En esta imagen podemos ver como funciona la arquitectura básica de Docker.
-![imagen](https://github.com/docker/docker.github.io/blob/master/engine/images/architecture.svg)
-
-Fuente imagen: https://github.com/docker/docker.github.io/blob/master/engine/images/architecture.svg
 
 Esta arquitectura, la podemos resumir en 3 partes:
     • Cliente: es el software encargado de comunicarse con el servidor Docker.
