@@ -42,6 +42,10 @@ La forma más sencilla de instalación es mediante el script de instalación rá
 
 sudo curl –fsSL https://get.docker.com/ | sh
 
+Para comprobar la información de funcionamiento (en algunos casos es necesario reiniciar el sistema):
+
+docker info
+
 ### 2.2. Instalación desde el repositorio oficial de Ubuntu 
 
 Es  posible  instalar  Docker  engine  desde  el  repositorio  oficial  de  Ubuntu, aunque instala versiones antiguas. 
