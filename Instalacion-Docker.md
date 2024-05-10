@@ -9,7 +9,10 @@
 - 2.3. Post instalación
     - 2.3.1. Permitir administrar Docker con usuarios sin privilegios
     - 2.3.2. Activar/desactivar arranque al inicio
-- 2.4. Desinstalando Docker en Ubuntu
+- 2.4. Post instalación
+    - 2.4.1. Permitir administrar Docker con usuarios sin privilegios
+    - 2.4.2. Activar/desactivar arranque al inicio
+- 2.5. Desinstalando Docker en Ubuntu 
 3. Bibliografía 
 
 ## 1. INTRODUCCIÓN
