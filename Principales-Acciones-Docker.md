@@ -32,7 +32,7 @@ Detallaremos conceptos relacionados sobre la creación de imágenes en futuras u
 
 El lugar donde se almacenan contenedores e imágenes puede variar según distribución/sistema operativo, driver de almacenamiento y versión de Docker. Normalmente mediante el siguiente comando de Docker, podemos ver información del sistema, incluyendo el directorio de Docker. 
 
-docker info
+> docker info
 
 Ese comando nos ofrece información sobre el estado de Docker. Para conocer donde se almacena la información, dos datos son importantes: directorio de Docker y driver de almacenamiento. 
 Driver de almacenamiento utilizado por Docker: 
@@ -86,7 +86,7 @@ Para  crear  un  contenedor  sin arrancarlo (recordamos, ***“docker run”*** 
 
 En  anteriores  unidades  propusimos  un sencillo caso práctico para comprobar que funcionaba Docker usando el siguiente comando: 
 
-docker run hello-world 
+> docker run hello-world 
 
 #### 5.3.1. Repaso parte 1: obteniendo la imagen 
 
@@ -123,7 +123,7 @@ Este  programa  genera  un  texto  que  básicamente  nos explica que el cliente
 
 Mediante el comando ***“docker ps”*** podemos lista contenedores en el sistema, tanto parados como en ejecución. Si ejecutamos el siguiente: 
 
-docker ps 
+> docker ps 
 
 Nos aparecerá un listado como este si no tenemos ningún contenedor en ejecución: 
 
@@ -135,7 +135,7 @@ O si tenemos contenedores en ejecución, podemos obtener algo similar a esto:
 
 Si lanzamos el comando  
 
-docker ps -a 
+> docker ps -a 
 
 Obtendremos  un  listado  de  todos  los  contenedores,  tanto aquellos en funcionamiento como aquellos que están parados. 
 
@@ -159,11 +159,11 @@ Para arrancar/parar un contenedor ya creado (recordamos, ***“docker run”*** 
 
 La forma más habitual de usar estos comandos, es usar el nombre del comando, seguido del identificador único o nombre asignado al contendor. Por ejemplo con identificador: 
 
-docker start 434d318b3771 
+> docker start 434d318b3771 
 
 o con nombre del contenedor 
 
-docker start stupefied\_colden 
+> docker start stupefied\_colden 
 
 La descripción completa de estos comandos la podéis encontrar en 
 
@@ -174,26 +174,27 @@ La descripción completa de estos comandos la podéis encontrar en
 
 El  comando  “***docker  inspect***”  es  un  comando  que  nos  proporciona  diversos  detalles  de  la configuración de un contenedor. Ofrece distintos datos, entre ellos, identificador único (versión 64 caracteres), almacenamiento, red, imagen en que se basa, etc. Su sintaxis es: 
 
-docker inspect IDENTIFICADOR/NOMBRE 
+> docker inspect IDENTIFICADOR/NOMBRE 
 
 La  descripción  completa  del  comando  ***“docker  inspect”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/inspect/>. 
 
 ## 9. EJECUTANDO COMANDOS EN UN CONTENEDOR CON “DOCKER EXEC” 
 
-El comando ***“docker exec”*** nos permite ejecutar un comando dentro de un contenedor que esté en ese momento en ejecución. La forma sintaxis habitual para utilizar este comando es la siguiente 
+El comando ***“docker exec”*** nos permite ejecutar un comando dentro de un contenedor que esté en ese momento en ejecución. La sintaxis habitual para utilizar este comando es la siguiente 
 
-docker exec [OPCIONES] IDENTIFICADOR/NOMBRE COMANDO [ARGUMENTOS] 
+> docker exec [OPCIONES] IDENTIFICADOR/NOMBRE COMANDO [ARGUMENTOS]
+
 Algunos ejemplos de uso, suponiendo un contenedor en marcha llamando “contenedor”: 
 
-docker exec -d contenedor touch /tmp/prueba 
+> docker exec -d contenedor touch /tmp/prueba 
 
-Ejemplo  que  se  ejecuta  ejecuta  en  “background”,  gracias  al  parámetro  “-d”.  Este  ejemplo simplemente crea mediante el comando “touch” un fichero “prueba” en “/tmp”. 
+Ejemplo que se ejecuta en “background”, gracias al parámetro “-d”. Este ejemplo simplemente crea mediante el comando “touch” un fichero “prueba” en “/tmp”. 
 
-docker exec -it contenedor bash 
+> docker exec -it contenedor bash 
 
 Orden que ejecutará la “shell” bash en nuestra consola (gracias al parámetro “-it” se enlaza la entrada y salida estándar a nuestra terminal). A efectos prácticos, con esta orden accederemos a una “shell” bash dentro del contenedor.  
 
-docker exec -it -e VAR=1 contenedor bash 
+> docker exec -it -e VAR=1 contenedor bash 
 
 Comando que establece un variable de entorno con el parámetro **“-e”**. Se enlaza la entrada y ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png) salida de la ejecución del comando con **“-it”**. A efectos prácticos, en esa “shell” estará disponible la variable de entorno **“VAR1”** con valor 1. Lo podemos probar con ***“echo $VAR1”***. 
 
@@ -205,11 +206,11 @@ El comando ***“docker cp”*** es un comando que nos permite copiar ficheros y
 
 Algunos ejemplos de uso: 
 
-docker cp idcontainer:/tmp/prueba ./ 
+> docker cp idcontainer:/tmp/prueba ./ 
 
 Copia  el  fichero  “***/tmp/prueba***”  del  contenedor  con  identificador  o  nombre  “idcontainer”  al directorio actual de la máquina que ejerce como anfitrión.  
 
-docker cp ./miFichero idcontainer:/tmp 
+> docker cp ./miFichero idcontainer:/tmp 
 
 Copia el fichero “***miFichero***” del directorio actual al directorio “/tmp” del contenedor. 
 
@@ -219,21 +220,23 @@ La  descripción  completa  del  comando  ***“docker  cp”***  la  podéis  e
 
 En  algunos  casos,  deseamos  enlazar  la  entrada  o  salida  estándar  de  nuestra  terminal  a  un contenedor que está ejecutando un proceso en segundo plano, de forma similar a la siguiente 
 
-docker attach [OPCIONES] IDENTIFICADOR/NOMBRE
+> docker attach [OPCIONES] IDENTIFICADOR/NOMBRE
+
 Para probarlo utilizaremos el siguiente ejemplo:  
 
 El ejemplo consiste en crear un contenedor que lanza un proceso que genera texto (imprimiendo la fecha) por la salida estándar de forma indefinida. El comando llama a “sh” con el parámetro -c (que indica que la siguiente cadena es algo a procesar por la “shell” sh), seguido de una cadena con un “shell script”. Aquí vemos el comando, que podríamos lanzar en cualquier terminal. 
 
-sh -c "while true; do $(echo date); sleep 1; done"
+> sh -c "while true; do $(echo date); sleep 1; done"
+
 Aplicamos este comando a nuestro ejemplo creando un contenedor: 
 
-docker run -d --name=muchotexto busybox sh -c "while true; do $(echo date); sleep 1; done" 
+> docker run -d --name=muchotexto busybox sh -c "while true; do $(echo date); sleep 1; done" 
 
 - __Atención:__ Los parámetros de este “docker run” son explicados más adelante en el documento. 
 
 Con ese contenedor en marcha, ya podemos probar ***“docker attach”.*** Podremos enlazar la entrada y salida del proceso en ejecución a nuestra terminal  y observar el texto generado usando: 
 
-docker attach muchotexto 
+> docker attach muchotexto 
 
 La  descripción  completa  del  comando  ***“docker  attach”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/attach/>. 
 
@@ -241,15 +244,15 @@ La  descripción  completa  del  comando  ***“docker  attach”***  la  podéi
 
 Podemos consultar la información generada con el comando “***docker logs***” 
 
-docker logs [OPCIONES] IDENTIFICADOR/NOMBRE 
+> docker logs [OPCIONES] IDENTIFICADOR/NOMBRE 
 
 Este  uso  es  similar  a  “docker  attach”,  solo  que  tiene  opciones  específicas  para  tratar  la información obtenida como un log. Partiendo del mismo ejemplo usado en “***docker attach***”. 
 
-docker run -d --name=muchotexto busybox sh -c "while true; do $(echo date); sleep 1; done" 
+> docker run -d --name=muchotexto busybox sh -c "while true; do $(echo date); sleep 1; done" 
 
 Un ejemplo de uso para obtener logs podría ser 
 
-docker logs -f --until=2s muchotexto 
+> docker logs -f --until=2s muchotexto 
 
 Con  este  ejemplo,  te  mostraría  los  logs  generados (realmente la salida estándar y de error), incluyendo aquellos que se fueran generando, parando a los dos segundos. 
 
@@ -259,7 +262,7 @@ La  descripción  completa  del  comando  ***“docker  logs”***  la  podéis 
 
 El comando ***“docker rename”*** nos permite cambiar el nombre asociado a un contenedor. 
 
-docker rename contenedor1 contenedor2 
+> docker rename contenedor1 contenedor2 
 
 Cambia el nombre de “***contenedor1***” a “***contenedor2***”. 
 
@@ -271,14 +274,15 @@ Anteriormente hemos indicado que el comando ***“docker run”*** es de gran im
 
 La estructura principal del comando es la siguiente 
 
-docker run [PARAMETROS] IMAGEN [COMANDO AL ARRANCAR] [ARGUMENTOS]
+> docker run [PARAMETROS] IMAGEN [COMANDO AL ARRANCAR] [ARGUMENTOS]
+
 A continuación mostramos algunos ejemplos de ***“docker run”***. 
 
 ### 14.1. Ejemplo 1: lanzando Ubuntu y accediendo a una terminal 
 
 Utilizando el comando  
 
-docker run -it --name=nuestroUbuntu1 ubuntu /bin/bash 
+> docker run -it --name=nuestroUbuntu1 ubuntu /bin/bash 
 
 Estamos creando un nuevo contenedor a partir de la imagen “***ubuntu***”. Al crear este contenedor hemos especificado los siguientes parámetros: 
 
