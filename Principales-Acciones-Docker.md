@@ -296,19 +296,21 @@ Los  cambios  que  hayamos  hecho  con  la  “shell”,  como  por  ejemplo,  c
 
 ### 14.2. Ejemplo 1 EXTRA: accediendo a terminal desde el contenedor parado 
 
-El anterior ejemplo nos permitía acceder crear un contenedor y acceder de forma interactiva a dicha “shell”, pero al salir de la shell, simplemente se paraba el contenedor.  
+El anterior ejemplo nos permitía crear un contenedor y acceder de forma interactiva a dicha “shell”, pero al salir de la shell, simplemente se paraba el contenedor.  
 
 Entonces ¿Cómo podríamos volver a ese contenedor y a dicha “shell”?  Usaremos ***“docker start”***. ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png) Este comando nos permitirá arrancar el contenedor parado. Al arrancar no especificaremos un comando a lanzar, ya que se lanza el comando que hayamos especificado (o por defecto de la imagen si no hemos especificado nada) al hacer **“docker run” o “docker create”.**  
 
 El comando ***“docker start”*** sigue la siguiente estructura: 
 
-docker start [PARAMETROS] IDENTIFICADOR/NOMBRE Podemos obtener identificador único o nombre usando el comando: 
+> docker start [PARAMETROS] IDENTIFICADOR/NOMBRE
 
-docker ps -a 
+Podemos obtener identificador único o nombre usando el comando: 
+
+> docker ps -a 
 
 Tras ello, lanzamos el contenedor de la siguiente forma: 
 
-docker start -ai IDENTIFICADOR 
+> docker start -ai IDENTIFICADOR 
 
 Los parámetros especificados a ***“docker start”*** son los siguientes: 
 
@@ -318,7 +320,7 @@ Los parámetros especificados a ***“docker start”*** son los siguientes:
 
 Lanzando el siguiente comando 
 
-docker run -it --rm  ubuntu:14.04 /bin/bash 
+> docker run -it --rm  ubuntu:14.04 /bin/bash 
 
 Estamos creando un contenedor con la versión de la imagen ***“ubuntu”*** etiquetada como ***“14.04”*** en Docker Hub y arrancandolo de forma similar al ejemplo anterior. 
 
@@ -329,7 +331,7 @@ Los parámetros nuevos incluidos en esta orden son:
 
 Lanzando el siguiente comando 
 
-docker run  -d -p 1200:80 nginx 
+> docker run  -d -p 1200:80 nginx 
 
 Estamos creando un contenedor con la versión de la imagen ***“nginx:latest”***, la cual contiene un servidor web Nginx en funcionamiento en el puerto 80 del contenedor y al que podremos acceder en nuestra máquina como ***“localhost:1200”***. 
 
@@ -353,17 +355,17 @@ Con las herramientas que tenemos, tenemos varias acciones para modificarlo
 
 También podemos acceder a los logs que nos va generando durante su ejecución. Si por ejemplo queremos acceder a las últimas 10 líneas de logs generados, podemos utilizar 
 
-docker logs -n 10 busy\_kapitsa 
+> docker logs -n 10 busy\_kapitsa 
 
 ### 14.6. Ejemplo 4: estableciendo variables de entorno 
 
 Vamos a ver un sencillo ejemplo donde vamos a establecer una variable de entorno e imprimir su valor en pantalla. Ejecutamos el siguiente comando 
 
-docker run  -it -e MENSAJE=HOLA ubuntu bash 
+> docker run  -it -e MENSAJE=HOLA ubuntu bash 
 
 Con este ejemplo, al crear el contenedor hemos establecido la variable de entorno “MENSAJE” y lanzado una terminal. Podemos probar que la variable se ha establecido correctamente usando: 
 
-echo $MENSAJE 
+> echo $MENSAJE 
 
 Los parámetros nuevos incluidos en esta orden son: 
 
