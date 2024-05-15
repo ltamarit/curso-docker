@@ -6,11 +6,11 @@ Para las tareas de administración de contenedores Docker, a veces la línea de 
 ## 2. Instalación
 En primer lugar, crearemos un volumen donde almacenar la información. Lo haremos con:
 
-docker volume create portainer_data
+> docker volume create portainer_data
 
 Una vez creado el volumen, procederemos a lanzar el contenedor que tiene todo lo necesario para que funcione.
 
-docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+> docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 
 Lo que hace es escuchar en el puerto 9000. Allí es donde lo tendremos arrancado. Por tanto para acceder a él, simplemente debemos ir a http://localhost:9000 en nuestro navegador. portainer/portainer, es el repositorio de DockerHub de donde descargamos la imagen de Portainer.
 El primer acceso, nos solicitará que creemos un password para el usuario “admin”, con al menos 8 caracteres de longitud.
