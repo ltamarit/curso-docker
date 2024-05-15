@@ -36,7 +36,7 @@ Podemos obtener información de imágenes que podemos descargar en el registro (
 Nos aparecen aquellas imágenes disponibles en el registro (Docker Hub) con esa palabra.
 ## 3. Descargando y eliminando imágenes (y contenedores) locales
    ### 3.1  Descargando imágenes con “docker pull”
-Podemos almacenar imágenes localmente desde el registro sin necesidad de crear un contenedor mediante el comando ***“docker pull”***, claramente inspirado en sistemas de control de versiones com ***“git”***. Para conocer sus nombres y versiones, podemos usar el comando “docker search” explicado anteriormente o visitar <https://hub.docker.com/>.
+Podemos almacenar imágenes localmente desde el registro sin necesidad de crear un contenedor mediante el comando ***“docker pull”***, claramente inspirado en sistemas de control de versiones como ***“git”***. Para conocer sus nombres y versiones, podemos usar el comando “docker search” explicado anteriormente o visitar <https://hub.docker.com/>.
 
 |docker pull alpine:3.10|
 | :- |
@@ -171,11 +171,11 @@ Más información sobre los comandos:
 ## 6. Subiendo nuestras propias imágenes a un repositorio (Docker Hub)
 Podemos subir una imágen a un repositorio (por defecto Docker Hub). Para ello, debemos realizar los siguientes pasos:
 ### 6.1 Paso 1: creando repositorio para almacenar la imagen en Docker Hub
-En primer lugar, debéis crearos una cuenta en [https://hub.docker.com](https://hub.docker.com/) y logearos. Una vez logueados, debéis acceder a “***Repositories***” y ahí a “***Create repository***” de forma similar a como se ve en la imágen siguiente:
+En primer lugar, debéis crearos una cuenta en [https://hub.docker.com](https://hub.docker.com/) y loguearos. Una vez logueados, debéis acceder a “***Repositories***” y ahí a “***Create repository***” de forma similar a como se ve en la imágen siguiente:
 
 ![imagen](/imagenes/imagenes13.png)
 
-Tras ello, podréis quedar un repositorio con vuestra cuenta y elegir si dicho repositorio es público (cualquiera puede acceder) o privado (sólo puede acceder dueño o autorizados).
+Tras ello, tendréis un repositorio con vuestra cuenta, este repositorio puede ser público (cualquiera puede acceder) o privado (sólo puede acceder dueño o autorizados).
 
 La pantalla de creación del repositorio tiene un aspecto similar a este:
 
@@ -205,7 +205,7 @@ Más información de los comandos:
 ## 7. Generar automáticamente nuestras propias imágenes mediante Dockerfile
 Docker nos permite generar de forma automática nuestras propias imágenes usando “***docker build***” y los llamados “***Dockerfile”***.
 ### 7.1 Editor Visual Studio Code y plugins asociados a Docker
-Los ficheros “***Dockerfile***” pueden crearse con cualquier editor de texto, pero desde aquí recomendamos el editor multiplataforma  “***Visual Studio Code***” <https://code.visualstudio.com/>
+Los ficheros “***Dockerfile***” pueden crearse con cualquier editor de texto, para este curso no hace falta instalar nada, pero si vais a profundizar más es recomendable el editor multiplataforma  “***Visual Studio Code***” <https://code.visualstudio.com/>
 
 Para saber más sobre cómo usar este editor podéis usar <https://code.visualstudio.com/learn>
 
@@ -220,7 +220,7 @@ Empezaremos creando un sencillo ***“Dockerfile”*** donde crearemos una image
 - Que comandos lanzaremos sobre la imagen base, para crear la nueva imagen
 - Qué comando se asociará por defecto al lanzar un contenedor con la nueva imagen
 
-Creamos el fichero “***Dockerfile***” (Visual Studio Code le pondrá un icono de la ballena) y añadimos:
+Creamos el fichero “***Dockerfile***” (Visual Studio Code le pondrá el icono de la ballena) y añadimos:
 
 |**FROM** ubuntu:latest<br>**RUN** apt update && apt install -y nano<br>*# Aquí un comentario*<br>**CMD** /bin/bash|
 | :- |
