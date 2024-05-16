@@ -24,7 +24,7 @@ Si deseamos ejecutar Docker con un usuario sin privilegios debemos añadir dicho
 
 Una vez añadido, reiniciamos el demonio de Docker con
 
-> /etc/init.d/docker restart
+> /etc/init.d/docker restart (dependiente del sistema de inicio y administración del sistema de vuestra distribución) 
 
 para que los cambios surtan efecto en nuestro sistema, o bien cerramos sesión y volvemos a entrar
 Para ver que está todo funcionando podemos empezar por comprobar la información del servidor docker mediante la acción info:
