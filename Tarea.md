@@ -18,7 +18,7 @@ Para ello ejecutamos el siguiente comando:
 
 Una vez instalado docker en nuestro equipo ya estamos en condiciones de ejecutar la primera acción.
 Para trabajar con docker vamos a abrir el Shell de comandos y a cada instrucción de docker le antepondremos el comando docker. Para poder ejecutar las instrucciones de Docker necesitamos tener privilegios de administrador, por ello también antepondremos el comando sudo a cada comando de docker.
-Si deseamos ejecutar Docker con un usuario sin privilegios debemos añadir dicho usuario al grupo docker. Por ejemplo si queremos usar el usuario ser lo hacemos con el lanzamiento del siguiente comando:
+Si deseamos ejecutar Docker con un usuario sin privilegios debemos añadir dicho usuario al grupo docker. Por ejemplo si queremos usar el usuario **ser** lo hacemos con el lanzamiento del siguiente comando:
 
 > usermod -aG docker ser
 
