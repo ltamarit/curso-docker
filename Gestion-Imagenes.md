@@ -1,7 +1,7 @@
 # Gestión de imágenes en Docker
 ## 1. Introducción
 Hasta ahora, hemos visto cómo descargar y trabajar con imágenes de terceros en Docker. En esta unidad explicaremos cómo gestionar las imágenes de contenedores Docker (listado, eliminación, historia, etc.) así como su creación tanto de forma manual como utilizando el comando “***docker build***” con los llamados “***Dockerfiles***”.
-## 2. Listando imágenes locales y para su descarga
+## 2. Listando imágenes locales y descarga
    ### 2.1  Listando imágenes locales
 Podemos obtener información de qué imágenes tenemos almacenadas localmente usando
 
