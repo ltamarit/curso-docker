@@ -1,4 +1,4 @@
-# PRINCIPALES ACCIONES CON DOCKER
+# Principales acciones con Docker
 
 ## 1. INTRODUCCIÓN
 
