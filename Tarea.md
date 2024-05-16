@@ -33,8 +33,7 @@ Para ver que está todo funcionando podemos empezar por comprobar la informació
 
 La salida del comando nos muestra, entre otras cosas, la versión del servidor.
 
-
-
+![imagen](/imagenes/tareaContenedores1.png)
 
 Podemos visualizar la lista de los comandos de docker mediante la ayuda:
 
@@ -61,7 +60,7 @@ La otra opción es la de buscarla directamente desde la línea de mandatos media
 
 Le estamos indicando que sólo nos muestre los 5 primeros resultados de la búsqueda.
 
-
+![imagen](/imagenes/tareaContenedores2.png)
 
 Una vez localizada la imagen que deseamos, sólo falta descargarla mediante el comando pull. En nuestro csaso el nombre es ubuntu:
 
@@ -70,6 +69,8 @@ Una vez localizada la imagen que deseamos, sólo falta descargarla mediante el c
 Comprobamos que la tenemos descargada:
 
 > docker images
+
+![imagen](/imagenes/tareaContenedores3.png)
 
 ### Contenedores en Docker
 
@@ -101,6 +102,7 @@ Con la opción -–name asignamos un nombre al contenedor. No es obligatorio, en
 Al ejecutar otra vez el run con nombre me parecen dos contenedores, si ejecutamos:
 docker ps -a (la imagen inferior está cortada por la izda para que aparezcan los nombres a la derecha claramente) se ve un contenedor creado a partir de la imagen ubuntu de nombre ubuntuLourdes y otro creado a partir de la imagen ubuntu y el nombre que le ha asignado docker vibrant_ishizaka
 
+![imagen](/imagenes/tareaContenedores4.png)
 
 Con estas opciones arrancamos el contenedor pero se parará automáticamente luego de ejecutar el “echo”. Ahora haremos lo mismo con la opción -ti para que el contenedor se quede corriendo
 
@@ -108,8 +110,7 @@ Con estas opciones arrancamos el contenedor pero se parará automáticamente lue
 
 si te fijas en la imagen inferior veras que hago un docker ps para ver los contenedores que tengo activos y sólo me parece corriendo este último
 
-
-
+![imagen](/imagenes/tareaContenedores5.png)
 
 ### Ejecución de contenedores
 
@@ -148,7 +149,7 @@ Existe una herramienta interesante que nos ayudará a controlar el espacio de di
 
  > docker system df
 
-
+![imagen](/imagenes/tareaContenedores6.png)
 
 Muestra el espacio usado por Docker, detallando cuánto es ocupado por las imágenes de Docker, cuánto por los contenedores y por los volúmenes. Incluye el número total de elementos y los activos actualmente.
 En la imagen se ve que tengo dos contenedores y dos imagenes
