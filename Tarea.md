@@ -159,31 +159,31 @@ Cuando apaguemos el equipo el servicio se parará y no se arranca de forma autom
 Eliminación de contenedores e imágenes
 Para eliminar un contenedor lo primero que tengo que hacer es pararlo
 
-# docker stop ubuntuLourdes
+> docker stop ubuntuLourdes
 
 Y para borrarlo utilizo el comando:
 
-# docker rm ubuntuLourdes
+> docker rm ubuntuLourdes
 
 Si visualizamos los contenedores veremos que ya no está el nuestro:
 
-# docker ps -a
+> docker ps -a
 
 Con el comando rm hemos eliminado el contenedor pero no la imagen sobre la que se creó. Para eliminar la imagen de nuestro disco utilizamos el mandato rmi:
 
-# docker rmi ubuntu
+> docker rmi ubuntu
 
 Comprobamos que ha desaparecido la imagen con:
 
-# docker images
+> docker images
 
 Limpieza de elementos en Docker
 Además del borrado manual de elementos, existe otra opción que es limpiar Docker con el comando prune. El comando prune se aplica a contenedores, volúmenes, redes o imágenes y sirve para eliminar aquellos elementos que no están en uso. Por ejemplo, para eliminar las imágenes que no estan siendo utilizadas por ningún contenedor activo ejecutamos:
 
-# docker image prune -a
+> docker image prune -a
 
 Para eliminar todos los elementos que no estén en uso utilizamos el siguiente comando:
 
-# docker system prune
+> docker system prune
 
 Este unifica todas las opciones prune de contenedores, volúmenes, redes e imágenes, borrando todas aquellas que no estén en uso.
