@@ -1,4 +1,5 @@
-# Índice de contenido
+# Introducción contenedores
+## Índice de contenido
 1. Introducción
 2. Conceptos previos
 - 2.1. Virtualización	
