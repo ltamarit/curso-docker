@@ -1,4 +1,5 @@
-# Índice de contenido
+# Instalación Docker
+## Índice de contenido
 1. Introducción
 2. Instalación de Docker en sistemas Linux (ubuntu)
 - 2.1. Instalación desde el repositorio oficial de Ubuntu (No recomendado)
