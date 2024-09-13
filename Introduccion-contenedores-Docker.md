@@ -50,7 +50,7 @@ Algunos de los principales ejemplos de este tipo de virtualización son:
 -   Máquina virtual de Java (JVM): ejecuta los bytecodes de Java en cualquier sistema y arquitectura que la tenga implementada.
 -   Wine: ejecutar aplicaciones Windows en otros sistemas operativos.
 
- ### 2.4  ¿Qué es un hipervisor?
+### 2.4  ¿Qué es un hipervisor?
 Un hipervisor, es una máquina virtual que simula total o parcialmente un hardware de una máquina, permitiendo la instalación de distintos sistemas operativos (por ejemplo, virtualizar un sistema Windows 10 Home en una máquina real Linux).
 Algunos softwares conocidos que implementan un hipervisor son: Virtualbox, VMWare, emuladores de consolas, etc.
 Para saber más: https://es.wikipedia.org/wiki/Hipervisor
