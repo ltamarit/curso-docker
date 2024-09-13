@@ -54,6 +54,7 @@ A  continuación  detallaremos  los  pasos  para  instalar  Docker  engine  CE  
 - Ubuntu Focal 20.04 (LTS). 
 - Ubuntu Bionic 18.04 (LTS). 
 - Ubuntu Xenial 16.04 (LTS). 
+
 #### 2.3.1. Paso 1: Eliminando versiones antiguas de Docker engine 
 
 En primer lugar, deberemos eliminar otras versiones de Docker, por si estuvieran instaladas (por ejemplo, una versión del repositorio oficial de Ubuntu) y pudieran provocar conflictos. 
