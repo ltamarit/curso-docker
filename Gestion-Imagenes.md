@@ -5,9 +5,9 @@ Hasta ahora, hemos visto cómo descargar y trabajar con imágenes de terceros en
 ### 2.1  Listando imágenes locales
 Podemos obtener información de qué imágenes tenemos almacenadas localmente usando
 
-``
-|docker images|
-`
+```bash
+docker images
+```  
 
 Obteniendo un resultado similar al siguiente, donde vemos información acerca de las imágenes
 
@@ -15,56 +15,65 @@ Obteniendo un resultado similar al siguiente, donde vemos información acerca de
 
 Podemos utilizar filtros sencillos usando la nomenclatura ***“docker images [REPOSITORIO[:TAG]]”***.
 
-|docker images ubuntu:14.04|
-| :- |
+```bash
+docker images ubuntu:14.04
+```  
+
 Nos mostrará la imágen del repositorio “ubuntu” en su versión “14.04”.
 
 ![imagen](/imagenes/imagenes2.png)
 
 Si queremos utilizar algún filtro avanzado, podemos usar la opción “-f”. Aquí un ejemplo, filtrando las imágenes que empiecen por “u” y acabe su etiqueta en “04”.
 
-|docker images -f=reference="u\*:\*04"|
-| :- |
+```bash
+docker images -f=reference="u\*:\*04"
+```  
 ![imagen](/imagenes/imagenes3.png)
 
 ` `❕ **Atención:**  no confundir este comando con ***“docker image”*** (sin la s final).
 
-### 2.2 Listando imágenes para su descarga
+2.2 Listando imágenes para su descarga
 Podemos obtener información de imágenes que podemos descargar en el registro (por defecto, Docker Hub) utilizando el comando “docker search”. Por ejemplo con el siguiente comando:
 
-|docker search ubuntu|
-| :- |
+```bash
+docker search ubuntu|
+``` 
 Nos aparecen aquellas imágenes disponibles en el registro (Docker Hub) con esa palabra.
-## 3. Descargando y eliminando imágenes (y contenedores) locales
-   ### 3.1  Descargando imágenes con “docker pull”
+## 3. Descargando y eliminando imágenes (y contenedores) locales   
+### 3.1  Descargando imágenes con “docker pull”
 Podemos almacenar imágenes localmente desde el registro sin necesidad de crear un contenedor mediante el comando ***“docker pull”***, claramente inspirado en sistemas de control de versiones como ***“git”***. Para conocer sus nombres y versiones, podemos usar el comando “docker search” explicado anteriormente o visitar <https://hub.docker.com/>.
 
-|docker pull alpine:3.10|
-| :- |
+```bash
+docker pull alpine:3.10
+```
+
 Este comando nos descarga la imagen ***“alpine”*** con el tag ***“3.10”***, como vemos aquí:
 
 ![imagen](/imagenes/imagenes4.png)
 ### 3.2 Observar el historial de una imagen descargada
 Podéis observar el historial de una imagen descargada, es decir, en qué versiones se basa, usando el comando ***“docker history”.*** Por ejemplo con:
 
-|docker history nginx|
-| :- |
+```bash
+docker history nginx
+```  
 Obtenemos lo siguiente:
 
 ![imagen](/imagenes/imagenes5.png)
 ### 3.3 Eliminando imágenes con “docker rmi”
 Con el comando ***“docker rmi”*** podemos eliminar imágenes almacenadas localmente.
 
-|docker rmi ubuntu:14.04|
-| :- |
+```bash
+docker rmi ubuntu:14.04
+```  
 Elimina la imagen ubuntu con la etiqueta 14.04
 
 ![imagen](/imagenes/imagenes6.png)
 
 Una forma de eliminar **todas** las imagenes locales, que no estén siendo usadas por un contenedor, combinando ***“docker images -q”*** para obtener la lista y ***“docker rmi”*** es la siguiente:
 
-|docker rmi $(docker images -q)|
-| :- |
+```bash
+docker rmi $(docker images -q)
+```  
 Aquí se observa el borrado, excepto de aquellas usadas por un contenedor:
 
 ![imagen](/imagenes/imagenes7.png)
@@ -85,8 +94,6 @@ docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 
 ![imagen](/imagenes/imagenes8.png)
-
-
 
 
 ### 3.5 Eliminando todas las imágenes y contenedores con “docker system prune -a”
@@ -137,38 +144,39 @@ Obtendremos algo similar a:
 
 Para eliminar una etiqueta, simplemente deberemos borrar la imagen  con docker rmi. La imagen se mantendrá mientras al menos tenga una etiqueta. Por ejemplo con:
 
-|docker rmi sergi/ubuntumod:2021|
-| :- |
+```bash
+docker rmi sergi/ubuntumod:2021
+```
+
 quedaría así:
 
 ![imagen](/imagenes/imagenes12.png)
 
-Más información de los comandos en:
 
-- Docker commit <https://docs.docker.com/engine/reference/commandline/commit/>
-- Docker tag <https://docs.docker.com/engine/reference/commandline/tag/>
 ## 5. Exportando/importando imágenes locales a/desde ficheros
 Una vez tengamos una imagen local en nuestro sistema, podemos hacer una copia de la misma, ya sea como copia de seguridad o como forma de transportarla a otros sistemas mediante el comando “***docker save”***. Por ejemplo se puede hacer de estas dos formas:
 
-|docker save -o copiaSeguridad.tar sergi/ubuntumod|
-| :- |
+```bash
+docker save -o copiaSeguridad.tar sergi/ubuntumod
+```  
+
 o de forma alternativa
 
-|docker save > sergi/ubuntumod copiaSeguridad.tar|
-| :- |
+```bash
+docker save > sergi/ubuntumod copiaSeguridad.tar
+```  
 Si queremos importar el fichero para crear una imagen en nuestra máquina, podemos usar “docker import”. Por ejemplo se puede hacer de estas dos formas:
 
-|docker load -i copiaSeguridad.tar|
-| :- |
+```bash
+docker load -i copiaSeguridad.tar
+```  
+
 o de forma alternativa
 
-|docker load < copiaSeguridad.tar|
-| :- |
+```bash
+docker load < copiaSeguridad.tar
+```  
 
-Más información sobre los comandos:
-
-- Docker save: <https://docs.docker.com/engine/reference/commandline/save/>
-- Docker load: <https://docs.docker.com/engine/reference/commandline/load/>
 ## 6. Subiendo nuestras propias imágenes a un repositorio (Docker Hub)
 Podemos subir una imágen a un repositorio (por defecto Docker Hub). Para ello, debemos realizar los siguientes pasos:
 ### 6.1 Paso 1: creando repositorio para almacenar la imagen en Docker Hub
@@ -187,32 +195,28 @@ Una vez creado, si tu usuario es “***sergi***” y la imagen se llama “***pr
 ### 6.2 Paso 2: almacenando imagen local en repositorio Docker Hub
 En primer lugar, deberemos loguearnos mediante consola al repositorio mediante el comando
 
-|docker login|
-| :- |
+```bash
+docker login
+```  
 Una vez logueado, debemos hacer un “commit” local de la imagen, siguiendo la estructura vista en puntos anteriores. Un ejemplo podría ser:
 
-|docker commit -a "Sergi" -m "Ubuntu modificado" IDCONTENEDOR sergi/prueba|
-| :- |
+```bash
+docker commit -a "Sergi" -m "Ubuntu modificado" IDCONTENEDOR sergi/prueba
+```  
 Hecho este commit local, debemos subirlo usando “docker push”
 
-|docker push sergi/prueba|
-| :- |
+```bash
+docker push sergi/prueba
+```  
 Una vez hecho eso, sí la imagen es pública (o privada con permisos), cualquiera podrá descargarla y crear contenedores usando ***“docker pull”*** o ***“docker run”***.
 
-Más información de los comandos:
 
-- Docker login <https://docs.docker.com/engine/reference/commandline/login/>
-- Docker push <https://docs.docker.com/engine/reference/commandline/push/>
 ## 7. Generar automáticamente nuestras propias imágenes mediante Dockerfile
 Docker nos permite generar de forma automática nuestras propias imágenes usando “***docker build***” y los llamados “***Dockerfile”***.
 ### 7.1 Editor Visual Studio Code y plugins asociados a Docker
 Los ficheros “***Dockerfile***” pueden crearse con cualquier editor de texto, para este curso no hace falta instalar nada, pero si vais a profundizar más es recomendable el editor multiplataforma  “***Visual Studio Code***” <https://code.visualstudio.com/>
 
 Para saber más sobre cómo usar este editor podéis usar <https://code.visualstudio.com/learn>
-
-Al instalarlo, si detecta Docker instalado en el sistema, el propio editor nos sugerirá una serie de plugins. Merece la pena instalarlos. Si no, siempre podéis buscar en plugins  manualmente. Yo personalmente, os recomiendo estos dos que podéis ver en la imágen:
-
-![imagen](/imagenes/imagenes15.png)
 
 ### 7.2 Creando nuestro primer Dockerfile
 Empezaremos creando un sencillo ***“Dockerfile”*** donde crearemos una imagen de Ubuntu con el editor de texto “nano” instalado. Para ello indicaremos:
