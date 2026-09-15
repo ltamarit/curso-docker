@@ -5,9 +5,9 @@ Hasta ahora, hemos visto cómo descargar y trabajar con imágenes de terceros en
 ### 2.1  Listando imágenes locales
 Podemos obtener información de qué imágenes tenemos almacenadas localmente usando
 
-''
+``
 |docker images|
-''
+`
 
 Obteniendo un resultado similar al siguiente, donde vemos información acerca de las imágenes
 
