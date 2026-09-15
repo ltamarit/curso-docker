@@ -345,10 +345,7 @@ Al crear imágenes, es habitual aumentar el tamaño de las imágenes base. Algun
 - Al usar “**apt install**” usar la opciṕn “***no-install-recommend***”, para que no instale paquetes recomendados asociados al paquete instalado.
 - Analiza tus “Dockerfile” con <https://www.fromlatest.io/#/> y sigue sus consejos.
 
-Más información en:
 
-- <https://hackernoon.com/tips-to-reduce-docker-image-sizes-876095da3b34>
-- <https://medium.com/sciforce/strategies-of-docker-images-optimization-2ca9cc5719b6>
 ## 9 Bibliografía
 [1] Docker Docs <https://docs.docker.com/>
 
