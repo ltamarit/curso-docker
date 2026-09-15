@@ -64,9 +64,7 @@ Contiene un gran ecosistema de imágenes ya creadas, usualmente con instruccione
 
 Por  defecto,  Docker  utiliza  esta  plataforma  registro como “registro por defecto”, aunque es posible si se requiere, elegir otro servicio de registro, e incluso montar un servicio privado de registro.  ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png)
 
-Más información sobre cómo crear un registro privado en 
 
-- [https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-docker-regist ry-on-ubuntu-18-04-es](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-private-docker-registry-on-ubuntu-18-04-es) 
 ## 5. CREANDO Y ARRANCANDO CONTENEDORES CON “DOCKER RUN” 
 ### 5.1. ¿Que hace el comando “docker run”? 
 
@@ -76,7 +74,7 @@ __Importante:__ un error común es creer que ***“docker run”*** solo arranca
 
 La  descripción  completa  del  comando  “docker  run”  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/run/> 
 
-Comentaremos  a  lo  largo  de  esta  unidad  algunas  de  sus  opciones  básicas  más importantes. Además en futuras unidades, ampliaremos los conocimientos sobre este comando. 
+Comentaremos  a  lo  largo  de  esta  unidad  algunas  de  sus  opciones  básicas  más importantes.
 
 ### 5.2. Creando contenedores sin arrancarlos 
 
@@ -94,8 +92,6 @@ Al ejecutar este comando por primera vez, obtenemos un resultado similar a este:
 
 ![imagen](/imagenes/acciones4.jpeg)
 
-La documentación en Docker Hub del contenedor que estamos lanzando la tenemos disponible en 
-<https://hub.docker.com/_/hello-world> 
 
 En primer lugar, nos fijamos en el comienzo de la información mostrada, concretamente en: 
 
@@ -114,8 +110,6 @@ Una vez descargada la imagen, se crea el contenedor, se inicia y ejecuta un proc
 En este caso concreto, al no haber especificado ningún comando, al iniciarse el contenedor lanza un programa por defecto llamado “hello” y nos muestra por la salida estándar información de como Docker ha generado este mensaje:
 
 ![imagen](/imagenes/acciones6.png)
-
-Si  tenéis  curiosidad  por  ver  el  código  fuente  del  programa  “hello”,  está  disponible  en <https://github.com/docker-library/hello-world/blob/master/hello.c> 
 
 Este  programa  genera  un  texto  que  básicamente  nos explica que el cliente de Docker se ha conectado  con  el  servicio  de  Docker,  este  se  ha  descargado  la  imagen  de  Docker  Hub  (o localmente si ya estaba en nuestro sistema), se ha creado un contenedor, que por defecto tenía un comando que generaba la salida que estamos leyendo y finalmente, el servicio de Docker lo ha enviado a la terminal. 
 
@@ -151,7 +145,6 @@ La información que obtenemos de los contenedores es la siguiente:
 - __PORTS__: redirección de puertos del contenedor (lo veremos más adelante en la unidad). 
 - __NAMES__:  nombre  del  contenedor.  Se  puede  generar  como  parámetro  al  crear  el ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png) contenedor, o si no se indica nada, el propio Docker genera un nombre aleatorio. 
 
-La  descripción  completa  del  comando  ***“docker  ps”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/ps/> 
 
 ## 7. PARANDO Y ARRANCANDO CONTENEDORES EXISTENTES CON “DOCKER START/STOP/RESTART” 
 
@@ -165,18 +158,13 @@ o con nombre del contenedor
 
 > docker start stupefied\_colden 
 
-La descripción completa de estos comandos la podéis encontrar en 
 
-- <https://docs.docker.com/engine/reference/commandline/start/> 
-- <https://docs.docker.com/engine/reference/commandline/stop/> 
-- <https://docs.docker.com/engine/reference/commandline/restart/> 
 ## 8. INSPECCIONANDO CONTENEDORES CON “DOCKER INSPECT” 
 
 El  comando  “***docker  inspect***”  es  un  comando  que  nos  proporciona  diversos  detalles  de  la configuración de un contenedor. Ofrece distintos datos, entre ellos, identificador único (versión 64 caracteres), almacenamiento, red, imagen en que se basa, etc. Su sintaxis es: 
 
 > docker inspect IDENTIFICADOR/NOMBRE 
 
-La  descripción  completa  del  comando  ***“docker  inspect”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/inspect/>. 
 
 ## 9. EJECUTANDO COMANDOS EN UN CONTENEDOR CON “DOCKER EXEC” 
 
@@ -198,7 +186,7 @@ Orden que ejecutará la “shell” bash en nuestra consola (gracias al parámet
 
 Comando que establece un variable de entorno con el parámetro **“-e”**. Se enlaza la entrada y ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png) salida de la ejecución del comando con **“-it”**. A efectos prácticos, en esa “shell” estará disponible la variable de entorno **“VAR1”** con valor 1. Lo podemos probar con ***“echo $VAR1”***. 
 
-La  descripción  completa  del  comando  ***“docker  exec”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/exec/>. 
+ 
 
 ## 10. COPIANDO FICHEROS ENTRE ANFITRIÓN Y CONTENEDORES CON “DOCKER CP” 
 
@@ -214,7 +202,6 @@ Copia  el  fichero  “***/tmp/prueba***”  del  contenedor  con  identificador
 
 Copia el fichero “***miFichero***” del directorio actual al directorio “/tmp” del contenedor. 
 
-La  descripción  completa  del  comando  ***“docker  cp”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/cp/>. ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png)
 
 ## 11. ACCEDIENDO A UN PROCESO EN EJECUCIÓN CON “DOCKER ATTACH” 
 
@@ -238,7 +225,6 @@ Con ese contenedor en marcha, ya podemos probar ***“docker attach”.*** Podre
 
 > docker attach muchotexto 
 
-La  descripción  completa  del  comando  ***“docker  attach”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/attach/>. 
 
 ## 12. OBTENIENDO INFORMACIÓN DE LOS LOGS CON “DOCKER LOGS” 
 
@@ -256,7 +242,6 @@ Un ejemplo de uso para obtener logs podría ser
 
 Con  este  ejemplo,  te  mostraría  los  logs  generados (realmente la salida estándar y de error), incluyendo aquellos que se fueran generando, parando a los dos segundos. 
 
-La  descripción  completa  del  comando  ***“docker  logs”***  la  podéis  encontrar  en <https://docs.docker.com/engine/reference/commandline/logs/>. ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png)
 
 ## 13. RENOMBRANDO CONTENEDORES CON “DOCKER RENAME” 
 
