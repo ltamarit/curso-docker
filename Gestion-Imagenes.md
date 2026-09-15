@@ -2,11 +2,13 @@
 ## 1. Introducción
 Hasta ahora, hemos visto cómo descargar y trabajar con imágenes de terceros en Docker. En esta unidad explicaremos cómo gestionar las imágenes de contenedores Docker (listado, eliminación, historia, etc.) así como su creación tanto de forma manual como utilizando el comando “***docker build***” con los llamados “***Dockerfiles***”.
 ## 2. Listando imágenes locales y descarga
-   ### 2.1  Listando imágenes locales
+### 2.1  Listando imágenes locales
 Podemos obtener información de qué imágenes tenemos almacenadas localmente usando
 
+''
 |docker images|
-| :- |
+''
+
 Obteniendo un resultado similar al siguiente, donde vemos información acerca de las imágenes
 
 ![imagen](/imagenes/imagenes1.png)
@@ -27,7 +29,6 @@ Si queremos utilizar algún filtro avanzado, podemos usar la opción “-f”. A
 
 ` `❕ **Atención:**  no confundir este comando con ***“docker image”*** (sin la s final).
 
-Más información en <https://docs.docker.com/engine/reference/commandline/images/>
 ### 2.2 Listando imágenes para su descarga
 Podemos obtener información de imágenes que podemos descargar en el registro (por defecto, Docker Hub) utilizando el comando “docker search”. Por ejemplo con el siguiente comando:
 
