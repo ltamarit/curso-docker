@@ -184,7 +184,7 @@ Orden que ejecutará la “shell” bash en nuestra consola (gracias al parámet
 
 > docker exec -it -e VAR=1 contenedor bash 
 
-Comando que establece un variable de entorno con el parámetro **“-e”**. Se enlaza la entrada y ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png) salida de la ejecución del comando con **“-it”**. A efectos prácticos, en esa “shell” estará disponible la variable de entorno **“VAR1”** con valor 1. Lo podemos probar con ***“echo $VAR1”***. 
+Comando que establece un variable de entorno con el parámetro **“-e”**. Se enlaza la entrada y salida de la ejecución del comando con **“-it”**. A efectos prácticos, en esa “shell” estará disponible la variable de entorno **“VAR1”** con valor 1. Lo podemos probar con ***“echo $VAR1”***. 
 
  
 
@@ -283,7 +283,8 @@ Los  cambios  que  hayamos  hecho  con  la  “shell”,  como  por  ejemplo,  c
 
 El anterior ejemplo nos permitía crear un contenedor y acceder de forma interactiva a dicha “shell”, pero al salir de la shell, simplemente se paraba el contenedor.  
 
-Entonces ¿Cómo podríamos volver a ese contenedor y a dicha “shell”?  Usaremos ***“docker start”***. ![](Aspose.Words.39d7cde9-92ef-4ef6-b0cc-7b6815c4e455.007.png) Este comando nos permitirá arrancar el contenedor parado. Al arrancar no especificaremos un comando a lanzar, ya que se lanza el comando que hayamos especificado (o por defecto de la imagen si no hemos especificado nada) al hacer **“docker run” o “docker create”.**  
+Entonces ¿Cómo podríamos volver a ese contenedor y a dicha “shell”?  Usaremos ***“docker start”***.  
+Este comando nos permitirá arrancar el contenedor parado. Al arrancar no especificaremos un comando a lanzar, ya que se lanza el comando que hayamos especificado (o por defecto de la imagen si no hemos especificado nada) al hacer **“docker run” o “docker create”.**  
 
 El comando ***“docker start”*** sigue la siguiente estructura: 
 
@@ -305,9 +306,9 @@ Los parámetros especificados a ***“docker start”*** son los siguientes:
 
 Lanzando el siguiente comando 
 
-> docker run -it --rm  ubuntu:14.04 /bin/bash 
+> docker run -it --rm  ubuntu:18.04 /bin/bash 
 
-Estamos creando un contenedor con la versión de la imagen ***“ubuntu”*** etiquetada como ***“14.04”*** en Docker Hub y arrancandolo de forma similar al ejemplo anterior. 
+Estamos creando un contenedor con la versión de la imagen ***“ubuntu”*** etiquetada como ***“18.04”*** en Docker Hub y arrancandolo de forma similar al ejemplo anterior. 
 
 Los parámetros nuevos incluidos en esta orden son: 
 
