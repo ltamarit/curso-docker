@@ -129,7 +129,9 @@ docker ps -a (la imagen inferior está cortada por la izda para que aparezcan lo
 
 Con estas opciones arrancamos el contenedor pero se parará automáticamente luego de ejecutar el “echo”. Ahora haremos lo mismo con la opción -ti para que el contenedor se quede corriendo
 
-> docker run -d -ti --name ubuLourdes ubuntu
+```bash
+docker run -d -ti --name ubuLourdes ubuntu
+```  
 
 si te fijas en la imagen inferior veras que hago un docker ps para ver los contenedores que tengo activos y sólo me parece corriendo este último
 
@@ -141,37 +143,44 @@ Una vez creado el contenedor hemos de ponerlo en ejecución. Como lo hemos cread
 Si hubiéramos utilizado create habríamos de iniciarlo mediante el comando start.
 Para iniciar el contenedor es necesario indicarle o bien el nombre que le hemos asignado o bien el ID que nos mostró al crearlo. Si optamos por especificar el identificador es suficiente con indicarle los cuatro primeros caracteres y no los 12.
 
-> docker start 4488
-
+```bash
+docker start 4488
+```  
 que es lo mismo que docker start ubuntuLourdes
 
 Los contenedores se crean en una red por defecto 172.17.0.0/16 asignándoles una IP automática en ese rango. Como no la sabemos podemos inspeccionar el contenedor y ver qué IP privada le ha asignado de manera automática Docker:
 
-> docker inspect ubuntuLourdes
+```bash
+docker inspect ubuntuLourdes
+```  
 
 Para ver solo la información que nos interesa (en Linux):
 
-> docker inspect ubuntuLourdes | grep ‘"IPAddress"'
-
+```bash
+docker inspect ubuntuLourdes | grep ‘"IPAddress"'
+```  
 Un mandato interesante de docker es el que nos da la posibilidad de ejecutar un comando dentro del sistema operativo que está corriendo en el contenedor que se está ejecutando.
 En nuestro ejemplo vamos a ver la versión de Linux (uname -a) que corre bajo nuestro ubuntuLourdes con el comando exec:
 
-> docker exec ubuntuLourdes uname -a
+```bash
+docker exec ubuntuLourdes uname -a
+``` 
 
 Algunos comandos: 
 
-> contenedores que tenemos creados docker ps -a
-> contenedores que están en ejecución docker ps
-> detener contenedores en ejecución docker stop ubuntuLourdes
-> Iniciar contenedores docker start ubuntuLourdes
-> Ejecutar comando docker exec ubuntuLourdes comando
-> abrir una terminal en contenedor docker exec -ti ubuntuLourdes /bin/bash
+contenedores que tenemos creados docker ps -a
+contenedores que están en ejecución docker ps
+detener contenedores en ejecución docker stop ubuntuLourdes
+Iniciar contenedores docker start ubuntuLourdes
+Ejecutar comando docker exec ubuntuLourdes comando
+abrir una terminal en contenedor docker exec -ti ubuntuLourdes /bin/bash
 
 
 Existe una herramienta interesante que nos ayudará a controlar el espacio de disco que está siendo utilizado por los elementos de Docker. Es el comando siguiente:
 
- > docker system df
-
+```bash
+docker system df
+```
 ![imagen](/imagenes/tareaContenedores6.png)
 
 Muestra el espacio usado por Docker, detallando cuánto es ocupado por las imágenes de Docker, cuánto por los contenedores y por los volúmenes. Incluye el número total de elementos y los activos actualmente.
@@ -183,31 +192,39 @@ Cuando apaguemos el equipo el servicio se parará y no se arranca de forma autom
 Eliminación de contenedores e imágenes
 Para eliminar un contenedor lo primero que tengo que hacer es pararlo
 
-> docker stop ubuntuLourdes
+docker stop ubuntuLourdes
 
 Y para borrarlo utilizo el comando:
 
-> docker rm ubuntuLourdes
+docker rm ubuntuLourdes
 
 Si visualizamos los contenedores veremos que ya no está el nuestro:
 
-> docker ps -a
+```bash
+docker ps -a
+``` 
 
 Con el comando rm hemos eliminado el contenedor pero no la imagen sobre la que se creó. Para eliminar la imagen de nuestro disco utilizamos el mandato rmi:
 
-> docker rmi ubuntu
+```bash
+docker rmi ubuntu
+```  
 
 Comprobamos que ha desaparecido la imagen con:
 
-> docker images
-
+```bash
+docker images
+``` 
 Limpieza de elementos en Docker
 Además del borrado manual de elementos, existe otra opción que es limpiar Docker con el comando prune. El comando prune se aplica a contenedores, volúmenes, redes o imágenes y sirve para eliminar aquellos elementos que no están en uso. Por ejemplo, para eliminar las imágenes que no estan siendo utilizadas por ningún contenedor activo ejecutamos:
 
-> docker image prune -a
-
+```bash
+docker image prune -a
+```
 Para eliminar todos los elementos que no estén en uso utilizamos el siguiente comando:
 
-> docker system prune
+```bash
+docker system prune
+``` 
 
 Este unifica todas las opciones prune de contenedores, volúmenes, redes e imágenes, borrando todas aquellas que no estén en uso.
