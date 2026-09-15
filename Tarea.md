@@ -6,13 +6,16 @@ El objetivo de este tarea es que comencéis a manejar Docker y os familiaricéis
 Docker funciona en la mayoría de las distribuciones Linux. Dependiendo de la distribución los pasos a seguir para la instalación de los paquetes son distintos. En todos los casos habrá que actualizar los repositorios, instalar los certificados de confianza de Docker, añadir el repositorio oficial, actualizarlo y por fin instalar el paquete.
 Podéis hacer la instalación:
 
+- El propio ubuntu en el momento de la instalación del S.O te da la opción de instalar Docker
 - Siguiendo las instrucciones del video
-- Siguiendo las instrucciones de la documentación (Instalación Docker. Enlace git. Punto 2.2) esta es la opción que os recomiendo porque es la última que he utilizado yo.
+- Siguiendo las instrucciones de la documentación (Instalación Docker. Enlace git. Punto 2.2).
 - Ejecutando la instalación automática que se encuentra en https://get.docker.com y que ejecuta todos esos comandos por nosotros.
 
 Para ello ejecutamos el siguiente comando:
 
-> curl –fsSL https://get.docker.com/ | sh
+```bash
+curl –fsSL https://get.docker.com/ | sh
+```  
 
 ### Primeros pasos con Docker
 
@@ -20,16 +23,23 @@ Una vez instalado docker en nuestro equipo ya estamos en condiciones de ejecutar
 Para trabajar con docker vamos a abrir el Shell de comandos y a cada instrucción de docker le antepondremos el comando docker. Para poder ejecutar las instrucciones de Docker necesitamos tener privilegios de administrador, por ello también antepondremos el comando sudo a cada comando de docker.
 Si deseamos ejecutar Docker con un usuario sin privilegios debemos añadir dicho usuario al grupo docker. Por ejemplo si queremos usar el usuario **ser** lo hacemos con el lanzamiento del siguiente comando:
 
-> usermod -aG docker ser
+```bash
+usermod -aG docker ser
+```  
 
 Una vez añadido, reiniciamos el demonio de Docker con
 
-> /etc/init.d/docker restart (dependiente del sistema de inicio y administración del sistema de vuestra distribución) 
+```bash
+/etc/init.d/docker restart
+```  
+(dependiente del sistema de inicio y administración del sistema de vuestra distribución) 
 
 para que los cambios surtan efecto en nuestro sistema, o bien cerramos sesión y volvemos a entrar
 Para ver que está todo funcionando podemos empezar por comprobar la información del servidor docker mediante la acción info:
 
-> docker info
+```bash
+docker info
+```
 
 La salida del comando nos muestra, entre otras cosas, la versión del servidor.
 
@@ -37,7 +47,9 @@ La salida del comando nos muestra, entre otras cosas, la versión del servidor.
 
 Podemos visualizar la lista de los comandos de docker mediante la ayuda:
 
-> docker help
+```bash
+docker help
+```  
 
 Para trabajar con contenedores es necesario conocer el concepto de imágenes. Un contenedor depende de una imagen para funcionar. Cuando se crea un contenedor se basa en el contenido de una imagen, como si fuera una plantilla base. Los cambios y tareas que se realicen en el contenedor solo se verán reflejados en él mismo, y no en la imagen original.
 
@@ -49,26 +61,33 @@ Existen multitud de imágenes listas para ser descargadas en el Hub de docker
 
 En primer lugar podemos comprobar qué imágenes tenemos descargadas:
 
-> docker images
+```bash
+docker images
+```  
 
 Obviamente si acabamos de instalar docker no nos aparecerá ninguna imagen descargada en nuestro equipo.
 Es interesante comprobar la información que nos muestra, como el ID de imagen y el tamaño de la misma.
 Para buscar imágenes del repositorio oficial lo podemos hacer de 2 maneras. La primera consiste en acceder a la web del Hub de Docker (https://hub.docker.com/) y ahí buscar la imagen deseada. Nos dirá el nombre de la misma y el comando (pull) a ejecutar para la descarga.
 La otra opción es la de buscarla directamente desde la línea de mandatos mediante el comando search. En esta tarea vamos a buscar las imágenes que aparezcan con el nombre ubuntu:
 
-> docker search --limit 5 ubuntu
-
+```bash
+docker search --limit 5 ubuntu
+```  
 Le estamos indicando que sólo nos muestre los 5 primeros resultados de la búsqueda.
 
 ![imagen](/imagenes/tareaContenedores2.png)
 
 Una vez localizada la imagen que deseamos, sólo falta descargarla mediante el comando pull. En nuestro csaso el nombre es ubuntu:
 
-> docker pull ubuntu
+```bash
+docker pull ubuntu
+```  
 
 Comprobamos que la tenemos descargada:
 
-> docker images
+```bash
+docker images
+```  
 
 ![imagen](/imagenes/tareaContenedores3.png)
 
@@ -78,18 +97,20 @@ Una vez descargada la imagen es hora de crear nuestro contenedor.
 Para crear un contenedor tenemos 2 comandos. El comando create crea un contenedor a partir de una imagen pero no lo ejecuta. El comando run crea y ejecuta un contenedor.
 La sintaxis del comando create es la siguiente:
 
-> docker create –[opciones] imagen [comando]
+docker create –[opciones] imagen [comando]
 
 En caso de que la imagen no estuviera descargada, el comando create la descargará. Al contenedor creado se le asignará un identificador de 64 caracteres (se suelen mostrar 12) que nos mostrará por pantalla y que será necesario para futuras operaciones que hagamos con él.
 Como ejemplo:
 
-> docker run –ti debian cat/etc/debian_version
+docker run –ti debian cat/etc/debian_version
 
 Este comando creará un contenedor y lo ejecutará a partir de una imagen llamada debian. Si la imagen no está descargada, automáticamente docker la descargará del repositorio.
 Una vez creado el contenedor se ejecutará dentro del mismo la orden cat/etc/debian_version. Cuando este comando termina su ejecución, visualiza la versión de la distribución y el contenedor se detiene. Las opciones -ti indican que se ha de iniciar el contenedor con la posibilidad de acceder al terminal (-t) y que se ha de iniciar el contenedor en modo interactivo (-i).
 En nuestro caso vamos a crear un contenedor
 
-> docker run -d ubuntu /bin/echo “hola mundo”
+```bash
+docker run -d ubuntu /bin/echo “hola mundo”
+```  
 
 Con la opción –d ejecutamos el contenedor en segundo plano nos ocurrirá lo mismo que en el video, como ya está la imagen de ubuntu bajada directamente ejecuta el hola mundo.
 
@@ -97,7 +118,9 @@ Como veis podíamos habernos saltado el paso de hacer el pull de la imagen ubunt
 
 Con la opción -–name asignamos un nombre al contenedor. No es obligatorio, en caso de no especificarlo se le asigna un nombre autogenerado.
 
-> docker run -d -–name ubuntuLourdes ubuntu /bin/echo “hola otra vez”
+```bash
+docker run -d -–name ubuntuLourdes ubuntu /bin/echo “hola otra vez”
+```  
 
 Al ejecutar otra vez el run con nombre me parecen dos contenedores, si ejecutamos:
 docker ps -a (la imagen inferior está cortada por la izda para que aparezcan los nombres a la derecha claramente) se ve un contenedor creado a partir de la imagen ubuntu de nombre ubuntuLourdes y otro creado a partir de la imagen ubuntu y el nombre que le ha asignado docker vibrant_ishizaka
