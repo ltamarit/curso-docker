@@ -1,14 +1,8 @@
-# Cheatsheet Docker
-
-_Completa — Autor: Sergi García Barea_
-
 ## Docker Run
 
 ```bash
 docker run -it --name=cont1 ubuntu /bin/bash
 ```
-
-●
 
 Crea un contenedor con la imagen “ubuntu” (al no especificar, toma versión “latest”), le establece un nombre
 
@@ -18,8 +12,6 @@ Crea un contenedor con la imagen “ubuntu” (al no especificar, toma versión 
 docker run -d -p 1200:80 nginx
 ```
 
-●
-
 Crea un contenedor con la versión “latest” de la imagen “nginx” y lo lanza en “background”, exponiendo el
 
 puerto 80 del contenedor en el puerto 1200 de la máquina anfitrión.
@@ -28,8 +20,6 @@ puerto 80 del contenedor en el puerto 1200 de la máquina anfitrión.
 docker run  -it -e MENSAJE=HOLA ubuntu:14.04 bash
 ```
 
-●
-
 Crea un contenedor con la imagen “ubuntu”, versión “14.04” y establece la variable de entorno “MENSAJE”.
 
 ## Docker ps
@@ -37,16 +27,11 @@ Crea un contenedor con la imagen “ubuntu”, versión “14.04” y establece 
 ```bash
 docker ps
 ```
-
-●
-
 Muestra información de los contenedores en ejecución.
 
 ```bash
 docker ps -a
 ```
-
-●
 
 Muestra información de todos los contenedores, tanto parados como en ejecución.
 
@@ -56,15 +41,11 @@ Muestra información de todos los contenedores, tanto parados como en ejecución
 docker start micontenedor
 ```
 
-●
-
 Arranca el contenedor con nombre “mi contenedor”.
 
 ```bash
 docker start -ai micontenedor
 ```
-
-●
 
 Arranca el contenedor con nombre “mi contenedor”, enlazando el comando ejecutado al arranque a la entrada
 
@@ -76,8 +57,6 @@ y salida estándar de la terminal del anfitrión.
 docker exec -it -e FICHERO=prueba cont bash
 ```
 
-●
-
 Lanza en el contenedor “cont” (que debe estar arrancado) el comando “bash”, estableciendo la variable de
 
 entorno “FICHERO”  y enlazando la ejecución de forma interactiva a la entrada y salida estándar del anfitrión.
@@ -85,8 +64,6 @@ entorno “FICHERO”  y enlazando la ejecución de forma interactiva a la entra
 ```bash
 docker exec -d cont touch /tmp/prueba
 ```
-
-●
 
 Lanza en el contenedor “cont” (que debe estar arrancado) el comando “touch /tmp/prueba”. Este comando se
 
@@ -98,8 +75,6 @@ ejecuta en segundo plano, generando el fichero “/tmp/prueba”.
 docker attach idcontainer
 ```
 
-●
-
 Enlaza nuestra terminal la entrada/salida de nuestra al proceso en segundo plano del contenedor “idcontainer”.
 
 ## Docker logs
@@ -107,8 +82,6 @@ Enlaza nuestra terminal la entrada/salida de nuestra al proceso en segundo plano
 ```bash
 docker logs -n 10 idcontainer
 ```
-
-●
 
 Muestra las 10 últimas líneas de la salida estandar producida por el proceso en ejecución en el contendor.
 
@@ -118,15 +91,11 @@ Muestra las 10 últimas líneas de la salida estandar producida por el proceso e
 docker cp idcontainer:/tmp/prueba ./
 ```
 
-●
-
 Copia el fichero “/tmp/prueba” del contenedor “idcontainer” al directorio actual del anfitrión.
 
 ```bash
 docker cp ./miFichero idcontainer:/tmp
 ```
-
-●
 
 Copia el fichero “miFichero” del directorio actual del anfitrión  a la carpeta “/tmp” del contenedor.
 
@@ -136,15 +105,11 @@ Copia el fichero “miFichero” del directorio actual del anfitrión  a la carp
 docker images
 ```
 
-●
-
 Información de imágenes locales disponibles.
 
 ```bash
 docker search ubuntu
 ```
-
-●
 
 Busca la imagen “ubuntu” en el repositorio remoto (por defecto Docker Hub).
 
@@ -152,15 +117,11 @@ Busca la imagen “ubuntu” en el repositorio remoto (por defecto Docker Hub).
 docker pull alpine
 ```
 
-●
-
 Descarga localmente imagen “alpine”.
 
 ```bash
 docker history alpine
 ```
-
-●
 
 Muestra la historia de creación de la imagen “alpine”.
 
@@ -168,15 +129,11 @@ Muestra la historia de creación de la imagen “alpine”.
 docker rmi ubuntu:14.04
 ```
 
-●
-
 Elimina localmente la imagen “ubuntu” con tag “14.04”.
 
 ```bash
 docker rmi $(docker images -q)
 ```
-
-●
 
 Borra toda imagen local que no esté siendo usada por un contenedor.
 
@@ -184,15 +141,11 @@ Borra toda imagen local que no esté siendo usada por un contenedor.
 docker rm IDCONTENEDOR
 ```
 
-●
-
 Borra un contenedor con IDCONTENEDOR.
 
 ```bash
 docker stop $(docker ps -a -q)
 ```
-
-●
 
 Para todos los contenedores del sistema.
 
@@ -200,15 +153,11 @@ Para todos los contenedores del sistema.
 docker rm $docker ps -a -q)
 ```
 
-●
-
 Borra todos los contenedores parados del sistema.
 
 ```bash
 docker system prune -a
 ```
-
-●
 
 Borra todas las imágenes y contenedores parados del sistema.
 
@@ -218,23 +167,17 @@ Borra todas las imágenes y contenedores parados del sistema.
 docker commit -m “comentario” IDCONTENEDOR usuario/imagen:version
 ```
 
-●
-
 Hace commit de un contenedor existente a una imagen local.
 
 ```bash
 docker save -o copiaSeguridad.tar imagenA
 ```
 
-●
-
 Guarda una copia de seguridad de una imagen en fichero “.tar”.
 
 ```bash
 docker load -i copiaSeguridad.tar
 ```
-
-●
 
 Restaura una copia de seguridad de una imagen en fichero “.tar”.
 
@@ -244,15 +187,11 @@ Restaura una copia de seguridad de una imagen en fichero “.tar”.
 docker login
 ```
 
-●
-
 Permite introducir credenciales del registro (por defecto “Docker Hub”).
 
 ```bash
 docker push usuario/imagen:version
 ```
-
-●
 
 Permite subir al repositorio una imagen mediante “push”.
 
@@ -284,7 +223,7 @@ RUN chown -R www-data:www-data /var/www/ && chmod -R 775 /var/www/ && chmod 755 
 EXPOSE 80
 #Comando lanzado por defecto al instalar el contendor
 CMD /start.sh
-●
+
 Ejemplo de fichero “Dockerfile”.
 ```
 
@@ -296,15 +235,11 @@ Ejemplo de fichero “Dockerfile”.
 docker network create redtest
 ```
 
-●
-
 Creamos la red “redtest”
 
 ```bash
 docker network ls
 ```
-
-●
 
 Nos permite ver el listado de redes existentes.
 
@@ -312,15 +247,11 @@ Nos permite ver el listado de redes existentes.
 docker network rm redtest
 ```
 
-●
-
 Borramos la red “redtest”.
 
 ```bash
 docker run -it --network redtest ubuntu /bin/bash
 ```
-
-●
 
 Conectamos el contenedor que creamos a la red “redtest”.
 
@@ -328,15 +259,11 @@ Conectamos el contenedor que creamos a la red “redtest”.
 docker network connect IDRED IDCONTENEDOR
 ```
 
-●
-
 Conectamos un contenedor a una red.
 
 ```bash
 docker network disconnect IDRED IDCONTENEDOR
 ```
-
-●
 
 Desconectamos un contenedor de una red
 
@@ -346,15 +273,11 @@ Desconectamos un contenedor de una red
 docker run -d  -it  --name appcontainer   -v /home/sergi/target:/app nginx:latest
 ```
 
-●
-
 Creamos un contenedor y asignamos un volumen con “binding mount”.
 
 ```bash
 docker run -d  -it  --name appcontainer   -v micontenedor:/app nginx:latest
 ```
-
-●
 
 Creamos un contenedor y asignamos un volumen Docker llamado “micontenedor”.
 
@@ -362,23 +285,17 @@ Creamos un contenedor y asignamos un volumen Docker llamado “micontenedor”.
 docker volume create/ls/rm mivolumen
 ```
 
-●
-
 Permite crear, listar o eliminar volúmenes Docker.
 
 ```bash
 docker run -d  -it --tmpfs /app nginx
 ```
 
-●
-
 Permite crear un contenedor y asociar un volumen “tmpfs”.
 
 ```bash
 docker run --rm --volumes-from contenedor1 -v /home/sergi/backup:/backup ubuntu bash -c "cd /datos && tar cvf /backup/copiaseguridad.tar ."
 ```
-
-●
 
 Permite realizar una copia de seguridad de un volumen asociado a “contenedor1” y que se monta en “/datos”.
 
@@ -417,19 +334,14 @@ db_data:
 
 docker-compose up -d
 
-●
-
 Inicia el sistema definido en “docker-compose.yml” en segundo plano. Genera y descarga imágenes requeridas.
 
 docker-compose down
-
-●
 
 Detiene y elimina los contenedores según la configuración de “docker-compose.yml”.
 
 docker-compose build/pull
 
-●
 
 Construye/descarga las imágenes de contenedores según la configuración de “docker-compose.yml”.
 
