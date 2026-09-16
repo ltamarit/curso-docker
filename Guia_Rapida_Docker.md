@@ -126,10 +126,10 @@ docker history alpine
 Muestra la historia de creación de la imagen “alpine”.
 
 ```bash
-docker rmi ubuntu:14.04
+docker rmi ubuntu:22.04
 ```
 
-Elimina localmente la imagen “ubuntu” con tag “14.04”.
+Elimina localmente la imagen “ubuntu” con tag “22.04”.
 
 ```bash
 docker rmi $(docker images -q)
@@ -223,12 +223,9 @@ RUN chown -R www-data:www-data /var/www/ && chmod -R 775 /var/www/ && chmod 755 
 EXPOSE 80
 #Comando lanzado por defecto al instalar el contendor
 CMD /start.sh
-
-Ejemplo de fichero “Dockerfile”.
 ```
 
-```
-
+  
 ## Gestión de redes
 
 ```bash
@@ -328,38 +325,34 @@ volumes:
 db_data:
 ```
 
-```
-
 ## Principales comandos de “Docker Compose”
 
+```bash
 docker-compose up -d
-
+```  
 Inicia el sistema definido en “docker-compose.yml” en segundo plano. Genera y descarga imágenes requeridas.
 
+```bash
 docker-compose down
-
+```  
 Detiene y elimina los contenedores según la configuración de “docker-compose.yml”.
-
+```bash
 docker-compose build/pull
-
+```
 
 Construye/descarga las imágenes de contenedores según la configuración de “docker-compose.yml”.
 
+```bash
 docker-compose ps
-
-●
-
+```
 Muestra información de los contenedores según la configuración de “docker-compose.yml”.
 
+```bash
 docker-compose up -d --scale web=3
-
-●
-
+```
 Similar a “docker-compose up -d” solo que además, el servicio definido como “web” en el fichero
 
-“docker-compose.yml” lo escala creando 3 copias y realizando balanceo automático si se realiza una petición al
-
-host llamado como el servicio “web”.
+“docker-compose.yml” lo escala creando 3 copias y realizando balanceo automático si se realiza una petición al host llamado como el servicio “web”.
 
 ## Principales comandos de “Kubernetes”
 
@@ -367,15 +360,11 @@ host llamado como el servicio “web”.
 kubectl apply -f “fichero.yaml”
 ```
 
-●
-
 Aplica en Kubernetes la configuración especificada en “fichero.yaml”.
 
 ```bash
 kubectl create deployment midespliegue --image=sergarb1/flaskparakubernetes --port=5000
 ```
-
-●
 
 Crea un despliegue basado en una imagen dada y en el puerto 5000.
 
@@ -383,15 +372,11 @@ Crea un despliegue basado en una imagen dada y en el puerto 5000.
 kubectl expose deployment midespliegue --type=LoadBalancer --name=midespliegue-http
 ```
 
-●
-
 Crea un servicio de tipo “LoadBalancer” exponeniendo “midespliegue”.
 
 ```bash
 kubectl get pods; kubectl get services; kubectl get deployments
 ```
-
-●
 
 Muestra información de pods, servicios o despliegues.
 
@@ -399,15 +384,11 @@ Muestra información de pods, servicios o despliegues.
 kubectl scale deployment midespliegue --replicas=3
 ```
 
-●
-
 Escala horizontalmente un despliegue a 3 réplicas.
 
 ```bash
 kubectl autoscale deployment midespliegue --min=5 --max=10
 ```
-
-●
 
 Configura autoescalado horizontal, aceptando entre 5 y 10 réplicas.
 
@@ -415,110 +396,5 @@ Configura autoescalado horizontal, aceptando entre 5 y 10 réplicas.
 kubectl delete pod/deployment/service/autoscale nombre
 ```
 
-●
-
 Permite eliminar un pod, despliegue, servicio o autoescalado.
 
-## Principales comandos de “MniKube”
-
-```bash
-minikube start
-```
-
-●
-
-Inicia la máquina virtual que contiene MiniKube y pone el cluster Kubernetes en marcha
-
-```bash
-minikube service miservicio
-```
-
-●
-
-Nos permite acceder a un servicio dentro de MiniKube desde la máquina local.
-
-```bash
-minikube tunnel
-```
-
-●
-
-Mientras esté en ejecución, expone un servicio dentro de MiniKube a la máquina local
-
-## Ejemplo de fichero YAML despliegue/servicio/persistencia con Kubernetes
-
-```yaml
-#Definimos la información del servicio
-apiVersion: v1
-kind: Service
-metadata:
-name: wordpress
-labels:
-app: wordpress
-spec:
-ports:
-#El servicio se expone en el puerto 80
-- port: 80
-selector:
-app: wordpress
-tier: frontend
-#Aplicamos balanceo de carga para facilitar su escalado horizontal
-type: LoadBalancer
----
-#Definimos un volumen persistente
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-name: wp-pv-claim
-labels:
-app: wordpress
-spec:
-#Indica que solo puede ser montado para lectura/escritura por un nodo. Para el resto lectura.
-#En este caso, se usa para modificar un fichero de configuración.
-accessModes:
-- ReadWriteOnce
-resources:
-requests:
-storage: 20Gi
----
-#definimos el despliegue
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-name: wordpress
-labels:
-app: wordpress
-spec:
-selector:
-matchLabels:
-app: wordpress
-tier: frontend
-strategy:
-type: Recreate
-template:
-metadata:
-labels:
-app: wordpress
-tier: frontend
-spec:
-#Imagen
-containers:
-- image: wordpress:4.8-apache
-name: wordpress
-#Indicamos variables de entorno
-env:
-- name: WORDPRESS_DB_HOST
-value: wordpress-mysql
-- name: WORDPRESS_DB_PASSWORD
-value: CEFIREdocker
-ports:
-- containerPort: 80
-name: wordpress
-volumeMounts:
-- name: wordpress-persistent-storage
-mountPath: /var/www/html
-volumes:
-- name: wordpress-persistent-storage
-persistentVolumeClaim:
-claimName: wp-pv-claim
-```
