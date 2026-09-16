@@ -112,7 +112,7 @@ En nuestro caso vamos a crear un contenedor
 docker run -d ubuntu /bin/echo “hola mundo”
 ```  
 
-Con la opción –d ejecutamos el contenedor en segundo plano nos ocurrirá lo mismo que en el video, como ya está la imagen de ubuntu bajada directamente ejecuta el hola mundo.
+Con la opción –d ejecutamos el contenedor en segundo plano, como ya está la imagen de ubuntu bajada (la hemos bajado previamante con docker pull ubuntu) directamente ejecuta el comando /bin/echo, es decir que muestra por pantalla "hola mundo".
 
 Como veis podíamos habernos saltado el paso de hacer el pull de la imagen ubuntu, pero quería que conocierais los comandos para bajarte una imagen y visualizarla
 
