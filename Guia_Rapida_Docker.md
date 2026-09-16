@@ -17,10 +17,10 @@ Crea un contenedor con la versión “latest” de la imagen “nginx” y lo la
 puerto 80 del contenedor en el puerto 1200 de la máquina anfitrión.
 
 ```bash
-docker run  -it -e MENSAJE=HOLA ubuntu:14.04 bash
+docker run  -it -e MENSAJE=HOLA ubuntu:22.04 bash
 ```
 
-Crea un contenedor con la imagen “ubuntu”, versión “14.04” y establece la variable de entorno “MENSAJE”.
+Crea un contenedor con la imagen “ubuntu”, versión “22.04” y establece la variable de entorno “MENSAJE”.
 
 ## Docker ps
 
@@ -267,7 +267,7 @@ Desconectamos un contenedor de una red
 ## Volúmenes
 
 ```bash
-docker run -d  -it  --name appcontainer   -v /home/sergi/target:/app nginx:latest
+docker run -d  -it  --name appcontainer   -v /home/lou/target:/app nginx:latest
 ```
 
 Creamos un contenedor y asignamos un volumen con “binding mount”.
@@ -291,12 +291,12 @@ docker run -d  -it --tmpfs /app nginx
 Permite crear un contenedor y asociar un volumen “tmpfs”.
 
 ```bash
-docker run --rm --volumes-from contenedor1 -v /home/sergi/backup:/backup ubuntu bash -c "cd /datos && tar cvf /backup/copiaseguridad.tar ."
+docker run --rm --volumes-from contenedor1 -v /home/lou/backup:/backup ubuntu bash -c "cd /datos && tar cvf /backup/copiaseguridad.tar ."
 ```
 
 Permite realizar una copia de seguridad de un volumen asociado a “contenedor1” y que se monta en “/datos”.
 
-Dicha copia finalmente acabará en “/home/sergi/backup” de la máquina anfitrión.
+Dicha copia finalmente acabará en “/home/lou/backup” de la máquina anfitrión.
 
 ## Ejemplo básico de fichero “docker-compose.yml”
 
