@@ -168,12 +168,12 @@ docker exec ubuntuLourdes uname -a
 
 Algunos comandos: 
 
-contenedores que tenemos creados docker ps -a
-contenedores que están en ejecución docker ps
-detener contenedores en ejecución docker stop ubuntuLourdes
-Iniciar contenedores docker start ubuntuLourdes
-Ejecutar comando docker exec ubuntuLourdes comando
-abrir una terminal en contenedor docker exec -ti ubuntuLourdes /bin/bash
+contenedores que tenemos creados docker ps -a  
+contenedores que están en ejecución docker ps  
+detener contenedores en ejecución docker stop ubuntuLourdes  
+Iniciar contenedores docker start ubuntuLourdes  
+Ejecutar comando docker exec ubuntuLourdes comando  
+abrir una terminal en contenedor docker exec -ti ubuntuLourdes /bin/bash  
 
 
 Existe una herramienta interesante que nos ayudará a controlar el espacio de disco que está siendo utilizado por los elementos de Docker. Es el comando siguiente:
